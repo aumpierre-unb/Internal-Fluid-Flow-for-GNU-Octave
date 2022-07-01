@@ -1,4 +1,4 @@
-# Internal-Fluid-Flow-for-Octave
+# Internal-Fluid-Flow-for-GNU-Octave
 A toolbox for internal fluid flow for GNU Octave</br>
 This package provides a set of functions 
 designed to solve problems of internal fluid flow 
