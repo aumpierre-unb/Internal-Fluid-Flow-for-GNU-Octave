@@ -23,6 +23,6 @@ roughness is given instead of relative roughness
 along with the linear velocity or the volumetric flow. 
 For those cases, this package provides functions 
 hvthk2fRe and hQthk2fRe, respectively. All function 
-in this package offers the option of plotting 
+in this package offer the option of plotting 
 the solution on a schematic Moody diagram. 
 Enjoy!
