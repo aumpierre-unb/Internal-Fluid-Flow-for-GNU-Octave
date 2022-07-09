@@ -1,5 +1,5 @@
 # Internal-Fluid-Flow-for-GNU-Octave
-This toolbox provides a set of functions designed 
+This package provides a set of functions designed 
 to solve problems of internal fluid flow. 
 All functions are based on the Poiseuille 
 condition for laminar flow, the Colebrooke-White 
