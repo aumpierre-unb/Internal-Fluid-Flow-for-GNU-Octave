@@ -19,8 +19,8 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function Re=f2Re(f,eps,s=0)
-    # Re=f2Re(f,eps[,s]) computes
+function [Re]=f2Re(f,eps,s=0)
+    # [Re]=f2Re(f,eps[,s]) computes
     # the Reynolds number Re, given
     # the Darcy friction factor f and
     # the relative roughness eps.
