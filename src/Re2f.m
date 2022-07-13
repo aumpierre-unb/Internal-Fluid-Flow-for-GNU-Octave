@@ -20,7 +20,7 @@ It is also available at https://www.gnu.org/licenses/.
 #}
 
 function [f]=Re2f(Re,rr=2e-3,s=0)
-    # [f]=Re2f(Re,rr[,s]) computes
+    # [f]=Re2f(Re,[rr[,s]]) computes
     # the Darcy friction f factor, given
     # the Reynolds number Re and
     # the relative roughness rr.
