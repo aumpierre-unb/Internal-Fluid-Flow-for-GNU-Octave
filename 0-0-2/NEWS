@@ -5,7 +5,6 @@ internal-fluid-flow 0.0.2 (2022-07-14)
 ======================================
 * All functions' help-comments reviewed e fixed
 * Minor modifications on README.md, INDEX and DESCRIPTION
-* LICENSE included (redundant with COPYING)
 * Icon image file replaced by vector file
 * Function f2Re computes friction factor 
   for laminar regime and/or turbulent regime
