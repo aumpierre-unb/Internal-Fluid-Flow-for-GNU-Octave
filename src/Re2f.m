@@ -63,7 +63,7 @@ function [f]=Re2f(Re,rr=2e-3,s=0)
         axis([1e2 1e8 6e-3 1e-1])
         xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
         ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
-        set(gca,'fontsize',14)
+        set(gca,'fontsize',14);
     end
 end
 
