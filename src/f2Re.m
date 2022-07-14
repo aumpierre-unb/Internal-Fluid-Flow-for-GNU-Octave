@@ -19,7 +19,7 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [Re]=f2Re(f,rr=2e-3+1e-10,s=0)
+function [Re]=f2Re(f,rr=1e-5+1e-10,s=0)
     # [Re]=f2Re(f,[rr[,s]]) computes
     # the Reynolds number Re, given
     # the Darcy friction factor f and
@@ -48,14 +48,19 @@ function [Re]=f2Re(f,rr=2e-3+1e-10,s=0)
     # Re=f2Re(0.025,0.002,1)
     #
     # See also: Re2f, hDrr2fRe, hvrr2fRe, hvthk2fRe, hQrr2fRe, hQthk2fRe
-    if rr>5e-2 abort end
-    Re=64/f;
-    if f>(2*log10(3.7/rr))^-2 && rr~=2e-3+1e-10
+    if rr>5e-2 abort endif
+    Re=[];
+    fD=[];
+    if 64/f<3000
+        Re=[Re;64/f];
+        fD=[fD;f];
+    endif
+    if f>(2*log10(3.7/rr))^-2 && rr~=1e-5+1e-10
         foo=@(Re) 1/sqrt(f)+...
                   2*log10(rr/3.7+2.51/Re/sqrt(f));
         Re=[Re;bissecao(foo,1e3,1e8,1e-4)];
-        f=[f;f];
-    end
+        fD=[fD;f];
+    endif
     if s==1
         figure
         laminar('k')
@@ -65,20 +70,20 @@ function [Re]=f2Re(f,rr=2e-3+1e-10,s=0)
         hold on,turb(rr/3,'k')
         hold on,turb(rr/10,'k')
         hold on,rough('b')
-        hold on,loglog(Re,f,'dr')
+        hold on,loglog(Re,fD,'dr')
         grid on
-        axis([1e2 1e7 1e-2 1e-1])
+        axis([1e2 1e8 6e-3 1e-1])
         xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
         ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
         set(gca,'fontsize',14)
-    end
-end
+    endif
+endfunction
 
 function laminar(t)
     Re=[5e-2 4e3];
     f=64 ./ Re;
     loglog(Re,f,t);
-end
+endfunction
 
 function turb(rr,t)
     Re=[];
@@ -88,10 +93,10 @@ function turb(rr,t)
         w=log10(2e3)+i*(log10(1e8)-log10(2e3))/N;
         Re=[Re;10^w];
         foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
-        f=[f;bissecao(foo,1e-2,1e-1,1e-4)];
-    end
+        f=[f;bissecao(foo,6e-3,1e-1,1e-4)];
+    endfor
     loglog(Re,f,t);
-end
+endfunction
 
 function rough(t)
     rr=[];
@@ -103,10 +108,10 @@ function rough(t)
         rr=[rr;10^w];
         f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
         z=f2Re(f(end),rr(end));
-        Re=[Re;z(2)];
-    end
+        Re=[Re;z(end)];
+    endfor
     loglog(Re,f,t);
-end
+endfunction
 
 function x2=bissecao(f,x1,x2,tol)
   while abs(f(x2))>tol
@@ -115,7 +120,7 @@ function x2=bissecao(f,x1,x2,tol)
       x1=x;
     else
       x2=x;
-    end
-  end
-end
+    endif
+  endwhile
+endfunction
 
