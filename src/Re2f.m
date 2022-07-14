@@ -48,7 +48,7 @@ function [f]=Re2f(Re,rr=2e-3,s=0)
         foo=@(f) 1/sqrt(f)+...
                  2*log10(rr/3.7+2.51/Re/sqrt(f));
         f=bissecao(foo,1e-2,1e-1,1e-4);
-    end
+    endif
     if s==1
         figure
         laminar('k')
@@ -60,18 +60,18 @@ function [f]=Re2f(Re,rr=2e-3,s=0)
         hold on,rough('b')
         hold on,loglog(Re,f,'dr')
         grid on
-        axis([1e2 1e7 1e-2 1e-1])
+        axis([1e2 1e8 6e-3 1e-1])
         xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
         ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
         set(gca,'fontsize',14)
-    end
-end
+    endif
+endfunction
 
 function laminar(t)
     Re=[5e-2 4e3];
     f=64 ./ Re;
     loglog(Re,f,t);
-end
+endfunction
 
 function turb(rr,t)
     Re=[];
@@ -82,9 +82,9 @@ function turb(rr,t)
         Re=[Re;10^w];
         foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
         f=[f;bissecao(foo,1e-2,1e-1,1e-4)];
-    end
+    endfor
     loglog(Re,f,t);
-end
+endfunction
 
 function rough(t)
     rr=[];
@@ -97,9 +97,9 @@ function rough(t)
         f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
         z=f2Re(f(end),rr(end));
         Re=[Re;z(2)];
-    end
+    endfor
     loglog(Re,f,t);
-end
+endfunction
 
 function x2=bissecao(f,x1,x2,tol)
   while abs(f(x2))>tol
@@ -108,7 +108,7 @@ function x2=bissecao(f,x1,x2,tol)
       x1=x;
     else
       x2=x;
-    end
-  end
-end
+    endif
+  endwhile
+endfunction
 
