@@ -4,7 +4,21 @@ Date: 2022-07-05
 Author: Alexandre Umpierre (aumpierre@gmail.com)
 Maintainer: Alexandre Umpierre
 Title: Internal Fluid Flow
-Description: This package provides a set of functions designed to solve problems of internal fluid flow on GNU Octave under GNU GPLv3. All functions are based on the Poiseuille condition for laminar flow, the Colebrooke-White equation for turbulent flow, and the Darcy-Weissbach equation for head loss. Basic functions f2Re and Re2f compute either the Reynolds number or the Darcy friction factor, given that one of them is given along with the relative roughness. More advanced functions hDeps2fRe, hveps2fRe and hQeps2fRe, and hvthk2fRe and hQthk2fRe compute both the Reynolds number and the Darcy friction factor given the head loss and other variables that describe the fluid flow.
+Description: This package provides a set of functions
+ designed to solve problems of internal fluid flow
+ on GNU Octave under GNU GPLv3. All functions are based
+ on the Poiseuille condition for laminar flow,
+ the Colebrooke-White equation for turbulent flow,
+ and the Darcy-Weissbach equation for head loss.
+ Basic functions f2Re and Re2f compute either
+ the Reynolds number or the Darcy friction factor,
+ given that one of them is given along with
+ the relative roughness. More advanced functions
+ hDeps2fRe, hveps2fRe and hQeps2fRe, and
+ hvthk2fRe and hQthk2fRe compute both
+ the Reynolds number and the Darcy friction factor
+ given the head loss and other variables that
+ describe the fluid flow.
 Categories: package
 Depends: octave (>=4.0.0)
 License: GPLv3+
