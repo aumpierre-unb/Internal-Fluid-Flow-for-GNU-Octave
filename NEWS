@@ -1,6 +1,4 @@
 TODO:
-* Replace "rr~=1e-5" by "rr~=2e-3" in line 58 of 
-  src/f2Re.m and src/Re2f.m files
 
 internal-fluid-flow 0.0.2 (2022-07-14)
 ======================================
