@@ -111,4 +111,3 @@ function x2=bissecao(f,x1,x2,tol)
     end
   end
 end
-
