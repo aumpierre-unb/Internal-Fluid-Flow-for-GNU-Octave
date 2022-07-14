@@ -48,19 +48,19 @@ function [Re]=f2Re(f,rr=1e-5+1e-10,s=0)
     # Re=f2Re(0.025,0.002,1)
     #
     # See also: Re2f, hDrr2fRe, hvrr2fRe, hvthk2fRe, hQrr2fRe, hQthk2fRe
-    if rr>5e-2 abort endif
+    if rr>5e-2 abort end
     Re=[];
     fD=[];
     if 64/f<3000
         Re=[Re;64/f];
         fD=[fD;f];
-    endif
+    end
     if f>(2*log10(3.7/rr))^-2 && rr~=1e-5+1e-10
         foo=@(Re) 1/sqrt(f)+...
                   2*log10(rr/3.7+2.51/Re/sqrt(f));
         Re=[Re;bissecao(foo,1e3,1e8,1e-4)];
         fD=[fD;f];
-    endif
+    end
     if s==1
         figure
         laminar('k')
@@ -76,14 +76,14 @@ function [Re]=f2Re(f,rr=1e-5+1e-10,s=0)
         xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
         ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
         set(gca,'fontsize',14)
-    endif
-endfunction
+    end
+end
 
 function laminar(t)
     Re=[5e-2 4e3];
     f=64 ./ Re;
     loglog(Re,f,t);
-endfunction
+end
 
 function turb(rr,t)
     Re=[];
@@ -94,9 +94,9 @@ function turb(rr,t)
         Re=[Re;10^w];
         foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
         f=[f;bissecao(foo,6e-3,1e-1,1e-4)];
-    endfor
+    end
     loglog(Re,f,t);
-endfunction
+end
 
 function rough(t)
     rr=[];
@@ -109,9 +109,9 @@ function rough(t)
         f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
         z=f2Re(f(end),rr(end));
         Re=[Re;z(end)];
-    endfor
+    end
     loglog(Re,f,t);
-endfunction
+end
 
 function x2=bissecao(f,x1,x2,tol)
   while abs(f(x2))>tol
@@ -120,7 +120,7 @@ function x2=bissecao(f,x1,x2,tol)
       x1=x;
     else
       x2=x;
-    endif
-  endwhile
-endfunction
+    end
+  end
+end
 
