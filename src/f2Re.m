@@ -19,7 +19,7 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [Re]=f2Re(f,rr=1e-5+1e-10,s=0)
+function [Re]=f2Re(f,rr=2e-3+1e-10,s=0)
     # [Re]=f2Re(f,[rr[,s]]) computes
     # the Reynolds number Re, given
     # the Darcy friction factor f and
@@ -55,7 +55,7 @@ function [Re]=f2Re(f,rr=1e-5+1e-10,s=0)
         Re=[Re;64/f];
         fD=[fD;f];
     end
-    if f>(2*log10(3.7/rr))^-2 && rr~=1e-5+1e-10
+    if f>(2*log10(3.7/rr))^-2 && rr~=2e-3+1e-10
         foo=@(Re) 1/sqrt(f)+...
                   2*log10(rr/3.7+2.51/Re/sqrt(f));
         Re=[Re;bissecao(foo,1e3,1e8,1e-4)];
