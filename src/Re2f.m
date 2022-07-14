@@ -67,7 +67,6 @@ function [f]=Re2f(Re,rr=2e-3,s=0)
     end
 end
 
-
 function laminar(t)
     Re=[5e-2 4e3];
     f=64 ./ Re;
