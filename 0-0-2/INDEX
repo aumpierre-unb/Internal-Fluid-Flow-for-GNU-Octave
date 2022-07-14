@@ -1,6 +1,0 @@
-# internal-fluid-flow is a package of functions to solve internal fluid flow problems.
-toolbox >> Internal Fluid Flow
-Functions
- f2Re Re2f
- hDesp2fRe hvesp2fRe hQesp2fRe
- hvthk2fRe hQthk2fRe
