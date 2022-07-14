@@ -19,87 +19,39 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [f]=Re2f(Re,rr=2e-3,s=0)
-    # [f]=Re2f(Re,[rr[,s]]) computes
+function [f]=Re2f(Re,eps,s=0)
+    # [f]=Re2f(Re,eps[,s]) computes
     # the Darcy friction f factor, given
     # the Reynolds number Re and
-    # the relative roughness rr.
-    # By default rr=2e-3.
+    # the relative roughness eps.
     # If s=1 is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. (computes Re, pops no plot)
-    # Re=12e4;rr=0.002;
-    # f=Re2f(Re,rr)
+    # e.g.
+    # Re=12e4;eps=0.002;
+    # f=Re2f(Re,eps)
     #
-    # # e.g. (computes Re for
-    # # the dafault relative roughness
-    # # and displays plot)
-    # f=Re2f(12e4,:,1)
-    #
-    # # e.g. (computes Re and displays plot)
-    # f=Re2f(12e4,0.00,1)
-    #
-    # See also: f2Re, hDrr2fRe, hvrr2fRe, hvthk2fRe, hQrr2fRe, hQthk2fRe
-    if Re<2500
-        f=64/Re
-    else
-        foo=@(f) 1/sqrt(f)+...
-                 2*log10(rr/3.7+2.51/Re/sqrt(f));
-        f=bissecao(foo,1e-2,1e-1,1e-4);
-    endif
+    # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
+    foo=@(f) 1/sqrt(f)+...
+             2*log10(eps/3.7+2.51/Re/sqrt(f));
+    f=bissecao(foo,1e-2,1e-1,1e-4);
     if s==1
-        figure
-        laminar('k')
-        hold on,turb(rr,'k')
-        hold on,turb(rr*3,'k')
-        hold on,turb(rr*10,'k')
-        hold on,turb(rr/3,'k')
-        hold on,turb(rr/10,'k')
-        hold on,rough('b')
-        hold on,loglog(Re,f,'dr')
-        grid on
-        axis([1e2 1e8 6e-3 1e-1])
-        xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
-        ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
-        set(gca,'fontsize',14)
-    endif
-endfunction
-
-function laminar(t)
-    Re=[5e-2 4e3];
-    f=64 ./ Re;
-    loglog(Re,f,t);
-endfunction
-
-function turb(rr,t)
-    Re=[];
-    f=[];
-    N=50;
-    for i=1:N
-        w=log10(2e3)+i*(log10(1e8)-log10(2e3))/N;
-        Re=[Re;10^w];
-        foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
-        f=[f;bissecao(foo,1e-2,1e-1,1e-4)];
-    endfor
-    loglog(Re,f,t);
-endfunction
-
-function rough(t)
-    rr=[];
-    f=[];
-    Re=[];
-    N=30;
-    for i=1:N
-        w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N;
-        rr=[rr;10^w];
-        f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
-        z=f2Re(f(end),rr(end));
-        Re=[Re;z(2)];
-    endfor
-    loglog(Re,f,t);
-endfunction
+      figure#clf
+      laminar()
+      hold on,turb(eps,'k')
+      hold on,turb(eps*3,'k')
+      hold on,turb(eps*10,'k')
+      hold on,turb(eps/3,'k')
+      hold on,turb(eps/10,'k')
+      hold on,loglog(Re,f,'dk')
+      grid on
+      axis([1e2 1e7 1e-2 1e-1])
+      xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
+      ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
+      set(gca,'fontsize',14)
+    end
+end
 
 function x2=bissecao(f,x1,x2,tol)
   while abs(f(x2))>tol
@@ -108,7 +60,7 @@ function x2=bissecao(f,x1,x2,tol)
       x1=x;
     else
       x2=x;
-    endif
-  endwhile
-endfunction
+    end
+  end
+end
 
