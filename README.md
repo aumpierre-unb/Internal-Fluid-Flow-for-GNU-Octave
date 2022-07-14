@@ -1,4 +1,4 @@
-# Internal-Fluid-Flow-for-GNU-Octave
+# Internal-Fluid-Flow
 This package provides a set of functions designed 
 to solve problems of internal fluid flow. 
 All functions are based on the Poiseuille 
