@@ -34,17 +34,14 @@ function [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho,s=0)
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. (computes Re and f, pops no plot)
-    # h=40;v=110;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;
-    # [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho)
-    # D=Re*mu/rho/v
-    # rr=thk/D
+    # e.g.
+    # h=40;v=110;L=2500;thk=0.025;g=981;mu=.0089;rho=.989;
+    # [Re,f]=hvthk2fRe(h,Q,L,thk,g,mu,rho)
+    # D=Q*rho/(pi/4)/Re/mu
     # Q=v*(pi/4*D^2)
+    # eps=thk/D
     #
-    # # e.g. (computes Re and f and displays plot)
-    # [Re,f]=hvthk2fRe(40,110,2500,0.025,981,0.0089,0.989,1)
-    #
-    # See also: Re2f, f2Re, hDrr2fRe, hvrr2fRe, hQrr2fRe, hQthk2fRe
+    # See also: Re2f, f2Re, hDeps2fRe, hveps2fRe, hQeps2fRe, hQthk2fRe
     M=2*g*mu*h/v^3/rho/L;
     Re=sqrt(64/M);
     f=64/Re;
@@ -52,70 +49,53 @@ function [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho,s=0)
         Re=1e4;
         f=M*Re;
         D=Re*mu/v/rho;
-        rr=thk/D;
-        f=Re2f(Re,rr);
+        eps=thk/D;
+        f=Re2f(Re,eps);
         while abs(f-M*Re)/f>5e-3
             if f-M*Re>0 Re=Re*1.02;
-            else Re=Re*0.98;
-            endif
+            else Re=Re*0.98;end
             f=M*Re;
             D=Re*mu/v/rho;
-            rr=thk/D;
-            f=Re2f(Re,rr);
-        endwhile
-    endif
+            eps=thk/D;
+            f=Re2f(Re,eps);
+        end
+    end
     if s==1
-        figure
-        laminar('k')
-        hold on,turb(rr,'k')
-        hold on,turb(rr*3,'k')
-        hold on,turb(rr*10,'k')
-        hold on,turb(rr/3,'k')
-        hold on,turb(rr/10,'k')
-        hold on,rough('b')
-        hold on,loglog(Re,f,'dr')
-        hold on,loglog([Re/10 Re*10],[M*Re/10 M*Re*10],'--r')
-        grid on
-        axis([1e2 1e8 6e-3 1e-1])
-        xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
-        ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
-        set(gca,'fontsize',14)
-    endif
-endfunction
+      figure#clf
+      laminar()
+      hold on,turb(eps,'k')
+      hold on,turb(eps*3,'k')
+      hold on,turb(eps*10,'k')
+      hold on,turb(eps/3,'k')
+      hold on,turb(eps/10,'k')
+      hold on,loglog(Re,f,'dk')
+      hold on,loglog([Re/10 Re*10],[P/(Re/10)^5 P/(Re*10)^5],'--k')
+      grid on
+      axis([1e2 1e7 1e-2 1e-1])
+      xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
+      ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
+      set(gca,'fontsize',14)
+    end
+end
 
-function laminar(t)
+function laminar()
     Re=[5e-2 4e3];
     f=64 ./ Re;
-    loglog(Re,f,t);
-endfunction
+    loglog(Re,f,'k');
+end
 
-function turb(rr,t)
+function turb(eps,t)
     Re=[];
     f=[];
     N=50;
     for i=1:N
-        w=log10(2e3)+i*(log10(1e8)-log10(2e3))/N;
+        w=log10(2e3)+i*(log10(1e7)-log10(2e3))/N;
         Re=[Re;10^w];
-        foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
+        foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
         f=[f;bissecao(foo,1e-2,1e-1,1e-4)];
-    endfor
+    end
     loglog(Re,f,t);
-endfunction
-
-function rough(t)
-    rr=[];
-    f=[];
-    Re=[];
-    N=30;
-    for i=1:N
-        w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N;
-        rr=[rr;10^w];
-        f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
-        z=f2Re(f(end),rr(end));
-        Re=[Re;z(2)];
-    endfor
-    loglog(Re,f,t);
-endfunction
+end
 
 function x2=bissecao(f,x1,x2,tol)
   while abs(f(x2))>tol
@@ -124,7 +104,7 @@ function x2=bissecao(f,x1,x2,tol)
       x1=x;
     else
       x2=x;
-    endif
-  endwhile
-endfunction
+    end
+  end
+end
 
