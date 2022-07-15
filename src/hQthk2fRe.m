@@ -38,7 +38,7 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,s=0)
     # h=40;Q=8600;L=2500;thk=0.025;g=981;mu=.0089;rho=.989;
     # [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho)
     # D=Q*rho/(pi/4)/Re/mu
-    # rr=thk/D
+    # eps=thk/D
     # v=Q/(pi/4*D^2)
     #
     # # e.g. (computes Re and f and displays plot)
@@ -52,26 +52,26 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,s=0)
         Re=1e4;
         f=P/Re^5;
         D=rho*Q/Re/mu/(pi/4);
-        rr=thk/D;
-        f=Re2f(Re,rr);
+        eps=thk/D;
+        f=Re2f(Re,eps);
         while abs(f-P/Re^5)/f>5e-3
             if f-P/Re^5<0 Re=Re*1.02;
             else Re=Re*0.98;
             end
             f=P/Re^5;
             D=rho*Q/Re/mu/(pi/4);
-            rr=thk/D;
-            f=Re2f(Re,rr);
+            eps=thk/D;
+            f=Re2f(Re,eps);
         end
     end
     if s==1
         figure
         laminar('k')
-        hold on,turb(rr,'k')
-        hold on,turb(rr*3,'k')
-        hold on,turb(rr*10,'k')
-        hold on,turb(rr/3,'k')
-        hold on,turb(rr/10,'k')
+        hold on,turb(eps,'k')
+        hold on,turb(eps*3,'k')
+        hold on,turb(eps*10,'k')
+        hold on,turb(eps/3,'k')
+        hold on,turb(eps/10,'k')
         hold on,rough('b')
         hold on,loglog(Re,f,'dr')
         hold on,loglog([Re/10 Re*10],[P/(Re/10)^5 P/(Re*10)^5],'--r')
@@ -89,29 +89,29 @@ function laminar(t)
     loglog(Re,f,t);
 end
 
-function turb(rr,t)
+function turb(eps,t)
     Re=[];
     f=[];
     N=50;
     for i=1:N
         w=log10(2e3)+i*(log10(1e8)-log10(2e3))/N;
         Re=[Re;10^w];
-        foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
+        foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
         f=[f;bissecao(foo,6e-3,1e-1,1e-4)];
     end
     loglog(Re,f,t);
 end
 
 function rough(t)
-    rr=[];
+    eps=[];
     f=[];
     Re=[];
     N=30;
     for i=1:N
         w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N;
-        rr=[rr;10^w];
-        f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
-        z=f2Re(f(end),rr(end));
+        eps=[eps;10^w];
+        f=[f;1.02*(2*log10(3.7/eps(end)))^-2];
+        z=f2Re(f(end),eps(end));
         Re=[Re;z(end)];
     end
     loglog(Re,f,t);

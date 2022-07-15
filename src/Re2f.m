@@ -19,19 +19,19 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [f]=Re2f(Re,rr=2e-3,s=0)
-    # [f]=Re2f(Re,[rr[,s]]) computes
+function [f]=Re2f(Re,eps=2e-3,s=0)
+    # [f]=Re2f(Re,[eps[,s]]) computes
     # the Darcy friction f factor, given
     # the Reynolds number Re and
-    # the relative roughness rr.
-    # By default rr=2e-3.
+    # the relative roughness eps.
+    # By default eps=2e-3.
     # If s=1 is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the computation.
     #
     # # e.g. (computes Re, pops no plot)
-    # Re=12e4;rr=0.002;
-    # f=Re2f(Re,rr)
+    # Re=12e4;eps=0.002;
+    # f=Re2f(Re,eps)
     #
     # # e.g. (computes Re for
     # # the dafault relative roughness
@@ -41,22 +41,22 @@ function [f]=Re2f(Re,rr=2e-3,s=0)
     # # e.g. (computes Re and displays plot)
     # f=Re2f(12e4,0.00,1)
     #
-    # See also: f2Re, hDrr2fRe, hvrr2fRe, hvthk2fRe, hQrr2fRe, hQthk2fRe
+    # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
     if Re<2500
         f=64/Re
     else
         foo=@(f) 1/sqrt(f)+...
-                 2*log10(rr/3.7+2.51/Re/sqrt(f));
+                 2*log10(eps/3.7+2.51/Re/sqrt(f));
         f=bissecao(foo,1e-2,1e-1,1e-4);
     end
     if s==1
         figure
         laminar('k')
-        hold on,turb(rr,'k')
-        hold on,turb(rr*3,'k')
-        hold on,turb(rr*10,'k')
-        hold on,turb(rr/3,'k')
-        hold on,turb(rr/10,'k')
+        hold on,turb(eps,'k')
+        hold on,turb(eps*3,'k')
+        hold on,turb(eps*10,'k')
+        hold on,turb(eps/3,'k')
+        hold on,turb(eps/10,'k')
         hold on,rough('b')
         hold on,loglog(Re,f,'dr')
         grid on
@@ -73,29 +73,29 @@ function laminar(t)
     loglog(Re,f,t);
 end
 
-function turb(rr,t)
+function turb(eps,t)
     Re=[];
     f=[];
     N=50;
     for i=1:N
         w=log10(2e3)+i*(log10(1e8)-log10(2e3))/N;
         Re=[Re;10^w];
-        foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
+        foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
         f=[f;bissecao(foo,6e-3,1e-1,1e-4)];
     end
     loglog(Re,f,t);
 end
 
 function rough(t)
-    rr=[];
+    eps=[];
     f=[];
     Re=[];
     N=30;
     for i=1:N
         w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N;
-        rr=[rr;10^w];
-        f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
-        z=f2Re(f(end),rr(end));
+        eps=[eps;10^w];
+        f=[f;1.02*(2*log10(3.7/eps(end)))^-2];
+        z=f2Re(f(end),eps(end));
         Re=[Re;z(end)];
     end
     loglog(Re,f,t);

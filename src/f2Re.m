@@ -19,24 +19,24 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [Re]=f2Re(f,rr=2e-3+1e-10,s=0)
-    # [Re]=f2Re(f,[rr[,s]]) computes
+function [Re]=f2Re(f,eps=2e-3+1e-10,s=0)
+    # [Re]=f2Re(f,[eps[,s]]) computes
     # the Reynolds number Re, given
     # the Darcy friction factor f and
-    # the relative roughness rr for
+    # the relative roughness eps for
     # for laminar regime and,
     # when possible, also
     # for turbulent regime.
-    # By default rr=2e-3.
-    # If rr>5e-2, execution is aborted.
+    # By default eps=2e-3.
+    # If eps>5e-2, execution is aborted.
     # If s=1 is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the computation.
     #
     # # e.g. (computes f for both laminar and
     # # turbulent regimes if possible, pops no plot.
-    # f=0.025;rr=0.002;
-    # Re=f2Re(f,rr)
+    # f=0.025;eps=0.002;
+    # Re=f2Re(f,eps)
     #
     # # e.g. (computes f for laminar regime
     # # and displays plot)
@@ -47,28 +47,28 @@ function [Re]=f2Re(f,rr=2e-3+1e-10,s=0)
     # # and displays plot)
     # Re=f2Re(0.025,0.002,1)
     #
-    # See also: Re2f, hDrr2fRe, hvrr2fRe, hvthk2fRe, hQrr2fRe, hQthk2fRe
-    if rr>5e-2 abort end
+    # See also: Re2f, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
+    if eps>5e-2 abort end
     Re=[];
     fD=[];
     if 64/f<3000
         Re=[Re;64/f];
         fD=[fD;f];
     end
-    if f>(2*log10(3.7/rr))^-2 && rr~=2e-3+1e-10
+    if f>(2*log10(3.7/eps))^-2 && eps~=2e-3+1e-10
         foo=@(Re) 1/sqrt(f)+...
-                  2*log10(rr/3.7+2.51/Re/sqrt(f));
+                  2*log10(eps/3.7+2.51/Re/sqrt(f));
         Re=[Re;bissecao(foo,1e3,1e8,1e-4)];
         fD=[fD;f];
     end
     if s==1
         figure
         laminar('k')
-        hold on,turb(rr,'k')
-        hold on,turb(rr*3,'k')
-        hold on,turb(rr*10,'k')
-        hold on,turb(rr/3,'k')
-        hold on,turb(rr/10,'k')
+        hold on,turb(eps,'k')
+        hold on,turb(eps*3,'k')
+        hold on,turb(eps*10,'k')
+        hold on,turb(eps/3,'k')
+        hold on,turb(eps/10,'k')
         hold on,rough('b')
         hold on,loglog(Re,fD,'dr')
         grid on
@@ -85,29 +85,29 @@ function laminar(t)
     loglog(Re,f,t);
 end
 
-function turb(rr,t)
+function turb(eps,t)
     Re=[];
     f=[];
     N=50;
     for i=1:N
         w=log10(2e3)+i*(log10(1e8)-log10(2e3))/N;
         Re=[Re;10^w];
-        foo=@(f) 1/sqrt(f)+2*log10(rr/3.7+2.51/Re(end)/sqrt(f));
+        foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
         f=[f;bissecao(foo,6e-3,1e-1,1e-4)];
     end
     loglog(Re,f,t);
 end
 
 function rough(t)
-    rr=[];
+    eps=[];
     f=[];
     Re=[];
     N=30;
     for i=1:N
         w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N;
-        rr=[rr;10^w];
-        f=[f;1.02*(2*log10(3.7/rr(end)))^-2];
-        z=f2Re(f(end),rr(end));
+        eps=[eps;10^w];
+        f=[f;1.02*(2*log10(3.7/eps(end)))^-2];
+        z=f2Re(f(end),eps(end));
         Re=[Re;z(end)];
     end
     loglog(Re,f,t);
