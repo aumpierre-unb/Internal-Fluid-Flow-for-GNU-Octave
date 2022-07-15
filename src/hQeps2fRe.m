@@ -56,7 +56,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho,s=0)
             else Re=Re*0.98;
             end
             f=Re2f(Re,eps);
-        endwhileif
+        end
     end
     if s==1
         figure
