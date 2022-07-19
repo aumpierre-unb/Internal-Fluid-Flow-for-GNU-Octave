@@ -3,7 +3,7 @@ This package provides a set of functions designed
 to solve problems of internal fluid flow. 
 All functions are based on the Poiseuille 
 condition for laminar flow, the Colebrooke-White 
-equation for turbulent flow, and the Darcy-Weissbach 
+equation for turbulent flow, and the Darcy-Weisbach 
 equation for head loss. The simplest problems 
 on internal flow consist in computing either 
 the Reynolds number or the Darcy friction factor 
