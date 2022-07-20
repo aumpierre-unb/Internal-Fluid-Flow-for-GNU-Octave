@@ -1,5 +1,5 @@
 TODO:
-* Replace "Weissbach" by "Weisbach" in DESCRIPTION
+* Fix the spell of "Weissbach" to "Weisbach" in DESCRIPTION
   and README.md and in the .yaml file
 * Remove the second condition in line 58 of f2Re and
   and set the default second input to eps=2e-3
