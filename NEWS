@@ -1,9 +1,9 @@
 TODO:
 * Fix the spell of "Weissbach" to "Weisbach" in DESCRIPTION
-  and README.md and in the .yaml file
+  and README.md and in the .yaml file (DONE)
 * Remove the second condition in line 58 of f2Re and
-  and set the default second input to eps=2e-3
-* Replace "Re<2500" by "Re<3e3" in line 45 of Re2f
+  and set the default second input to eps=2e-3 (DONE)
+* Replace "Re<2500" by "Re<3e3" in line 45 of Re2f (DONE)
 * 
 
 internal-fluid-flow 0.0.2 (2022-07-14)
