@@ -25,24 +25,25 @@ function [f]=Re2f(Re,eps=2e-3,s=0)
     # the Reynolds number Re and
     # the relative roughness eps.
     # By default eps=2e-3.
+    # If eps>5e-2, execution is aborted.
     # If s=1 is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. (computes Re, pops no plot)
+    # # e.g. (this call computes Re, shows no plot)
     # Re=12e4;eps=0.002;
     # f=Re2f(Re,eps)
     #
-    # # e.g. (computes Re for
-    # # the dafault relative roughness
-    # # and displays plot)
+    # # e.g. (this call computes Re for
+    # # the dafault relative roughness and displays plot)
     # f=Re2f(12e4,:,1)
     #
-    # # e.g. (computes Re and displays plot)
-    # f=Re2f(12e4,0.00,1)
+    # # e.g. (this call computes Re and displays plot)
+    # f=Re2f(12e4,0.002,1)
     #
     # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
-    if Re<2500
+    if eps>5e-2 abort end
+    if Re<3e3
         f=64/Re
     else
         foo=@(f) 1/sqrt(f)+...
@@ -68,7 +69,7 @@ function [f]=Re2f(Re,eps=2e-3,s=0)
 end
 
 function laminar(t)
-    Re=[5e-2 4e3];
+    Re=[5e2 4e3];
     f=64 ./ Re;
     loglog(Re,f,t);
 end

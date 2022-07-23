@@ -34,14 +34,14 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,s=0)
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. (computes Re and f, pops no plot)
+    # # e.g. (this call computes Re and f, shows no plot)
     # h=40;v=110;L=2500;eps=0.0025;g=981;mu=.0089;rho=.989;
     # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho)
     # D=Re*mu/rho/v
     # thk=eps*D
     # Q=v*(pi/4*D^2)
     #
-    # # e.g. (computes Re and f and displays plot)
+    # # e.g. (this call computes Re and f and displays plot)
     # [Re,f]=hveps2fRe(40,110,2500,0.0025,981,0.0089,0.989,1)
     #
     # See also: Re2f, f2Re, hDeps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
@@ -78,7 +78,7 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,s=0)
 end
 
 function laminar(t)
-    Re=[5e-2 4e3];
+    Re=[5e2 4e3];
     f=64 ./ Re;
     loglog(Re,f,t);
 end

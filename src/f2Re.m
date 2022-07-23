@@ -19,7 +19,7 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [Re]=f2Re(f,eps=2e-3+1e-10,s=0)
+function [Re]=f2Re(f,eps=2e-3,s=0)
     # [Re]=f2Re(f,[eps[,s]]) computes
     # the Reynolds number Re, given
     # the Darcy friction factor f and
@@ -33,29 +33,28 @@ function [Re]=f2Re(f,eps=2e-3+1e-10,s=0)
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. (computes f for both laminar and
-    # # turbulent regimes if possible, pops no plot.
+    # # e.g. (this call computes f for both laminar and
+    # # turbulent regimes if possible, shows no plot
     # f=0.025;eps=0.002;
     # Re=f2Re(f,eps)
     #
-    # # e.g. (computes f for laminar regime
+    # # e.g. (this call computes f for laminar regime
     # # and displays plot)
     # Re=f2Re(0.025,:,1)
     #
-    # # e.g. (computes f for both laminar and
-    # # turbulent regimes if possible,
-    # # and displays plot)
+    # # e.g. (this call computes f for both laminar and
+    # # turbulent regimes if possible,and displays plot)
     # Re=f2Re(0.025,0.002,1)
     #
     # See also: Re2f, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
     if eps>5e-2 abort end
     Re=[];
     fD=[];
-    if 64/f<3000
+    if 64/f<3e3
         Re=[Re;64/f];
         fD=[fD;f];
     end
-    if f>(2*log10(3.7/eps))^-2 && eps~=2e-3+1e-10
+    if f>(2*log10(3.7/eps))^-2
         foo=@(Re) 1/sqrt(f)+...
                   2*log10(eps/3.7+2.51/Re/sqrt(f));
         Re=[Re;bissecao(foo,1e3,1e8,1e-4)];
@@ -80,7 +79,7 @@ function [Re]=f2Re(f,eps=2e-3+1e-10,s=0)
 end
 
 function laminar(t)
-    Re=[5e-2 4e3];
+    Re=[5e2 4e3];
     f=64 ./ Re;
     loglog(Re,f,t);
 end
@@ -116,11 +115,8 @@ end
 function x2=bissecao(f,x1,x2,tol)
   while abs(f(x2))>tol
     x=(x1+x2)/2;
-    if f(x)*f(x1)>0
-      x1=x;
-    else
-      x2=x;
-    end
+    if f(x)*f(x1)>0 x1=x;
+    else x2=x; end
   end
 end
 
