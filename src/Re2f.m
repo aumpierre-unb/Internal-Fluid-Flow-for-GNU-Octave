@@ -30,15 +30,18 @@ function [f]=Re2f(Re,eps=2e-3,s=0)
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. (this call computes Re, shows no plot)
+    # # e.g. this call computes Re,
+    # # shows no plot
     # Re=12e4;eps=0.002;
     # f=Re2f(Re,eps)
     #
-    # # e.g. (this call computes Re for
-    # # the dafault relative roughness and displays plot)
+    # # e.g. this call computes Re for
+    # # the dafault relative roughness
+    # # and shows plot
     # f=Re2f(12e4,:,1)
     #
-    # # e.g. (this call computes Re and displays plot)
+    # # e.g. this call computes Re
+    # # and shows plot
     # f=Re2f(12e4,0.002,1)
     #
     # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
