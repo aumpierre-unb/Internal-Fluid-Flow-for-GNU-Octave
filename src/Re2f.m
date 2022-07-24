@@ -32,17 +32,17 @@ function [f]=Re2f(Re,eps=2e-3,s=0)
     #
     # # e.g. this call computes f
     # # and shows no plot:
-    # Re=12e4;eps=0.002;
+    # Re=120e3;eps=0.002;
     # f=Re2f(Re,eps)
     #
     # # e.g. this call computes f
     # # for the default relative roughness eps=2e-3
     # # and shows plot:
-    # f=Re2f(12e4,:,1)
+    # f=Re2f(120e3,:,1)
     #
     # # e.g. this call computes f
     # # and shows plot:
-    # f=Re2f(12e4,0.002,1)
+    # f=Re2f(120e3,0.002,1)
     #
     # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
     if eps>5e-2 abort end

@@ -24,7 +24,7 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,s=0)
     # the Reynolds number Re and
     # the Darcy friction factor f, given
     # the head loss h,
-    # the linear velocity v,
+    # the speed flow v,
     # the tube lenght L,
     # the relative roughness eps,
     # the gravitational accelaration g,
@@ -36,11 +36,11 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,s=0)
     #
     # # e.g. this call computes Re and f
     # # and shows no plot:
-    # h=40;v=110;L=2500;eps=0.0025;g=981;mu=.0089;rho=.989;
+    # h=40;v=110;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
     # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho)
-    # D=Re*mu/rho/v
-    # thk=eps*D
-    # Q=v*(pi/4*D^2)
+    # D=Re*mu/rho/v #hydraullic diameter
+    # thk=eps*D #roughness
+    # Q=v*(pi/4*D^2) #volumetric flow
     #
     # # e.g. this call computes Re and f
     # # and shows plot:

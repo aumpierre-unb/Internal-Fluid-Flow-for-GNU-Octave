@@ -36,11 +36,11 @@ function [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho,s=0)
     #
     # # e.g. this call computes Re and f
     # # and shows no plot:
-    # h=40;D=10;L=2500;eps=0.0025;g=981;mu=.0089;rho=.989;
-    # thk=eps*D
+    # h=40;D=10;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
     # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho)
-    # v=Re*mu/rho/D
-    # Q=v*(pi/4*D^2)
+    # thk=eps*D #roughness
+    # v=Re*mu/rho/D #speed flow
+    # Q=v*(pi/4*D^2) #volumetric flow
     #
     # # e.g. this call computes Re and f
     # # and shows plot:

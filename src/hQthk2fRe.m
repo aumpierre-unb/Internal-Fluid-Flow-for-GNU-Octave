@@ -36,11 +36,11 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,s=0)
     #
     # # e.g. this call computes Re and f
     # # and shows no plot:
-    # h=40;Q=8600;L=2500;thk=0.025;g=981;mu=.0089;rho=.989;
+    # h=40;Q=8600;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;
     # [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho)
-    # D=Q*rho/(pi/4)/Re/mu
-    # eps=thk/D
-    # v=Q/(pi/4*D^2)
+    # D=Q*rho/(pi/4)/Re/mu #hydraullic diameter
+    # eps=thk/D #relative roughness
+    # v=Q/(pi/4*D^2) #speed flow
     #
     # # e.g. this call computes Re and f
     # # and shows plot:
