@@ -291,4 +291,4 @@ Along with the Colebrooke-White equation, this version of the Darcy-Weisbach equ
 
 Copyright &copy; 2022 Alexandre Umpierre
 
-email: `aumpierre@gmail.com`
+email: aumpierre@gmail.com
