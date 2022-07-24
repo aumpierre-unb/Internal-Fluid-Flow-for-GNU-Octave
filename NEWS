@@ -5,6 +5,7 @@ TODO:
 * On the help comments in Re2f, replace
   "e.g. this call computes Re" (lines 33, 38 and 43) by
   "e.g. this call computes f" (DONE)
+* Minor fixes on functions' help comments (DONE)
   
 
 internal-fluid-flow 0.0.3 (2022-07-23)
