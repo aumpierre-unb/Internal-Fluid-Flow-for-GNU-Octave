@@ -34,8 +34,8 @@ function [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho,s=0)
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. this call computes Re and f,
-    # # shows no plot
+    # # e.g. this call computes Re and f
+    # # and shows no plot:
     # h=40;v=110;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;
     # [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho)
     # D=Re*mu/rho/v
@@ -43,7 +43,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho,s=0)
     # Q=v*(pi/4*D^2)
     #
     # # e.g. this call computes Re and f
-    # # and shows plot
+    # # and shows plot:
     # [Re,f]=hvthk2fRe(40,110,2500,0.025,981,0.0089,0.989,1)
     #
     # See also: Re2f, f2Re, hDeps2fRe, hveps2fRe, hQeps2fRe, hQthk2fRe

@@ -33,20 +33,21 @@ function [Re]=f2Re(f,eps=2e-3,s=0)
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. this call computes f for
-    # # both laminar and turbulent regimes (if possible),
-    # # shows no plot
+    # # e.g. this call computes Re
+    # # for both laminar and turbulent regimes (if possible)
+    # # and shows no plot:
     # f=0.025;eps=0.002;
     # Re=f2Re(f,eps)
     #
-    # # e.g. this call computes f for
-    # # both laminar and turbulent regimes (if possible)
-    # # and shows plot
+    # # e.g. this call computes Re
+    # # for the default relative roughness eps=2e-3
+    # # for both laminar and turbulent regimes (if possible)
+    # # and shows plot:
     # Re=f2Re(0.025,:,1)
     #
-    # # e.g. this call computes f for
-    # # both laminar and turbulent regimes (if possible)
-    # # and shows plot
+    # # e.g. this call computes Re
+    # # for both laminar and turbulent regimes (if possible)
+    # # and shows plot:
     # Re=f2Re(0.025,0.002,1)
     #
     # See also: Re2f, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
