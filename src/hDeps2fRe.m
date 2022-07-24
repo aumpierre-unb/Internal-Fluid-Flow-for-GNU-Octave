@@ -38,9 +38,9 @@ function [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho,s=0)
     # # and shows no plot:
     # h=40;D=10;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
     # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho)
-    # thk=eps*D #roughness
+    # thk=eps*D #pipe's roughness
     # v=Re*mu/rho/D #speed flow
-    # Q=v*(pi/4*D^2) #volumetric flow
+    # Q=v*(pi/4*D^2) #volumetric flow rate
     #
     # # e.g. this call computes Re and f
     # # and shows plot:

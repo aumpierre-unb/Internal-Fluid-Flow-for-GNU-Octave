@@ -38,9 +38,9 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,s=0)
     # # and shows no plot:
     # h=40;v=110;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
     # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho)
-    # D=Re*mu/rho/v #hydraullic diameter
-    # thk=eps*D #roughness
-    # Q=v*(pi/4*D^2) #volumetric flow
+    # D=Re*mu/rho/v #pipe's hydraullic diameter
+    # thk=eps*D #pipe's roughness
+    # Q=v*(pi/4*D^2) #volumetric flow rate
     #
     # # e.g. this call computes Re and f
     # # and shows plot:

@@ -38,8 +38,8 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,s=0)
     # # and shows no plot:
     # h=40;Q=8600;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;
     # [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho)
-    # D=Q*rho/(pi/4)/Re/mu #hydraullic diameter
-    # eps=thk/D #relative roughness
+    # D=Q*rho/(pi/4)/Re/mu #pipe's hydraullic diameter
+    # eps=thk/D #pipe's relative roughness
     # v=Q/(pi/4*D^2) #speed flow
     #
     # # e.g. this call computes Re and f
