@@ -116,9 +116,11 @@ Re2f computes the Darcy friction factor *f* given the relative roughness $\varep
 ### f2Re
 
 f2Re computes the Reynolds number *Re* given the relative roughness $\varepsilon$ and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces Re < 3000, laminar solution is accepted. If given *f* is possible for turbulent flow,
+
 $$
-{1 \over \sqrt f} < 2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon}}
+{1 \over \sqrt f}<2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon}}
 $$
+
 (which is Colebrooke-White equation for for elevated *Re*) the turbulent solution is accepted. If both solutions are accepted, espfD2Re returns both answers. If neither laminar or turbulent solutions are accepted, espfD2Re returns an empty matrix. If given $\varepsilon$ > 0.05, execution is aborted.
 
 **Syntax:**
