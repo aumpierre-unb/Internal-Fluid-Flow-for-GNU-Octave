@@ -1,5 +1,5 @@
 #{
-Copyright @copyright{} 2022 Alexandre Umpierre
+Copyright (C) 2022 Alexandre Umpierre
 
 This file is part of Internal Fluid Flow Toolbox.
 Internal Fluid Flow Toolbox is free software:
