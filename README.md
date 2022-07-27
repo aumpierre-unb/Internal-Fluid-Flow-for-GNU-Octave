@@ -33,10 +33,10 @@ $$
 where
 
 - $\rho$ is the fluid's density,
-- v is the speed flow,
-- g is the gravitational acceleration,
-- z is the elevation, and
-- p is the static pressure.
+- *v* is the speed flow,
+- *g* is the gravitational acceleration,
+- *z* is the elevation, and
+- *p* is the static pressure.
 
 ### Head Loss
 
