@@ -1,7 +1,7 @@
 # Internal Fluid Flow
 
-<!-- [![DOI](https://zenodo.org/badge/509430202.svg)](https://zenodo.org/badge/latestdoi/509430202)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) -->
+<!-- [![DOI](https://zenodo.org/badge/509430202.svg)](https://zenodo.org/badge/latestdoi/509430202) -->
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 This is a very short introduction to an incompressible and inviscid fluid steady internal flow and to the Internal FluidFlow Toolbox for GNU Octave.
 
@@ -36,10 +36,10 @@ $$
 where
 
 - $\rho$ is the fluid's density,
-- v is the speed flow,
-- g is the gravitational acceleration,
-- z is the elevation, and
-- p is the static pressure.
+- *v* is the speed flow,
+- *g* is the gravitational acceleration,
+- *z* is the elevation, and
+- *p* is the static pressure.
 
 ### Head Loss
 
