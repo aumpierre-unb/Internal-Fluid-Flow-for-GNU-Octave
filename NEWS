@@ -2,6 +2,7 @@ TODO
 ====
 * Spell of "Colebrooke" fixed to "Colebrook" (DONE)
 * Adoption of semantic versioning (https://semver.org) (DONE)
+* Laminar/turbulent transition reset from 3e3 to 2.5e3 (DONE)
 * On the help comments in f2Re, replace
   "e.g. this call computes f" (lines 36, 42 and 47) by
   "e.g. this call computes Re" (DONE)
