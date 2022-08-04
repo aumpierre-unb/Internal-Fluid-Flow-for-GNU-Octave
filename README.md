@@ -4,7 +4,7 @@
 
 This is a very short introduction to an incompressible and inviscid fluid steady internal flow and to the Internal FluidFlow Toolbox for GNU Octave.
 
-Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow. Fluid mechanics is a pretty extensive topic in fluid dynamics and there are a lot of important and interesting observations related to the topic that are not taken into account in this text, because they have do no direct impact the computation performed by the functions in this toolbox.
+Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow. Fluid mechanics is a pretty extensive topic in fluid dynamics and there are a lot of important and interesting observations related to the topic that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this toolbox.
 
 This text is divided in two main sections: The Theory and The Internal Fluid Flow Toolbox.
 
