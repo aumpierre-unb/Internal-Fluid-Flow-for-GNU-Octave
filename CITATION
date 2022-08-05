@@ -1,0 +1,13 @@
+To cite Internal-Fluid-Flow-for-Scilab in publications use:
+
+  Umpierre, Alexandre. (2022). iboot: A toolbox for internal fluid flow for GNU Octave. Zenodo.
+  https://doi.org/10.5281/zenodo.6960263
+
+A BibTeX entry for LaTeX users is:
+
+  @manual{,
+    title     = {{iboot}: A toolbox for internal fluid flow for GNU Octave},
+    author    = {Alexandre Umpierre},
+    year      = {2022},
+    doi       = {10.5281/zenodo.6960263}
+  }
