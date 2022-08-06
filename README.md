@@ -114,17 +114,17 @@ Re2f computes the Darcy friction factor *f* given the relative roughness $\varep
 
 *e.g.* this call computes *f* and shows no plot:
 
-``>> Re=12e4;eps=0.002;``
+``>> Re=1.2e5;eps=0.002;``
 
 ``>> f=Re2f(Re,eps)``
 
 *e.g.* this call computes *f* for the default relative roughness $\varepsilon$ = 0.002 and shows plot:
 
-``>> f=Re2f(12e4,:,1)``
+``>> f=Re2f(1.2e5,:,1)``
 
 *e.g.* this call computes *f* and shows plot:
 
-``>> f=Re2f(12e4,0.002,1)``
+``>> f=Re2f(1.2e5,0.002,1)``
 
 ### f2Re
 
