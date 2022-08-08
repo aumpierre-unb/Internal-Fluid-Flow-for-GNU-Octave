@@ -78,13 +78,13 @@ The simplest problems on internal fluid flow consist on computing one of them gi
 
 ### Laminar Flow and Turbulent Flow
 
-For laminar flow, the Darcy friction factor is given by the Poiseuille condition,
+For laminar flow, *Re* < 2500 (typically), the Darcy friction factor is given by the Poiseuille condition,
 
 $$
 f={64 \over Re}
 $$
 
-For turbulent flow, the Darcy friction factor is given implicitly by the Colebrook-White equation,
+For turbulent flow, *Re* > 2500 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
 
 $$
 {1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt{f}}}}
