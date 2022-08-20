@@ -19,72 +19,116 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [f]=Re2f(Re,eps=2e-3,s=0)
+function [f]=Re2f(Re,eps=0,fig=false)
     # [f]=Re2f(Re,[eps[,s]]) computes
     # the Darcy friction f factor, given
     # the Reynolds number Re and
     # the relative roughness eps.
-    # By default eps=2e-3.
-    # If eps>5e-2, execution is aborted.
-    # If s=1 is given,a schematic Moody diagram
+    # By default, tube is assumed to be smooth, eps=0.
+    # If eps>5e-2, eps is reset to 5e-2.
+    # If s=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the computation.
     #
-    # # e.g. this call computes f
-    # # and shows no plot:
-    # Re=120e3;eps=0.002;
+    # # e.g. Compute the Darcy friction factor f given
+    # # the Reynolds number Re=1.2e5 and
+    # # the relative roughness eps=0.001:
+    # Re=1.2e5;eps=0.001;
     # f=Re2f(Re,eps)
+    # # Alternatively:
+    # f=Re2f(1.2e5,0.001)
+    # # This call computes f given
+    # # Re=1.2e5 and eps=0.001 and
+    # # displays a schematic Moody Diagram:
+    # f=Re2f(1.2e5,0.001,true)
     #
-    # # e.g. this call computes f
-    # # for the default relative roughness eps=2e-3
-    # # and shows plot:
-    # f=Re2f(120e3,:,1)
-    #
-    # # e.g. this call computes f
-    # # and shows plot:
-    # f=Re2f(120e3,0.002,1)
+    # # e.g. Compute the Darcy friction factor f given
+    # # the Reynolds number Re=1.2e5 and
+    # # the default smooth condition, eps=0:
+    # f=Re2f(1.2e5,:,true)
     #
     # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
-    if eps>5e-2 abort end
-    if Re<3e3
-        f=64/Re
+    if eps>5e-2
+        warning("Relative roughness reassined to eps=5e-2.");
+        eps=5e-2;
+    end
+    if eps==0
+        warning("Relative roughness assined to eps=0.");
+    end
+    if Re<2.3e3
+        f=Re2f(Re,eps);
     else
         foo=@(f) 1/sqrt(f)+...
                  2*log10(eps/3.7+2.51/Re/sqrt(f));
         f=bissecao(foo,1e-2,1e-1,1e-4);
     end
-    if s==1
-        figure
-        laminar('k')
-        hold on,turb(eps,'k')
-        hold on,turb(eps*3,'k')
-        hold on,turb(eps*10,'k')
-        hold on,turb(eps/3,'k')
-        hold on,turb(eps/10,'k')
-        hold on,rough('b')
-        hold on,loglog(Re,f,'dr')
-        grid on
-        axis([1e2 1e8 6e-3 1e-1])
-        xlabel('{\itRe} = {\it\rho}{\ituD}/{\it\mu}')
-        ylabel('{\itf} = {\ith} / ({\itv}^2/{\itg} {\itL}/{\itD})')
-        set(gca,'fontsize',14)
+    if fig
+        figure;
+        if Re<2.3e3
+            laminar('r');
+            hold on;turb(eps,'k');
+        else
+            laminar('k');
+            hold on;turb(eps,'r');
+        end
+        if eps==0, hold on;turb(1e-5,"k");
+        elseif eps*3<5e-2, hold on;turb(eps*3,"k");
+        else hold on;turb(eps/2,"k");
+        end
+        if eps==0, hold on;turb(1e-4,"k");
+        elseif eps*10<5e-2, hold on;turb(eps*10,"k");
+        else hold on;turb(eps/7,"k");
+        end
+        if eps==0, hold on;turb(1e-3,"k");
+        else hold on;turb(eps/3,"k");
+        end
+        if eps==0, hold on;turb(1e-2,"k");
+        else hold on;turb(eps/10,"k");
+        end
+        hold on;rough('b');
+        if ~eps==0, hold on;smooth('b'); end
+        hold on;loglog(Re,f,'dr');
+        line('xdata',[Re Re],...
+             'ydata',[6e-3 1e-1],...
+             'linewidth',1,...
+             'linestyle','--',...
+             'color','r');
+        grid on;
+        axis([1e2 1e8 6e-3 1e-1]);
+        xlabel('{\itRe}');
+        ylabel('{\itf}');
+        set(gca,'fontsize',14);
     end
 end
 
 function laminar(t)
-    Re=[5e2 4e3];
-    f=64 ./ Re;
-    loglog(Re,f,t);
+    line('xdata',[5e2 4e3],...
+         'ydata',[64/5e2 64/4e3],...
+         'linewidth',1,...
+         'color',t);
 end
 
 function turb(eps,t)
     Re=[];
     f=[];
-    N=50;
+    N=51;
     for i=1:N
-        w=log10(2e3)+i*(log10(1e8)-log10(2e3))/N;
+        w=log10(2e3)+(i-1)*(log10(1e8)-log10(2e3))/(N-1);
         Re=[Re;10^w];
         foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
+        f=[f;bissecao(foo,6e-4,1e-1,1e-4)];
+    end
+    loglog(Re,f,t);
+end
+
+function smooth(t)
+    Re=[];
+    f=[];
+    N=31;
+    for i=1:N
+        w=log10(2e3)+(i-1)*(log10(1e7)-log10(2e3))/(N-1);
+        Re=[Re;10^w];
+        foo=@(f) 1/sqrt(f)+2*log10(2.51/Re(end)/sqrt(f));
         f=[f;bissecao(foo,6e-3,1e-1,1e-4)];
     end
     loglog(Re,f,t);
@@ -94,9 +138,9 @@ function rough(t)
     eps=[];
     f=[];
     Re=[];
-    N=30;
+    N=31;
     for i=1:N
-        w=log10(4e-5)+i*(log10(5e-2)-log10(4e-5))/N;
+        w=log10(4e-5)+(i-1)*(log10(5e-2)-log10(4e-5))/(N-1);
         eps=[eps;10^w];
         f=[f;1.01*(2*log10(3.7/eps(end)))^-2];
         z=f2Re(f(end),eps(end));
@@ -108,10 +152,8 @@ end
 function x2=bissecao(f,x1,x2,tol)
   while abs(f(x2))>tol
     x=(x1+x2)/2;
-    if f(x)*f(x1)>0
-      x1=x;
-    else
-      x2=x;
+    if f(x)*f(x1)>0 x1=x;
+    else x2=x;
     end
   end
 end
