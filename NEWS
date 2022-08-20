@@ -1,16 +1,16 @@
 TODO
 ====
-* Spell of "Colebrooke" fixed to "Colebrook" (DONE)
-* Adoption of semantic versioning (https://semver.org) (DONE)
-* Laminar/turbulent transition reset from 3e3 to 2.5e3 (DONE)
-* On the help comments in f2Re, replace
-  "e.g. this call computes f" (lines 36, 42 and 47) by
-  "e.g. this call computes Re" (DONE)
-* On the help comments in Re2f, replace
-  "e.g. this call computes Re" (lines 33, 38 and 43) by
-  "e.g. this call computes f" (DONE)
-* Minor corrections on help comments (DONE)
-  
+
+
+internal-fluid-flow 0.1.0 (2022-08-21)
+======================================
+* Spell fixed for "Colebrook"
+* Adoption of semantic versioning (https://semver.org)
+* Laminar/turbulent transition reset from 3e3 to 2.3e3
+* Axes' titles adapted to fit to functions' inputs
+* Minor corrections on help comments
+* Major changes on code to solve bug on the transitional region
+
 
 internal-fluid-flow 0.0.3 (2022-07-23)
 ======================================

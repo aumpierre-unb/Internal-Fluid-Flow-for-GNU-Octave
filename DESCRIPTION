@@ -1,9 +1,9 @@
 Name: internal-fluid-flow
-Version: 0.0.3
-Date: 2022-07-23
+Version: 0.0.4
+Date: 2022-08-21
 Author: Alexandre Umpierre (aumpierre@gmail.com)
 Maintainer: Alexandre Umpierre
-Title: Internal Fluid Flow for GNU Octave
+Title: Internal Fluid Flow
 Description: A toolbox for internal fluid flow based on the Poiseuille condition and on the Colebrooke-White and the Darcy-Weisbach equations.
 Categories: package
 Depends: octave (>=4.0.0)
