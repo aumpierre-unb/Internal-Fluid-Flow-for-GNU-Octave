@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/509427410.svg)](https://zenodo.org/badge/latestdoi/509427410)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-This is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal FluidFlow Module for GNU Octave.
+This is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Module for GNU Octave.
 
 Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow. Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this toolbox.
 
