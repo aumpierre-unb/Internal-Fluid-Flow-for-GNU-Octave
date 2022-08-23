@@ -43,7 +43,7 @@ where
 
 ### Head Loss
 
-The flow of viscous fluids is accompanied of energy dispersion, which can be measured as a pressure drop or, equivalently, as a head loss *h*, by the Darcy-Weisbach equation,
+The flow of viscous fluids is accompanied of energy dispersion, which can be measured as pressure drop or, equivalently, as head loss *h*, by the Darcy-Weisbach equation,
 
 $$
 h=f{v^2 \over 2g} {L \over D}
