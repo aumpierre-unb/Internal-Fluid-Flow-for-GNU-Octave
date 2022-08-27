@@ -1,21 +1,21 @@
 Cite this version as
 Alexandre Umpierre. (2022). 
-aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave: Internal Fluid Flow Toolbox 0.1.0 (0.1.0). 
-Zenodo. https://doi.org/10.5281/zenodo.7013153
+aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave: Internal Fluid Flow Toolbox 0.1.1 (v0.1.1). 
+Zenodo. https://doi.org/10.5281/zenodo.7027610
 
 You can cite all versions by using the 
 DOI 10.5281/zenodo.6960263. 
 This DOI represents all versions, and will always resolve to the latest one
 
 BibTeX Export
-@software{alexandre_umpierre_2022_7013153,
+@software{alexandre_umpierre_2022_7027610,
   author       = {Alexandre Umpierre},
   title        = {{aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave: 
-                   Internal Fluid Flow Toolbox 0.1.0}},
+                   Internal Fluid Flow Toolbox 0.1.1}},
   month        = aug,
   year         = 2022,
   publisher    = {Zenodo},
-  version      = {0.1.0},
-  doi          = {10.5281/zenodo.7013153},
-  url          = {https://doi.org/10.5281/zenodo.7013153}
+  version      = {v0.1.1},
+  doi          = {10.5281/zenodo.7027610},
+  url          = {https://doi.org/10.5281/zenodo.7027610}
 }
