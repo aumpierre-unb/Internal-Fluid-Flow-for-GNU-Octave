@@ -71,19 +71,19 @@ function [f]=Re2f(Re,eps=0,fig=false)
             laminar('k');
             hold on;turb(eps,'r');
         end
-        if eps==0, hold on;turb(1e-5,"k");
-        elseif eps*3<5e-2, hold on;turb(eps*3,"k");
-        else hold on;turb(eps/2,"k");
+        if eps<1e-4, hold on;turb(1e-5,'k');
+        else hold on;turb(eps/3,'k');
         end
-        if eps==0, hold on;turb(1e-4,"k");
-        elseif eps*10<5e-2, hold on;turb(eps*10,"k");
-        else hold on;turb(eps/7,"k");
+        if eps<1e-4, hold on;turb(1e-4,'k');
+        else hold on;turb(eps/10,'k');
         end
-        if eps==0, hold on;turb(1e-3,"k");
-        else hold on;turb(eps/3,"k");
+        if eps<1e-4, hold on;turb(1e-3,'k');
+        elseif eps*3>5e-2, hold on;turb(5e-2,'k');
+        else hold on;turb(eps*3,'k');
         end
-        if eps==0, hold on;turb(1e-2,"k");
-        else hold on;turb(eps/10,"k");
+        if eps<1e-4, hold on;turb(5e-3,'k');
+        elseif eps*10>5e-2, hold on;turb(eps/6,'k');
+        else hold on;turb(eps*10,'k');
         end
         hold on;rough('b');
         if ~eps==0, hold on;smooth('b'); end
