@@ -27,7 +27,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # for laminar regime and,
     # when possible, also
     # for turbulent regime.
-    # By default eps=2e-3.
+    # By default, tube is assumed to be smooth, eps=0.
     # If eps>5e-2, execution is aborted.
     # If s=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation

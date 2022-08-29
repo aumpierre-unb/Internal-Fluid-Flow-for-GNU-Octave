@@ -24,7 +24,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho,fig=false)
     # the Reynolds number Re and
     # the Darcy friction factor f, given
     # the head loss h,
-    # the volumetric flow Q,
+    # the volumetric flow rate Q,
     # the tube length L,
     # the relative roughness eps,
     # the gravitational accelaration g,

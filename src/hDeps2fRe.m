@@ -23,7 +23,7 @@ function [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho,fig=false)
     # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho[,s]) computes
     # the Reynolds number Re and
     # the Darcy friction factor f, given
-    # thehead loss h,
+    # the head loss h,
     # the hydraullic diameter D,
     # the tube length L,
     # the relative roughness eps,
