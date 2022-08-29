@@ -25,7 +25,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho,fig=false)
     # the Darcy friction factor f, given
     # the head loss h,
     # the flow speed v,
-    # the tube length L,
+    # the pipe's length L,
     # the roughness thk,
     # the gravitational accelaration g,
     # the fluid's dynamic viscosity mu and

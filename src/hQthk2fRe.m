@@ -24,8 +24,8 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,fig=false)
     # the Reynolds number Re and
     # the Darcy friction factor f, given
     # the head loss h,
-    # the volumetric flow rate Q,
-    # the tube length L,
+    # the volumetric flow Q,
+    # the pipe's length L,
     # the roughness thk,
     # the gravitational accelaration g,
     # the fluid's dynamic viscosity mu and

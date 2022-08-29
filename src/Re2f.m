@@ -24,7 +24,7 @@ function [f]=Re2f(Re,eps=0,fig=false)
     # the Darcy friction f factor, given
     # the Reynolds number Re and
     # the relative roughness eps.
-    # By default, tube is assumed to be smooth, eps=0.
+    # By default, pipe is assumed to be smooth, eps=0.
     # If eps>5e-2, eps is reset to 5e-2.
     # If s=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
