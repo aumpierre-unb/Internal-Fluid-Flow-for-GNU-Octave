@@ -26,7 +26,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho,fig=false)
     # the head loss h,
     # the flow speed v,
     # the pipe's length L,
-    # the roughness thk,
+    # the pipe's roughness thk,
     # the gravitational accelaration g,
     # the fluid's dynamic viscosity mu and
     # the fluid's density rho.

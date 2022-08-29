@@ -26,7 +26,7 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,fig=false)
     # the head loss h,
     # the volumetric flow Q,
     # the pipe's length L,
-    # the roughness thk,
+    # the pipe's roughness thk,
     # the gravitational accelaration g,
     # the fluid's dynamic viscosity mu and
     # the fluid's density rho.
@@ -59,7 +59,7 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,fig=false)
     # # the head loss h=15 cm,
     # # the volumetric flow rate Q=20 cc/s,
     # # the pipe's length L=2500 cm and
-    # # roughness thk=0.0025 cm,
+    # # the pipe's roughness thk=0.0025 cm,
     # # the gravitational acceleration g=981 cm/s/s, and
     # # the fluid's dynamic viscosity mu=0.0089 g/cm/s and
     # # density rho=0.989 g/cc, and

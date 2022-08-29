@@ -23,7 +23,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # [Re]=f2Re(f,[eps[,s]]) computes
     # the Reynolds number Re, given
     # the Darcy friction factor f and
-    # the relative roughness eps for
+    # the pipe's relative roughness eps for
     # for laminar regime and,
     # when possible, also
     # for turbulent regime.

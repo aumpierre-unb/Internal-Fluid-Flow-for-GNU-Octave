@@ -59,7 +59,7 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,fig=false)
     # # the head loss h=40 cm,
     # # the flow speed v=20 cm/s,
     # # the pipe's length L=2500 cm and
-    # # relative roughness eps=0.0025,
+    # # the pipe's relative roughness eps=0.0025,
     # # the gravitational acceleration g=981 cm/s/s, and
     # # the fluid's dynamic viscosity mu=0.0089 g/cm/s and
     # # density rho=0.989 g/cc, and

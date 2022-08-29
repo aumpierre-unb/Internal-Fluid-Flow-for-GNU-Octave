@@ -26,7 +26,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho,fig=false)
     # the head loss h,
     # the volumetric flow Q,
     # the pipe's length L,
-    # the relative roughness eps,
+    # the pipe's relative roughness eps,
     # the gravitational accelaration g,
     # the fluid's dynamic viscosity mu and
     # the fluid's density rho.
