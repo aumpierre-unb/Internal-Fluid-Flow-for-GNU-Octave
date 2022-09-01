@@ -20,7 +20,7 @@ It is also available at https://www.gnu.org/licenses/.
 #}
 
 function [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho,fig=false)
-    # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho[,s]) computes
+    # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho[,fig]) computes
     # the Reynolds number Re and
     # the Darcy friction factor f, given
     # the head loss h,
@@ -30,7 +30,7 @@ function [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho,fig=false)
     # the gravitational accelaration g,
     # the fluid's dynamic viscosity mu and
     # the fluid's density rho.
-    # If s=true is given,a schematic Moody diagram
+    # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the computation.
     #
