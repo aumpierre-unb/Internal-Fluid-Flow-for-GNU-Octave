@@ -28,7 +28,7 @@ function [f]=Re2f(Re,eps=0,fig=false)
     # If eps>5e-2, eps is reset to 5e-2.
     # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
-    #  of the computation.
+    #  of the solution.
     #
     # # e.g. Compute the Darcy friction factor f given
     # # the Reynolds number Re=1.2e5 and

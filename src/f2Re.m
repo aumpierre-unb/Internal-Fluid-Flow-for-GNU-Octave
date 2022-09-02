@@ -31,7 +31,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # If eps>5e-2, execution is aborted.
     # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
-    #  of the computation.
+    #  of the solution.
     #
     # # e.g. Compute Reynolds number Re for
     # # Darcy friction factor f=0.028 and

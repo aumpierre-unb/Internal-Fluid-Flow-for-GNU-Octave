@@ -32,7 +32,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho,fig=false)
     # the fluid's density rho.
     # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
-    #  of the computation.
+    #  of the solution.
     #
     # # e.g. Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
