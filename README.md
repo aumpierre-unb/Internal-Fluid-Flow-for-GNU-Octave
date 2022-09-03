@@ -5,7 +5,7 @@
 
 ### Install and load Internal Fluid Flow Toolbox for GNU Octave:
 
-``>> pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.1.tar.gz``
+``>> pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.2.tar.gz``
 
 ``>> pkg load internal-fluid-flow``
 
