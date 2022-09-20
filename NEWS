@@ -1,7 +1,7 @@
 TODO
 ====
 
-internal-fluid-flow 0.2.0-alpha
+internal-fluid-flow 0.2.0 (2022-09-20)
 ======================================
 * Input sequence altered for most functions
   (please, check it out at Julia's help)
