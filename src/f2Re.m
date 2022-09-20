@@ -60,13 +60,13 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # Re=f2Re(0.028,:,true)
     #
     # See also: Re2f, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
-    if eps>5e-2
-        eps=5e-2;
-        warning("Relative roughness reassined to eps=5e-2.");
-    end
-    if eps==0
-        warning("Relative roughness assined to eps=0.");
-    end
+##    if eps>5e-2
+##        eps=5e-2;
+##        warning("Relative roughness reassined to eps=5e-2.");
+##    end
+##    if eps==0
+##        warning("Relative roughness assined to eps=0.");
+##    end
     Re=[];
     fD=[];
     if 64/f<2.3e3

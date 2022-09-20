@@ -19,7 +19,7 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,fig=false)
+function [Re,f]=hQthk2fRe(h,Q,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho[,fig]) computes
     # the Reynolds number Re and
     # the Darcy friction factor f, given
@@ -27,46 +27,57 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,fig=false)
     # the volumetric flow Q,
     # the pipe's length L,
     # the pipe's roughness thk,
-    # the gravitational accelaration g,
-    # the fluid's dynamic viscosity mu and
-    # the fluid's density rho.
+    # the fluid's density rho,
+    # the fluid's dynamic viscosity mu, and
+    # the gravitational accelaration g.
+    # By default, pipe is assumed to be smooth, thk=0.
+    # By default, the fluid is assumed to be water at 25 degC,
+    #  rho=0.997 (in g/cc) and mu=0.91 (in g/cm/s),
+    #  and gravitational acceleration is assumed to be
+    #  g=981 (in cm/s/s).
+    # Please, notice that these default values are given
+    #  in the cgs unit system and, if taken,
+    #  all other inputs must as well be given in cgs units.
     # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
     #
     # # e.g. Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h=40 cm,
-    # # the volumetric flow rate Q=8600 cc/s,
-    # # the pipe's length L=2500 cm and
-    # # roughness thk=0.025 cm,
-    # # the gravitational acceleration g=981 cm/s/s, and
-    # # the fluid's dynamic viscosity mu=0.0089 g/cm/s and
-    # # density rho=0.989 g/cc:
-    # h=40;Q=8600;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;
-    # [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho)
-    # D=Q*rho/(pi/4)/Re/mu #pipe's hydraulic diameter
-    # eps=thk/D #pipe's relative roughness
-    # v=Q/(pi/4*D^2) #flow speed
-    # # Alternatively:
-    # [Re,f]=hQthk2fRe(40,8600,2500,0.025,981,0.0089,0.989)
-    # # This call computes Re and f for the given inputs and
-    # # displays a schematic Moody Diagram:
-    # [Re,f]=hQthk2fRe(40,8600,2500,0.025,981,0.0089,0.989,true)
+    # # the head loss h = 40 cm,
+    # # the volumetric flow rate Q = 8.6 L/s,
+    # # length L = 25 m and
+    # # roughness thk = 0.027 mm,
+    # # for water:
+    # h=40;Q=8.6e3;L=2.5e3;thk=2.7e-3; # inputs in cgs units
+    # [Re,f]=hQthk2fRe(h,Q,L,eps)
+    # eps=thk/D # pipe's relative roughness
+    # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
+    # v=Re*mu/rho/D # flow speed in cm/s
     #
     # # e.g. Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h=15 cm,
-    # # the volumetric flow rate Q=20 cc/s,
-    # # the pipe's length L=2500 cm and
-    # # the pipe's roughness thk=0.0025 cm,
-    # # the gravitational acceleration g=981 cm/s/s, and
-    # # the fluid's dynamic viscosity mu=0.0089 g/cm/s and
-    # # density rho=0.989 g/cc, and
-    # # display a schematic Moody Diagram:
-    # [Re,f]=hQthk2fRe(15,20,2500,0.0025,981,0.0089,0.989,true)
+    # # the head loss h = 40 cm,
+    # # the volumetric flow rate Q = 8.6 L/s,
+    # # length L = 25 m and
+    # # the fluid's density rho = 0.989 g/cc and
+    # # dynamic viscosity mu = 0.0089 g/cm/s
+    # # in a smooth pipe:
+    # h=40;Q=8.6e3;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
+    # [Re,f]=hQthk2fRe(h,Q,L,:,rho,mu)
     #
-    # See also: Re2f, f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe
+    # # e.g. Compute the Reynolds number Re and
+    # # the Darcy friction factor f, given
+    # # the head loss h = 40 cm,
+    # # the volumetric flow rate Q = 8.6 L/s,
+    # # length L = 25 m and
+    # # roughness thk = 0.027 mm,
+    # # the fluid's dynamic viscosity mu = 0.0089 g/cm/s and
+    # # density rho = 0.989 g/cc, and
+    # # display a schematic Moody Diagram:
+    # [Re,f]=hQthk2fRe(0.40,1.1,25,2.7e-5,989,8.9e-4,:,true)
+    #
+    # See also: Re2f, f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe.
     P=2*g*h*Q^3/(pi/4)^3/(mu/rho)^5/L;
     islam=true;
     Re=(P/64)^(1/4);
@@ -88,7 +99,7 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho,fig=false)
                     f=64/Re;
                     D=rho*Q/Re/mu/(pi/4);
                     eps=thk/D;
-                    warning("Solution found in extended laminar range.");
+                    printf("Solution found in extended laminar range.\n");
                     break
                 end
             end

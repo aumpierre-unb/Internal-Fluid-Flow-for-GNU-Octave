@@ -48,13 +48,13 @@ function [f]=Re2f(Re,eps=0,fig=false)
     # f=Re2f(1.2e5,:,true)
     #
     # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
-    if eps>5e-2
-        warning("Relative roughness reassined to eps=5e-2.");
-        eps=5e-2;
-    end
-    if eps==0
-        warning("Relative roughness assined to eps=0.");
-    end
+##    if eps>5e-2
+##        warning("Relative roughness reassined to eps=5e-2.");
+##        eps=5e-2;
+##    end
+##    if eps==0
+##        warning("Relative roughness assined to eps=0.");
+##    end
     if Re<2.3e3
         f=Re2f(Re,eps);
     else

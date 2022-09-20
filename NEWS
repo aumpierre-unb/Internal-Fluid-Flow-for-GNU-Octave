@@ -1,6 +1,18 @@
 TODO
 ====
 
+internal-fluid-flow 0.2.0-alpha
+======================================
+* Input sequence altered for most functions
+  (please, check it out at Julia's help)
+* Input types declared as Number
+* Default values for density and viscosity
+  set to rho = 0.997 g/cc and
+  mu = 0.91 g/cm/s (water @ 25 °C)
+* Default value for gravitational acceleration
+  set to g = 981 cm/s/s
+* Major changes on docstrings and on README.md
+
 internal-fluid-flow 0.1.2 (2022-09-03)
 ======================================
 * Minor adjustments on plots

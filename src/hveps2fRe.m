@@ -19,7 +19,7 @@ GNU General Public License along with this program
 It is also available at https://www.gnu.org/licenses/.
 #}
 
-function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,fig=false)
+function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho[,fig]) computes
     # the Reynolds number Re and
     # the Darcy friction factor f, given
@@ -27,58 +27,57 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,fig=false)
     # the flow speed v,
     # the pipe's length L,
     # the relative roughness eps,
-    # the gravitational accelaration g,
-    # the fluid's dynamic viscosity mu and
-    # the fluid's density rho.
+    # the fluid's density rho,
+    # the fluid's dynamic viscosity mu, and
+    # the gravitational accelaration g.
+    # By default, pipe is assumed to be smooth, eps=0.
+    # By default, the fluid is assumed to be water at 25 degC,
+    #  rho=0.997 (in g/cc) and mu=0.91 (in g/cm/s),
+    #  and gravitational acceleration is assumed to be
+    #  g=981 (in cm/s/s).
+    # Please, notice that these default values are given
+    #  in the cgs unit system and, if taken,
+    #  all other inputs must as well be given in cgs units.
     # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
     #
     # # e.g. Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h=40 cm,
-    # # the flow speed v=100 cm/s,
-    # # the pipe's length L=2500 cm and
-    # # relative roughness eps=0.0025,
-    # # the gravitational acceleration g=981 cm/s/s, and
-    # # the fluid's dynamic viscosity mu=0.0089 g/cm/s and
-    # # density rho=0.989 g/cc:
-    # h=40;v=110;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
-    # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho)
-    # D=Re*mu/rho/v #pipe's hydraulic diameter
-    # thk=eps*D #pipe's roughness
-    # Q=v*(pi/4*D^2) #volumetric flow rate
-    # # Alternatively:
-    # [Re,f]=hveps2fRe(40,100,2500,0.0025,981,0.0089,0.989)
-    # # This call computes Re and f for the given inputs and
-    # # displays a schematic Moody Diagram:
-    # [Re,f]=hveps2fRe(40,100,2500,0.0025,981,0.0089,0.989,true)
+    # # the head loss h = 40 cm,
+    # # the flow speed v = 1.1 m/s,
+    # # length L = 25 m and
+    # # relative roughness eps = 0.0027,
+    # # for water:
+    # h=40;v=1.1e2;L=2.5e3;eps=2.7e-3; # inputs in cgs units
+    # [Re,f]=hveps2fRe(h,v,L,eps)
+    # thk=eps*D # pipe's roughness in cm
+    # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
+    # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s
     #
     # # e.g. Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h=40 cm,
-    # # the flow speed v=20 cm/s,
-    # # the pipe's length L=2500 cm and
-    # # the pipe's relative roughness eps=0.0025,
-    # # the gravitational acceleration g=981 cm/s/s, and
-    # # the fluid's dynamic viscosity mu=0.0089 g/cm/s and
-    # # density rho=0.989 g/cc, and
-    # # display a schematic Moody Diagram:
-    # [Re,f]=hveps2fRe(40,20,2500,0.0025,981,0.0089,0.989,true)
+    # # the head loss h = 40 cm,
+    # # the flow speed v = 1.1 m/s,
+    # # length L = 25 m and
+    # # the fluid's density rho = 0.989 g/cc and
+    # # dynamic viscosity mu = 0.0089 g/cm/s
+    # # in a smooth pipe:
+    # h=40;v=1.1e2;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
+    # [Re,f]=hveps2fRe(h,v,L,:,rho,mu)
     #
     # # e.g. Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h=40 cm,
-    # # the flow speed v=27 cm/s,
-    # # the pipe's length L=2500 cm and
-    # # relative roughness eps=0.0025,
-    # # the gravitational acceleration g=981 cm/s/s, and
-    # # the fluid's dynamic viscosity mu=0.0089 g/cm/s and
-    # # density rho=0.989 g/cc, and
+    # # the head loss h = 40 cm,
+    # # the flow speed v = 1.1 m/s,
+    # # length L = 25 m and
+    # # relative roughness eps = 0.0027,
+    # # the fluid's dynamic viscosity mu = 0.0089 g/cm/s and
+    # # density rho = 0.989 g/cc, and
     # # display a schematic Moody Diagram:
-    # [Re,f]=hveps2fRe(40,27,2500,0.0025,981,0.0089,0.989,true)
+    # [Re,f]=hveps2fRe(0.40,1.1,25,2.7e-3,989,8.9e-4,:,true)
     #
-    # See also: Re2f, f2Re, hDeps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
+    # See also: Re2f, f2Re, hDeps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
     M=2*g*mu*h/v^3/rho/L;
     isturb=true;
     Re=1e4;
@@ -101,7 +100,7 @@ function [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho,fig=false)
         f=[64/sqrt(64/M);f];
     end
     if size(Re,1)==2
-        warning("Laminar and turbulent solutions found.");
+        printf("Laminar and turbulent solutions found.\n");
     end
     if fig
         figure;
