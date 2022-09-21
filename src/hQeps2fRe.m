@@ -52,7 +52,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3; # inputs in cgs units
     # [Re,f]=hQeps2fRe(h,Q,L,eps)
     # thk=eps*D # pipe's roughness in cm
-    # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
+    # D=rho/mu*Q/(%pi/4)/Re # pipe's hydraulic diameter in cm
     # v=Re*mu/rho/D # flow speed in cm/s
     #
     # # e.g. Compute the Reynolds number Re and
@@ -75,7 +75,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the fluid's dynamic viscosity mu = 0.0089 g/cm/s and
     # # density rho = 0.989 g/cc, and
     # # display a schematic Moody Diagram:
-    # [Re,f]=hQeps2fRe(0.40,1.1,25,2.7e-3,989,8.9e-4,:,true)
+    # [Re,f]=hQeps2fRe(0.40,8.6e-3,25,2.7e-3,989,8.9e-4,:,true)
     #
     # See also: Re2f, f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQthk2fRe.
     P=2*g*h*Q^3/(pi/4)^3/(mu/rho)^5/L;

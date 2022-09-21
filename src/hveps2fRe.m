@@ -53,7 +53,7 @@ function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # [Re,f]=hveps2fRe(h,v,L,eps)
     # thk=eps*D # pipe's roughness in cm
     # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
-    # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s
+    # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s.
     #
     # # e.g. Compute the Reynolds number Re and
     # # the Darcy friction factor f, given

@@ -31,30 +31,18 @@ function [f]=Re2f(Re,eps=0,fig=false)
     #  of the solution.
     #
     # # e.g. Compute the Darcy friction factor f given
-    # # the Reynolds number Re=1.2e5 and
-    # # the relative roughness eps=0.001:
+    # # the Reynolds number Re = 120000 and
+    # # the relative roughness eps = 0.001:
     # Re=1.2e5;eps=0.001;
     # f=Re2f(Re,eps)
-    # # Alternatively:
-    # f=Re2f(1.2e5,0.001)
-    # # This call computes f given
-    # # Re=1.2e5 and eps=0.001 and
-    # # displays a schematic Moody Diagram:
-    # f=Re2f(1.2e5,0.001,true)
     #
     # # e.g. Compute the Darcy friction factor f given
-    # # the Reynolds number Re=1.2e5 and
-    # # the default smooth condition, eps=0:
+    # # the Reynolds number Re = 120000
+    # # in a smooth pipe and
+    # # displays a schematic Moody Diagram:
     # f=Re2f(1.2e5,:,true)
     #
-    # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe
-##    if eps>5e-2
-##        warning("Relative roughness reassined to eps=5e-2.");
-##        eps=5e-2;
-##    end
-##    if eps==0
-##        warning("Relative roughness assined to eps=0.");
-##    end
+    # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
     if Re<2.3e3
         f=Re2f(Re,eps);
     else

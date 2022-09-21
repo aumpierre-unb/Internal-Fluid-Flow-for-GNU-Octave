@@ -47,9 +47,9 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the head loss h = 40 cm,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
-    # # roughness thk = 0.027 mm,
+    # # roughness thk = 0.27 mm,
     # # for water:
-    # h=40;v=1.1e2;L=2.5e3;eps=2.7e-3; # inputs in cgs units
+    # h=40;v=1.1e2;L=2.5e3;eps=2.7e-2; # inputs in cgs units
     # [Re,f]=hvthk2fRe(h,v,L,eps)
     # eps=thk/D # pipe's relative roughness
     # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
@@ -71,11 +71,11 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the head loss h = 40 cm,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
-    # # roughness thk = 0.027 mm,
+    # # roughness thk = 0.27 mm,
     # # the fluid's dynamic viscosity mu = 0.0089 g/cm/s and
     # # density rho = 0.989 g/cc, and
     # # display a schematic Moody Diagram:
-    # [Re,f]=hvthk2fRe(0.40,1.1,25,2.7e-5,989,8.9e-4,:,true)
+    # [Re,f]=hvthk2fRe(0.40,1.1,25,2.7e-4,989,8.9e-4,:,true)
     #
     # See also: Re2f, f2Re, hDeps2fRe, hveps2fRe, hQeps2fRe, hQthk2fRe.
     M=2*g*mu*h/v^3/rho/L;

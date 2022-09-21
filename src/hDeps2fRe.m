@@ -61,7 +61,7 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the pipe's hydraulic diameter D = 10 cm,
     # # length L = 25 m and
     # # the fluid's density rho = 0.989 g/cc and
-    # # dynamic viscosity mu = 0.0089 g/cm/s
+    # # dynamic viscosity mu = 0.0089 g/cm/s,
     # # in a smooth pipe:
     # h=40;D=10;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=hDeps2fRe(h,D,L,:,rho,mu)
@@ -72,10 +72,10 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the pipe's hydraulic diameter D = 10 cm,
     # # length L = 25 m and
     # # relative roughness eps = 0.0027,
-    # # the fluid's dynamic viscosity mu = 0.0089 g/cm/s and
-    # # density rho = 0.989 g/cc, and
+    # # the fluid's density rho = 0.989 g/cc and
+    # # dynamic viscosity mu = 0.0089 g/cm/s, and
     # # display a schematic Moody Diagram:
-    # [Re,f]=hDeps2fRe(0.40,1.1,25,2.7e-3,989,8.9e-4,:,true)
+    # [Re,f]=hDeps2fRe(0.40,0.10,25,2.7e-3,989,8.9e-4,:,true)
     #
     # See also: Re2f, f2Re, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
     K=2*g*h*rho^2*D^3/mu^2/L;
