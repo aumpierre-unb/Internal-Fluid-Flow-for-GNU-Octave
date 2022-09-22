@@ -3,11 +3,13 @@
 [![DOI](https://zenodo.org/badge/509427410.svg)](https://zenodo.org/badge/latestdoi/509427410)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-### Install and load Internal Fluid Flow:
+## Install and load Internal Fluid Flow
 
-``>> pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.2.tar.gz``
+```dotnetcli
+>> pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.2.tar.gz``
 
-``>> pkg load internal-fluid-flow``
+>> pkg load internal-fluid-flow
+```
 
 ---
 
