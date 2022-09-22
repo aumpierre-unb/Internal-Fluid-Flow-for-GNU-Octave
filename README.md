@@ -174,7 +174,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho[,fig])``
+``[Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig]]]]])``
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
@@ -182,7 +182,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 ``>> thk=eps*D``
 
-``>> [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho)``
+``>> [Re,f]=hDeps2fRe(h,D,L,eps,rho,mu,g)``
 
 ``>> v=Re*mu/rho/D``
 
@@ -190,7 +190,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hDeps2fRe(40,10,2500,0.0025,981,0.0089,0.989,true)``
+``>> [Re,f]=hDeps2fRe(40,10,2500,0.0025,0.989,0.0089,981,true)``
 
 ### hveps2fDRe
 
@@ -204,13 +204,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho[,fig])``
+``[Re,f]=hveps2fRe(h,v,L[,eps[,rho[,mu[,g[,fig]]]]])``
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ``>> h=40;v=110;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;``
 
-``>> [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho)``
+``>> [Re,f]=hveps2fRe(h,v,L,eps,rho,mu,g)``
 
 ``>> D=Re*mu/rho/v``
 
@@ -220,7 +220,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hveps2fRe(40,110,2500,0.0025,981,0.0089,0.989,true)``
+``>> [Re,f]=hveps2fRe(40,110,2500,0.0025,0.989,0.0089,981,true)``
 
 ### hQeps2fDRe
 
@@ -234,13 +234,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho[,fig])``
+``[Re,f]=hQeps2fRe(h,Q,L[,eps[,rho[,mu[,g[,fig]]]]])``
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ``>> h=40;Q=8600;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;``
 
-``>> [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho)``
+``>> [Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu,g)``
 
 ``>> D=Q*rho/(pi/4)/Re/mu``
 
@@ -250,7 +250,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hQeps2fRe(40,8600,2500,0.0025,981,0.0089,0.989,true)``
+``>> [Re,f]=hQeps2fRe(40,8600,2500,0.0025,0.989,0.0089,981,true)``
 
 ### hvthk2fDRe
 
@@ -264,13 +264,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho[,fig])``
+``[Re,f]=hvthk2fRe(h,v,L[,thk[,rho[,mu[,g[,fig]]]]])``
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ``>> h=40;v=110;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;``
 
-``>> [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho)``
+``>> [Re,f]=hvthk2fRe(h,v,L,thk,rho,mu,g)``
 
 ``>> D=Re*mu/rho/v``
 
@@ -280,7 +280,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hvthk2fRe(40,110,2500,0.025,981,0.0089,0.989,true)``
+``>> [Re,f]=hvthk2fRe(40,110,2500,0.025,0.989,0.0089,981,true)``
 
 ### hQthk2fDRe
 
@@ -294,13 +294,13 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho[,fig])``
+``[Re,f]=hQthk2fRe(h,Q,L[,thk[,rho[,mu[,g[,fig]]]]])``
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ``>> h=40;Q=8600;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;``
 
-``>> [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho)``
+``>> [Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu,g)``
 
 ``>> D=Q*rho/(pi/4)/Re/mu``
 
@@ -310,7 +310,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hQthk2fRe(40,8600,2500,0.025,981,0.0089,0.989,true)``
+``>> [Re,f]=hQthk2fRe(40,8600,2500,0.025,0.989,0.0089,981,true)``
 
 Copyright &copy; 2022 Alexandre Umpierre
 
