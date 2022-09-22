@@ -119,7 +119,8 @@ Re2f computes the Darcy friction factor *f* given the relative roughness $\varep
 
 **Syntax:**
 
-``[f]=Re2f(Re,[eps[,fig]])
+``[f]=Re2f(Re,[eps[,fig]])``
+
 *e.g.* this call computes *f* and shows no plot:
 
 ```dotnetcli
@@ -151,7 +152,8 @@ $$
 
 **Syntax:**
 
-``[Re]=f2Re(f,[eps[,fig]])
+``[Re]=f2Re(f,[eps[,fig]])``
+
 *e.g.* this call computes *Re* for both laminar and turbulent regimes (if possible) and shows no plot:
 
 ```dotnetcli
