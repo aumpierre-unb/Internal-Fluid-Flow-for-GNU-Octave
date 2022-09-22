@@ -119,7 +119,9 @@ Re2f computes the Darcy friction factor *f* given the relative roughness $\varep
 
 **Syntax:**
 
-``[f]=Re2f(Re,[eps[,fig]])``
+```dotnetcli
+[f]=Re2f(Re,[eps[,fig]])
+```
 
 *e.g.* this call computes *f* and shows no plot:
 
@@ -152,7 +154,9 @@ $$
 
 **Syntax:**
 
-``[Re]=f2Re(f,[eps[,fig]])``
+```dotnetcli
+[Re]=f2Re(f,[eps[,fig]])
+```
 
 *e.g.* this call computes *Re* for both laminar and turbulent regimes (if possible) and shows no plot:
 
@@ -185,7 +189,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig]]]]])``
+```dotnetcli
+[Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig]]]]])
+```
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
@@ -215,7 +221,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hveps2fRe(h,v,L[,eps[,rho[,mu[,g[,fig]]]]])``
+```dotnetcli
+[Re,f]=hveps2fRe(h,v,L[,eps[,rho[,mu[,g[,fig]]]]])
+```
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
@@ -245,7 +253,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hQeps2fRe(h,Q,L[,eps[,rho[,mu[,g[,fig]]]]])``
+```dotnetcli
+[Re,f]=hQeps2fRe(h,Q,L[,eps[,rho[,mu[,g[,fig]]]]])
+```
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
@@ -275,7 +285,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hvthk2fRe(h,v,L[,thk[,rho[,mu[,g[,fig]]]]])``
+```dotnetcli
+[Re,f]=hvthk2fRe(h,v,L[,thk[,rho[,mu[,g[,fig]]]]])
+```
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
@@ -305,7 +317,9 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 **Syntax:**
 
-``[Re,f]=hQthk2fRe(h,Q,L[,thk[,rho[,mu[,g[,fig]]]]])``
+```dotnetcli
+[Re,f]=hQthk2fRe(h,Q,L[,thk[,rho[,mu[,g[,fig]]]]])
+```
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
