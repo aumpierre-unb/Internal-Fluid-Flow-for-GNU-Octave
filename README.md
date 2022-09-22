@@ -6,8 +6,7 @@
 ## Install and load Internal Fluid Flow
 
 ```dotnetcli
->> pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.2.tar.gz``
-
+>> pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.2.tar.gz
 >> pkg load internal-fluid-flow
 ```
 
@@ -120,21 +119,25 @@ Re2f computes the Darcy friction factor *f* given the relative roughness $\varep
 
 **Syntax:**
 
-``[f]=Re2f(Re,[eps[,fig]])``
-
+``[f]=Re2f(Re,[eps[,fig]])
 *e.g.* this call computes *f* and shows no plot:
 
-``>> Re=1.2e5;eps=0.002;``
-
-``>> f=Re2f(Re,eps)``
+```dotnetcli
+>> Re=1.2e5;eps=0.002;
+>> f=Re2f(Re,eps)
+```
 
 *e.g.* this call computes *f* for the default relative roughness $\varepsilon$ = 0.002 and shows plot:
 
-``>> f=Re2f(1.2e5,:,true)``
+```dotnetcli
+>> f=Re2f(1.2e5,:,true)
+```
 
 *e.g.* this call computes *f* and shows plot:
 
-``>> f=Re2f(1.2e5,0.002,true)``
+```dotnetcli
+>> f=Re2f(1.2e5,0.002,true)
+```
 
 ### f2Re
 
@@ -148,21 +151,25 @@ $$
 
 **Syntax:**
 
-``[Re]=f2Re(f,[eps[,fig]])``
-
+``[Re]=f2Re(f,[eps[,fig]])
 *e.g.* this call computes *Re* for both laminar and turbulent regimes (if possible) and shows no plot:
 
-``>> f=0.025;eps=0.002;``
-
-``>> Re=f2Re(f,eps)``
+```dotnetcli
+>> f=0.025;eps=0.002;
+>> Re=f2Re(f,eps)
+```
 
 *e.g.* this call computes *Re* for the default relative roughness $\varepsilon$ = 0.002 for both laminar and turbulent regimes (if possible) and shows plot:
 
-``>> Re=f2Re(0.025,:,true)``
+```dotnetcli
+>> Re=f2Re(0.025,:,true)
+```
 
 *e.g.* e.g. this call computes *Re* for both laminar and turbulent regimes (if possible) and shows plot:
 
-``>> Re=f2Re(0.025,0.002,true)``
+```dotnetcli
+>> Re=f2Re(0.025,0.002,true)
+```
 
 ### hDeps2fDRe
 
@@ -180,19 +187,19 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
-``>> h=40;D=10;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;``
-
-``>> thk=eps*D``
-
-``>> [Re,f]=hDeps2fRe(h,D,L,eps,rho,mu,g)``
-
-``>> v=Re*mu/rho/D``
-
-``>> Q=v*(pi/4*D^2)``
+```dotnetcli
+>> h=40;D=10;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
+>> thk=eps*D
+>> [Re,f]=hDeps2fRe(h,D,L,eps,rho,mu,g)
+>> v=Re*mu/rho/D
+>> Q=v*(pi/4*D^2)
+```
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hDeps2fRe(40,10,2500,0.0025,0.989,0.0089,981,true)``
+```dotnetcli
+>> [Re,f]=hDeps2fRe(40,10,2500,0.0025,0.989,0.0089,981,true)
+```
 
 ### hveps2fDRe
 
@@ -210,19 +217,19 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
-``>> h=40;v=110;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;``
-
-``>> [Re,f]=hveps2fRe(h,v,L,eps,rho,mu,g)``
-
-``>> D=Re*mu/rho/v``
-
-``>> thk=eps*D``
-
-``>> Q=v*(pi/4*D^2)``
+```dotnetcli
+>> h=40;v=110;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
+>> [Re,f]=hveps2fRe(h,v,L,eps,rho,mu,g)
+>> D=Re*mu/rho/v
+>> thk=eps*D
+>> Q=v*(pi/4*D^2)
+```
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hveps2fRe(40,110,2500,0.0025,0.989,0.0089,981,true)``
+```dotnetcli
+>> [Re,f]=hveps2fRe(40,110,2500,0.0025,0.989,0.0089,981,true)
+```
 
 ### hQeps2fDRe
 
@@ -240,19 +247,19 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
-``>> h=40;Q=8600;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;``
-
-``>> [Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu,g)``
-
-``>> D=Q*rho/(pi/4)/Re/mu``
-
-``>> thk=eps*D``
-
-``>> v=Q/(pi/4*D^2)``
+```dotnetcli
+>> h=40;Q=8600;L=2500;eps=0.0025;g=981;mu=0.0089;rho=0.989;
+>> [Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu,g)
+>> D=Q*rho/(pi/4)/Re/mu
+>> thk=eps*D
+>> v=Q/(pi/4*D^2)
+```
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hQeps2fRe(40,8600,2500,0.0025,0.989,0.0089,981,true)``
+```dotnetcli
+>> [Re,f]=hQeps2fRe(40,8600,2500,0.0025,0.989,0.0089,981,true)
+```
 
 ### hvthk2fDRe
 
@@ -270,19 +277,19 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
-``>> h=40;v=110;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;``
-
-``>> [Re,f]=hvthk2fRe(h,v,L,thk,rho,mu,g)``
-
-``>> D=Re*mu/rho/v``
-
-``>> eps=thk/D``
-
-``>> Q=v*(pi/4*D^2)``
+```dotnetcli
+>> h=40;v=110;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;
+>> [Re,f]=hvthk2fRe(h,v,L,thk,rho,mu,g)
+>> D=Re*mu/rho/v
+>> eps=thk/D
+>> Q=v*(pi/4*D^2)
+```
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hvthk2fRe(40,110,2500,0.025,0.989,0.0089,981,true)``
+```dotnetcli
+>> [Re,f]=hvthk2fRe(40,110,2500,0.025,0.989,0.0089,981,true)
+```
 
 ### hQthk2fDRe
 
@@ -300,19 +307,19 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
-``>> h=40;Q=8600;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;``
-
-``>> [Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu,g)``
-
-``>> D=Q*rho/(pi/4)/Re/mu``
-
-``>> eps=thk/D``
-
-``>> v=Q/(pi/4*D^2)``
+```dotnetcli
+>> h=40;Q=8600;L=2500;thk=0.025;g=981;mu=0.0089;rho=0.989;
+>> [Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu,g)
+>> D=Q*rho/(pi/4)/Re/mu
+>> eps=thk/D
+>> v=Q/(pi/4*D^2)
+```
 
 *e.g.* this call computes *Re* and *f* and shows plot:
 
-``>> [Re,f]=hQthk2fRe(40,8600,2500,0.025,0.989,0.0089,981,true)``
+```dotnetcli
+>> [Re,f]=hQthk2fRe(40,8600,2500,0.025,0.989,0.0089,981,true)
+```
 
 Copyright &copy; 2022 Alexandre Umpierre
 
