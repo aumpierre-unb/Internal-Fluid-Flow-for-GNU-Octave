@@ -75,7 +75,7 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the fluid's density rho = 0.989 g/cc and
     # # dynamic viscosity mu = 0.0089 g/cm/s, and
     # # display a schematic Moody Diagram:
-    # [Re,f]=hDeps2fRe(0.40,0.10,25,2.7e-3,989,8.9e-4,:,true)
+    # [Re,f]=hDeps2fRe(0.40,0.10,25,2.7e-3,989,8.9e-4,9.81,true)
     #
     # See also: Re2f, f2Re, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
     K=2*g*h*rho^2*D^3/mu^2/L;
