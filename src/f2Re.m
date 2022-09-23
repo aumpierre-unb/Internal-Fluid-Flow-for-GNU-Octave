@@ -1,23 +1,21 @@
-#{
-Copyright (C) 2022 Alexandre Umpierre
-
-This file is part of Internal Fluid Flow Toolbox.
-Internal Fluid Flow Toolbox is free software:
-you can redistribute it and/or modify it under the terms
-of the GNU General Public License (GPL) version 3
-as published by the Free Software Foundation.
-
-Internal Fluid Flow Toolbox is distributed in the hope
-that it will be useful, but WITHOUT ANY WARRANTY;
-without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-See the GNU General Public License for more details.
-
-You should have received a copy of the
-GNU General Public License along with this program
-(license GNU GPLv3.txt).
-It is also available at https://www.gnu.org/licenses/.
-#}
+# Copyright (C) 2022 Alexandre Umpierre
+# 
+# This file is part of Internal Fluid Flow Toolbox.
+# Internal Fluid Flow Toolbox is free software:
+# you can redistribute it and/or modify it under the terms
+# of the GNU General Public License (GPL) version 3
+# as published by the Free Software Foundation.
+# 
+# Internal Fluid Flow Toolbox is distributed in the hope
+# that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
+# 
+# You should have received a copy of the
+# GNU General Public License along with this program
+# (license GNU GPLv3.txt).
+# It is also available at https://www.gnu.org/licenses/.
 
 function [Re]=f2Re(f,eps=0,fig=false)
     # [Re]=f2Re(f,[eps[,fig]]) computes

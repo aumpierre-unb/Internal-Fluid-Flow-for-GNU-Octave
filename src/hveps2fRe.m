@@ -1,23 +1,21 @@
-#{
-Copyright (C) 2022 Alexandre Umpierre
-
-This file is part of Internal Fluid Flow Toolbox.
-Internal Fluid Flow Toolbox is free software:
-you can redistribute it and/or modify it under the terms
-of the GNU General Public License (GPL) version 3
-as published by the Free Software Foundation.
-
-Internal Fluid Flow Toolbox is distributed in the hope
-that it will be useful, but WITHOUT ANY WARRANTY;
-without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-See the GNU General Public License for more details.
-
-You should have received a copy of the
-GNU General Public License along with this program
-(license GNU GPLv3.txt).
-It is also available at https://www.gnu.org/licenses/.
-#}
+# Copyright (C) 2022 Alexandre Umpierre
+# 
+# This file is part of Internal Fluid Flow Toolbox.
+# Internal Fluid Flow Toolbox is free software:
+# you can redistribute it and/or modify it under the terms
+# of the GNU General Public License (GPL) version 3
+# as published by the Free Software Foundation.
+# 
+# Internal Fluid Flow Toolbox is distributed in the hope
+# that it will be useful, but WITHOUT ANY WARRANTY;
+# without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
+# 
+# You should have received a copy of the
+# GNU General Public License along with this program
+# (license GNU GPLv3.txt).
+# It is also available at https://www.gnu.org/licenses/.
 
 function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho[,fig]) computes
