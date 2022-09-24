@@ -29,13 +29,13 @@ function [f]=Re2f(Re,eps=0,fig=false)
     #  of the solution.
     #
     # # e.g. Compute the Darcy friction factor f given
-    # # the Reynolds number Re = 120000 and
+    # # the Reynolds number Re = 120,000 and
     # # the relative roughness eps = 0.001:
     # Re=1.2e5;eps=0.001;
     # f=Re2f(Re,eps)
     #
     # # e.g. Compute the Darcy friction factor f given
-    # # the Reynolds number Re = 120000
+    # # the Reynolds number Re = 120,000
     # # in a smooth pipe and
     # # displays a schematic Moody Diagram:
     # f=Re2f(1.2e5,:,true)

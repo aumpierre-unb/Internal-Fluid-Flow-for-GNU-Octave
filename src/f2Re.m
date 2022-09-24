@@ -36,7 +36,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # # relative roughness eps = 0.001.
     # # In this case, both laminar and turbulent
     # # solutions are possible:
-    # f=0.028;eps=0.001;
+    # f=2.8e-2;eps=1e-3;
     # Re=f2Re(f,eps)
     #
     # # e.g. Compute the Reynolds number Re given
@@ -45,7 +45,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # # displays a schematic Moody Diagram:
     # # In this case, both turbulent and laminar
     # # solutions are possible:
-    # Re=f2Re(0.028,:,true)
+    # Re=f2Re(2.8e-2,:,true)
     #
     # See also: Re2f, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
     Re=[];
