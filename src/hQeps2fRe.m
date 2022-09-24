@@ -58,8 +58,8 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the head loss h = 40 cm,
     # # the volumetric flow rate Q = 8.6 L/s,
     # # length L = 25 m and
-    # # the fluid's density rho = 0.989 g/cc and
-    # # dynamic viscosity mu = 0.0089 g/cm/s
+    # # the fluid's density rho = 0.989 kg/L and
+    # # dynamic viscosity mu = 0.89 cP, and
     # # in a smooth pipe:
     # h=40;Q=8.6e3;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=hQeps2fRe(h,Q,L,:,rho,mu)
@@ -70,8 +70,8 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the volumetric flow rate Q = 8.6 L/s,
     # # length L = 25 m and
     # # relative roughness eps = 0.0027,
-    # # the fluid's dynamic viscosity mu = 0.0089 g/cm/s and
-    # # density rho = 0.989 g/cc, and
+    # # the fluid's dynamic viscosity mu = 0.89 cP and
+    # # density rho = 0.989 kg/L, and
     # # display a schematic Moody Diagram:
     # [Re,f]=hQeps2fRe(0.40,8.6e-3,25,2.7e-3,989,8.9e-4,9.81,true)
     #

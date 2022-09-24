@@ -30,7 +30,7 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # the gravitational accelaration g.
     # By default, pipe is assumed to be smooth, eps=0.
     # By default, the fluid is assumed to be water at 25 degC,
-    #  rho=0.997 (in g/cc) and mu=0.91 (in g/cm/s),
+    #  rho=0.997 (in kg/L) and mu=0.91 (in P),
     #  and gravitational acceleration is assumed to be
     #  g=981 (in cm/s/s).
     # Please, notice that these default values are given
@@ -58,8 +58,8 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the head loss h = 40 cm,
     # # the pipe's hydraulic diameter D = 10 cm,
     # # length L = 25 m and
-    # # the fluid's density rho = 0.989 g/cc and
-    # # dynamic viscosity mu = 0.0089 g/cm/s,
+    # # the fluid's density rho = 0.989 kg/L and
+    # # dynamic viscosity mu = 0.89 cP,
     # # in a smooth pipe:
     # h=40;D=10;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=hDeps2fRe(h,D,L,:,rho,mu)
@@ -70,8 +70,8 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # the pipe's hydraulic diameter D = 10 cm,
     # # length L = 25 m and
     # # relative roughness eps = 0.0027,
-    # # the fluid's density rho = 0.989 g/cc and
-    # # dynamic viscosity mu = 0.0089 g/cm/s, and
+    # # the fluid's density rho = 0.989 kg/L and
+    # # dynamic viscosity mu = 0.89 cP, and
     # # display a schematic Moody Diagram:
     # [Re,f]=hDeps2fRe(0.40,0.10,25,2.7e-3,989,8.9e-4,9.81,true)
     #

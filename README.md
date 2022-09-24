@@ -87,13 +87,13 @@ The simplest problems on internal fluid flow consist on computing one of them gi
 
 ### Laminar Flow and Turbulent Flow
 
-For laminar flow, *Re* < 2500 (typically), the Darcy friction factor is given by the Poiseuille condition,
+For laminar flow, *Re* < 2,500 (typically), the Darcy friction factor is given by the Poiseuille condition,
 
 $$
 f={64 \over Re}
 $$
 
-For turbulent flow, *Re* > 2500 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
+For turbulent flow, *Re* > 2,500 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
 
 $$
 {1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt{f}}}}
@@ -115,7 +115,7 @@ Internal Fluid Flow provides the following functions:
 
 ### Re2f
 
-Re2f computes the Darcy friction factor *f* given the relative roughness $\varepsilon$ and the Reynolds number *Re*. If given *Re* < 2500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
+Re2f computes the Darcy friction factor *f* given the relative roughness $\varepsilon$ and the Reynolds number *Re*. If given *Re* < 2,500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
 
 **Syntax:**
 
@@ -144,7 +144,7 @@ f=Re2f(1.2e5,:,true)
 
 ### f2Re
 
-espfD2Re computes the Reynolds number *Re* given the relative roughness $\varepsilon$ and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces *Re* < 2500, laminar solution is accepted. If given *f* is possible for turbulent flow,
+espfD2Re computes the Reynolds number *Re* given the relative roughness $\varepsilon$ and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces *Re* < 2,500, laminar solution is accepted. If given *f* is possible for turbulent flow,
 
 $$
 {1 \over \sqrt f} < 2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon}}
@@ -196,7 +196,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ```dotnetcli
-h=40;D=10;L=2500;eps=2e-35;g=981;mu=0.0089;rho=0.989;
+h=40;D=10;L=2.5e3;eps=2e-3;g=981;mu=8.9e-3;rho=0.989;
 thk=eps*D
 [Re,f]=hDeps2fRe(h,D,L,eps,rho,mu,g)
 v=Re*mu/rho/D
@@ -206,7 +206,7 @@ Q=v*(pi/4*D^2)
 *e.g.* this call computes *Re* and *f* and shows plot:
 
 ```dotnetcli
-[Re,f]=hDeps2fRe(40,10,2500,2e-35,0.989,0.0089,981,true)
+[Re,f]=hDeps2fRe(40,10,2.5e3,2e-3,0.989,8.9e3,981,true)
 ```
 
 ### hveps2fDRe
@@ -228,7 +228,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ```dotnetcli
-h=40;v=110;L=2500;eps=2e-35;g=981;mu=0.0089;rho=0.989;
+h=40;v=1.1e2;L=2.5e3;eps=2e-3;g=981;mu=8.9e-3;rho=0.989;
 [Re,f]=hveps2fRe(h,v,L,eps,rho,mu,g)
 D=Re*mu/rho/v
 thk=eps*D
@@ -238,7 +238,7 @@ Q=v*(pi/4*D^2)
 *e.g.* this call computes *Re* and *f* and shows plot:
 
 ```dotnetcli
-[Re,f]=hveps2fRe(40,110,2500,2e-35,0.989,0.0089,981,true)
+[Re,f]=hveps2fRe(40,1.1e2,2.5e3,2e-3,0.989,8.9e3,981,true)
 ```
 
 ### hQeps2fDRe
@@ -260,7 +260,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ```dotnetcli
-h=40;Q=8600;L=2500;eps=2e-35;g=981;mu=0.0089;rho=0.989;
+h=40;Q=8.6e3;L=2.5e3;eps=2e-3;g=981;mu=8.9e-3;rho=0.989;
 [Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu,g)
 D=Q*rho/(pi/4)/Re/mu
 thk=eps*D
@@ -270,7 +270,7 @@ v=Q/(pi/4*D^2)
 *e.g.* this call computes *Re* and *f* and shows plot:
 
 ```dotnetcli
-[Re,f]=hQeps2fRe(40,8600,2500,2e-35,0.989,0.0089,981,true)
+[Re,f]=hQeps2fRe(40,8.6e3,2.5e3,2e-3,0.989,8.9e3,981,true)
 ```
 
 ### hvthk2fDRe
@@ -292,7 +292,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ```dotnetcli
-h=40;v=110;L=2500;thk=2.5e-2;g=981;mu=0.0089;rho=0.989;
+h=40;v=1.1e2;L=2.5e3;thk=2.5e-2;g=981;mu=8.9e-3;rho=0.989;
 [Re,f]=hvthk2fRe(h,v,L,thk,rho,mu,g)
 D=Re*mu/rho/v
 eps=thk/D
@@ -302,7 +302,7 @@ Q=v*(pi/4*D^2)
 *e.g.* this call computes *Re* and *f* and shows plot:
 
 ```dotnetcli
-[Re,f]=hvthk2fRe(40,110,2500,2.5e-2,0.989,0.0089,981,true)
+[Re,f]=hvthk2fRe(40,1.1e2,2.5e3,2.5e-2,0.989,8.9e3,981,true)
 ```
 
 ### hQthk2fDRe
@@ -324,7 +324,7 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 *e.g.* this call computes *Re* and *f* and shows no plot:
 
 ```dotnetcli
-h=40;Q=8600;L=2500;thk=2.5e-2;g=981;mu=0.0089;rho=0.989;
+h=40;Q=8.6e3;L=2.5e3;thk=2.5e-2;g=981;mu=8.9e-3;rho=0.989;
 [Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu,g)
 D=Q*rho/(pi/4)/Re/mu
 eps=thk/D
@@ -334,7 +334,7 @@ v=Q/(pi/4*D^2)
 *e.g.* this call computes *Re* and *f* and shows plot:
 
 ```dotnetcli
-[Re,f]=hQthk2fRe(40,8600,2500,2.5e-2,0.989,0.0089,981,true)
+[Re,f]=hQthk2fRe(40,8.6e3,2.5e3,2.5e-2,0.989,8.9e3,981,true)
 ```
 
 Copyright &copy; 2022 Alexandre Umpierre
