@@ -17,4 +17,4 @@ urlwrite(url,file)
 ## 5) Generate hash string sha256 for .yaml:
 hash("sha256",fileread(file))
 
-## 6) copy and paste hash string under quotes to .yaml file
+## 6) Copy and paste hash string under quotes to .yaml file
