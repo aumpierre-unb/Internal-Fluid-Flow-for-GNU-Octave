@@ -1,37 +1,41 @@
 # Copyright (C) 2022 Alexandre Umpierre
-# 
+#
 # This file is part of Internal Fluid Flow Toolbox.
 # Internal Fluid Flow Toolbox is free software:
 # you can redistribute it and/or modify it under the terms
 # of the GNU General Public License (GPL) version 3
 # as published by the Free Software Foundation.
-# 
+#
 # Internal Fluid Flow Toolbox is distributed in the hope
 # that it will be useful, but WITHOUT ANY WARRANTY;
 # without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the
 # GNU General Public License along with this program
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
 function [Re]=f2Re(f,eps=0,fig=false)
-    # [Re]=f2Re(f,[eps[,fig]]) computes
-    # the Reynolds number Re, given
-    # the Darcy friction factor f and
-    # the pipe's relative roughness eps for
-    # for laminar regime and,
-    # when possible, also
-    # for turbulent regime.
+    # Syntax:
+    # [Re]=f2Re(f,[eps[,fig]])
+    #
+    # f2Re computes
+    #  the Reynolds number Re, given
+    #  the Darcy friction factor f and
+    #  the pipe's relative roughness eps for
+    #  for laminar regime and,
+    #  when possible, also
+    #  for turbulent regime.
     # By default, pipe is assumed to be smooth, eps=0.
     # If eps>5e-2, execution is aborted.
     # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
     #
-    # # e.g. Compute Reynolds number Re for
+    # Examples:
+    # # Compute Reynolds number Re for
     # # Darcy friction factor f = 0.028 and
     # # relative roughness eps = 0.001.
     # # In this case, both laminar and turbulent
@@ -39,7 +43,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # f=2.8e-2;eps=1e-3;
     # Re=f2Re(f,eps)
     #
-    # # e.g. Compute the Reynolds number Re given
+    # # Compute the Reynolds number Re given
     # # the Darcy friction factor f = 0.028
     # # in a smooth pipe and
     # # displays a schematic Moody Diagram:

@@ -1,33 +1,36 @@
 # Copyright (C) 2022 Alexandre Umpierre
-# 
+#
 # This file is part of Internal Fluid Flow Toolbox.
 # Internal Fluid Flow Toolbox is free software:
 # you can redistribute it and/or modify it under the terms
 # of the GNU General Public License (GPL) version 3
 # as published by the Free Software Foundation.
-# 
+#
 # Internal Fluid Flow Toolbox is distributed in the hope
 # that it will be useful, but WITHOUT ANY WARRANTY;
 # without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the
 # GNU General Public License along with this program
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
 function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
-    # [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho[,fig]) computes
-    # the Reynolds number Re and
-    # the Darcy friction factor f, given
-    # the head loss h,
-    # the flow speed v,
-    # the pipe's length L,
-    # the pipe's roughness thk,
-    # the fluid's density rho,
-    # the fluid's dynamic viscosity mu, and
-    # the gravitational accelaration g.
+    # Syntax:
+    # [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho[,fig])
+    #
+    # hvthk2fRe computes
+    #  the Reynolds number Re and
+    #  the Darcy friction factor f, given
+    #  the head loss h,
+    #  the flow speed v,
+    #  the pipe's length L,
+    #  the pipe's roughness thk,
+    #  the fluid's density rho,
+    #  the fluid's dynamic viscosity mu, and
+    #  the gravitational accelaration g.
     # By default, pipe is assumed to be smooth, thk=0.
     # By default, the fluid is assumed to be water at 25 degC,
     #  rho=0.997 (in g/cc) and mu=0.91 (in g/cm/s),
@@ -40,9 +43,10 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #  is plotted as a graphical representation
     #  of the solution.
     #
-    # # e.g. Compute the Reynolds number Re and
+    # Examples:
+    # # Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h = 40 cm,
+    # # the head loss h = 0.40 m,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
     # # roughness thk = 0.27 mm,
@@ -53,9 +57,9 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
     # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s
     #
-    # # e.g. Compute the Reynolds number Re and
+    # # Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h = 40 cm,
+    # # the head loss h = 0.40 m,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
     # # the fluid's density rho = 0.989 kg/L and
@@ -64,9 +68,9 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # h=40;v=1.1e2;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=hvthk2fRe(h,v,L,:,rho,mu)
     #
-    # # e.g. Compute the Reynolds number Re and
+    # # Compute the Reynolds number Re and
     # # the Darcy friction factor f, given
-    # # the head loss h = 40 cm,
+    # # the head loss h = 0.40 m,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
     # # roughness thk = 0.27 mm,

@@ -15,7 +15,7 @@ pkg load internal-fluid-flow
 
 The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Toolbox for GNU Octave.
 
-Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow. Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this package.
+Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this package. Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow.
 
 This text is divided in two main sections: The Theory and The Internal Fluid Flow Toolbox.
 
@@ -102,8 +102,6 @@ $$
 
 ## The Internal Fluid Flow Toolbox
 
-<!-- This package provides a set of functions designed to solve problems of internal fluid flow. All functions are based on the Poiseuille condition for laminar flow, the Colebrook-White equation for turbulent flow, and the Darcy-Weisbach equation for head loss. The simplest problems on internal flow consist in computing either the Reynolds number or the Darcy friction factor given the other and the relative roughness. For those cases, this package provides functions f2Re and Re2f, respectively. More elaborated problems consist in computing both the Reynolds number and the Darcy friction factor given the head loss, the tube length, the fluid's density and dynamic viscosity, the gravitational acceleration, the relative roughness and either the dynamic diameter or the linear velocity or the volumetric flow. For those cases, this package provides functions hDeps2fRe, hveps2fRe and hQeps2fRe, respectively. A slightly more elaborate situation arises when roughness is given instead of relative roughness along with the linear velocity or the volumetric flow. For those cases, this package provides functions hvthk2fRe and hQthk2fRe, respectively. All function in this package offer the option of plotting the solution on a schematic Moody diagram. -->
-
 Internal Fluid Flow provides the following functions:
 
 - Re2f
@@ -124,20 +122,28 @@ Re2f computes the Darcy friction factor *f* given the relative roughness $\varep
 [f]=Re2f(Re,[eps[,fig]])
 ```
 
-*e.g.* this call computes *f* and shows no plot:
+**Examples:**
+
+Compute the Darcy friction factor f given
+the Reynolds number Re = 120,000 and
+the relative roughness eps = 0.001:
 
 ```dotnetcli
-Re=1.2e5;eps=2e-3;
+Re=1.2e5;eps=1e-3;
 f=Re2f(Re,eps)
 ```
 
-*e.g.* this call computes *f* and shows plot:
+Compute f and plot a schematic Moody diagram:
 
 ```dotnetcli
-f=Re2f(1.2e5,2e-3,true)
+f=Re2f(1.2e5,1e-3,true)
 ```
 
-*e.g.* this call computes *f* for a smooth pipe and shows plot:
+Compute the Darcy friction factor f given
+the Reynolds number Re = 120,000
+for a smooth tube and plot
+a schematic Moody diagram
+with the solution:
 
 ```dotnetcli
 f=Re2f(1.2e5,:,true)
@@ -159,23 +165,33 @@ $$
 [Re]=f2Re(f,[eps[,fig]])
 ```
 
-*e.g.* this call computes *Re* for both laminar and turbulent regimes (if possible) and shows no plot:
+**Examples:**
+
+Compute the Reynolds number Re given
+the Darcy friction factor f = 0.028 and
+the relative roughness eps = 0.001.
+In this case, both laminar and turbulent
+solutions are possible:
 
 ```dotnetcli
-f=2.5e-2;eps=2e-3;
+f=2.8e-2;eps=1e-3;
 Re=f2Re(f,eps)
 ```
 
-*e.g.* this call computes *Re* for both laminar and turbulent regimes (if possible) and shows plot:
+Compute Re and plot a schematic Moody diagram:
 
 ```dotnetcli
-Re=f2Re(2.5e-2,2e-3,true)
+Re=f2Re(2.8e-2,1e-3,true)
 ```
 
-*e.g.* this call computes *Re* for both laminar and turbulent regimes (if possible) for a smooth pipe and shows plot:
+Compute the Reynolds number Re given
+the Darcy friction factor f = 0.028
+for a smooth tube and plot
+a schematic Moody diagram
+with the solution:
 
 ```dotnetcli
-Re=f2Re(2.5e-2,:,true)
+Re=f2Re(2.8e-2)
 ```
 
 ### hDeps2fDRe
@@ -194,20 +210,36 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 [Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig]]]]])
 ```
 
-*e.g.* this call computes *Re* and *f* and shows no plot:
+**Examples:**
+
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+the head loss h = 0.40 m,
+the pipe's hydraulic diameter D = 10 cm,
+length L = 25 m and
+relative roughness eps = 0.0027,
+for water flow:
 
 ```dotnetcli
-h=40;D=10;L=2.5e3;eps=2e-3;g=981;mu=8.9e-3;rho=0.989;
-thk=eps*D
-[Re,f]=hDeps2fRe(h,D,L,eps,rho,mu,g)
-v=Re*mu/rho/D
-Q=v*(pi/4*D^2)
+h=40;Q=1e2;L=2.5e3;eps=2.7e-3; # inputs in cgs units
+[Re,f]=hDeps2fRe(h,D,L,eps)
 ```
 
-*e.g.* this call computes *Re* and *f* and shows plot:
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+in addition
+the fluid's density rho = 0.989 kg/L and
+dynamic viscosity mu = 0.89 cP:
 
 ```dotnetcli
-[Re,f]=hDeps2fRe(40,10,2.5e3,2e-3,0.989,8.9e3,981,true)
+h=40;D=10;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
+[Re,f]=hDeps2fRe(h,D,L,eps,rho,mu)
+```
+
+Compute Re and f and plot a schematic Moody diagram:
+
+```dotnetcli
+[Re,f]=hDeps2fRe(0.40,0.10,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
 ```
 
 ### hveps2fDRe
@@ -226,20 +258,36 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 [Re,f]=hveps2fRe(h,v,L[,eps[,rho[,mu[,g[,fig]]]]])
 ```
 
-*e.g.* this call computes *Re* and *f* and shows no plot:
+**Examples:**
+
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+the head loss h = 0.40 m,
+the flow speed v = 1.1 m/s,
+the pipe's length L = 25 m and
+relative roughness eps = 0.0027,
+for water flow:
 
 ```dotnetcli
-h=40;v=1.1e2;L=2.5e3;eps=2e-3;g=981;mu=8.9e-3;rho=0.989;
-[Re,f]=hveps2fRe(h,v,L,eps,rho,mu,g)
-D=Re*mu/rho/v
-thk=eps*D
-Q=v*(pi/4*D^2)
+h=40;v=1.1e2;L=2.5e3;eps=2.7e-3; # inputs in cgs units
+[Re,f]=hveps2fRe(h,v,L,eps)
 ```
 
-*e.g.* this call computes *Re* and *f* and shows plot:
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+in addition
+the fluid's density rho = 0.989 kg/L and
+dynamic viscosity mu = 0.89 cP:
 
 ```dotnetcli
-[Re,f]=hveps2fRe(40,1.1e2,2.5e3,2e-3,0.989,8.9e3,981,true)
+h=40;v=1.1e2;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
+[Re,f]=hveps2fRe(h,v,L,eps,rho,mu)
+```
+
+Compute Re and f and plot a schematic Moody diagram:
+
+```dotnetcli
+[Re,f]=hveps2fRe(0.40,1.1,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
 ```
 
 ### hQeps2fDRe
@@ -258,20 +306,36 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 [Re,f]=hQeps2fRe(h,Q,L[,eps[,rho[,mu[,g[,fig]]]]])
 ```
 
-*e.g.* this call computes *Re* and *f* and shows no plot:
+**Examples:**
+
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+the head loss h = 0.40 m,
+the volumetric flow rate Q = 8.6 L/s,
+the pipe's length L = 25 m and
+relative roughness eps = 0.0027,
+for water flow:
 
 ```dotnetcli
-h=40;Q=8.6e3;L=2.5e3;eps=2e-3;g=981;mu=8.9e-3;rho=0.989;
-[Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu,g)
-D=Q*rho/(pi/4)/Re/mu
-thk=eps*D
-v=Q/(pi/4*D^2)
+h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3; # inputs in cgs units
+[Re,f]=hQeps2fRe(h,Q,L,eps)
 ```
 
-*e.g.* this call computes *Re* and *f* and shows plot:
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+in addition
+the fluid's density rho = 0.989 kg/L and
+dynamic viscosity mu = 0.89 cP:
 
 ```dotnetcli
-[Re,f]=hQeps2fRe(40,8.6e3,2.5e3,2e-3,0.989,8.9e3,981,true)
+h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
+[Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu)
+```
+
+Compute Re and f and plot a schematic Moody diagram:
+
+```dotnetcli
+[Re,f]=hQeps2fRe(0.40,8.6e-3,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
 ```
 
 ### hvthk2fDRe
@@ -290,20 +354,36 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 [Re,f]=hvthk2fRe(h,v,L[,thk[,rho[,mu[,g[,fig]]]]])
 ```
 
-*e.g.* this call computes *Re* and *f* and shows no plot:
+**Examples:**
+
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+the head loss h = 0.40 m,
+the flow speed v = 1.1 m/s,
+the pipe's length L = 25 m and
+roughness thk = 0.27 mm,
+for water flow:
 
 ```dotnetcli
-h=40;v=1.1e2;L=2.5e3;thk=2.5e-2;g=981;mu=8.9e-3;rho=0.989;
-[Re,f]=hvthk2fRe(h,v,L,thk,rho,mu,g)
-D=Re*mu/rho/v
-eps=thk/D
-Q=v*(pi/4*D^2)
+h=40;v=1.1e2;L=2.5e3;thk=2.7e-2; # inputs in cgs units
+[Re,f]=hvthk2fRe(h,v,L,thk)
 ```
 
-*e.g.* this call computes *Re* and *f* and shows plot:
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+in addition
+the fluid's density rho = 0.989 kg/L and
+dynamic viscosity mu = 0.89 cP:
 
 ```dotnetcli
-[Re,f]=hvthk2fRe(40,1.1e2,2.5e3,2.5e-2,0.989,8.9e3,981,true)
+h=40;v=1.1e2;L=2.5e3;thk=2.7e-2;rho=0.989;mu=8.9e-3; # inputs in cgs units
+[Re,f]=hvthk2fRe(h,v,L,thk,rho,mu)
+```
+
+Compute Re and f and plot a schematic Moody diagram:
+
+```dotnetcli
+[Re,f]=hvthk2fRe(0.40,1.1,25,2.7e-4,989,8.9e-4,9.81,true) # inputs in a consistent system of units
 ```
 
 ### hQthk2fDRe
@@ -322,20 +402,36 @@ Along with the Colebrook-White equation, this version of the Darcy-Weisbach equa
 [Re,f]=hQthk2fRe(h,Q,L[,thk[,rho[,mu[,g[,fig]]]]])
 ```
 
-*e.g.* this call computes *Re* and *f* and shows no plot:
+**Examples:**
+
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+the head loss h = 0.40 m,
+the volumetric flow rate Q = 8.6 L/s,
+the pipe's length L = 25 m and
+roughness thk = 0.27 mm
+for water flow:
 
 ```dotnetcli
-h=40;Q=8.6e3;L=2.5e3;thk=2.5e-2;g=981;mu=8.9e-3;rho=0.989;
-[Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu,g)
-D=Q*rho/(pi/4)/Re/mu
-eps=thk/D
-v=Q/(pi/4*D^2)
+h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2; # inputs in cgs units
+[Re,f]=hQthk2fRe(h,Q,L,thk)
 ```
 
-*e.g.* this call computes *Re* and *f* and shows plot:
+Compute the Reynolds number Re and
+the Darcy friction factor f, given
+in addition
+the fluid's density rho = 0.989 kg/L and
+dynamic viscosity mu = 0.89 cP:
 
 ```dotnetcli
-[Re,f]=hQthk2fRe(40,8.6e3,2.5e3,2.5e-2,0.989,8.9e3,981,true)
+h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2;rho=0.989;mu=8.9e-3; # inputs in cgs units
+[Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu)
+```
+
+Compute Re and f and plot a schematic Moody diagram:
+
+```dotnetcli
+[Re,f]=hQthk2fRe(0.40,8.6e-3,25,2.7e-4,989,8.9e-4,9.81,true) # inputs in a consistent system of units
 ```
 
 Copyright &copy; 2022 Alexandre Umpierre

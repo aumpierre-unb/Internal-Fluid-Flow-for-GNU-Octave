@@ -1,40 +1,44 @@
 # Copyright (C) 2022 Alexandre Umpierre
-# 
+#
 # This file is part of Internal Fluid Flow Toolbox.
 # Internal Fluid Flow Toolbox is free software:
 # you can redistribute it and/or modify it under the terms
 # of the GNU General Public License (GPL) version 3
 # as published by the Free Software Foundation.
-# 
+#
 # Internal Fluid Flow Toolbox is distributed in the hope
 # that it will be useful, but WITHOUT ANY WARRANTY;
 # without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 # See the GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the
 # GNU General Public License along with this program
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
 function [f]=Re2f(Re,eps=0,fig=false)
-    # [f]=Re2f(Re,[eps[,fig]]) computes
-    # the Darcy friction f factor, given
-    # the Reynolds number Re and
-    # the pipe's relative roughness eps.
+    # Syntax:
+    # [f]=Re2f(Re,[eps[,fig]])
+    #
+    # Re2f computes
+    #  the Darcy friction f factor, given
+    #  the Reynolds number Re and
+    #  the pipe's relative roughness eps.
     # By default, pipe is assumed to be smooth, eps=0.
     # If eps>5e-2, eps is reset to 5e-2.
     # If fig=true is given,a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
     #
-    # # e.g. Compute the Darcy friction factor f given
+    # Examples:
+    # # Compute the Darcy friction factor f given
     # # the Reynolds number Re = 120,000 and
     # # the relative roughness eps = 0.001:
     # Re=1.2e5;eps=0.001;
     # f=Re2f(Re,eps)
     #
-    # # e.g. Compute the Darcy friction factor f given
+    # # Compute the Darcy friction factor f given
     # # the Reynolds number Re = 120,000
     # # in a smooth pipe and
     # # displays a schematic Moody Diagram:
