@@ -1,15 +1,24 @@
-# InternalFluidFlow Toolbox for GNU-Octave
+# internal-fluid-flow Toolbox for GNU-Octave
 
 [![DOI](https://zenodo.org/badge/509427410.svg)](https://zenodo.org/badge/latestdoi/509427410)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave)
 
-## Install and Load Internal Fluid Flow
+## Install and Load internal-fluid-flow
 
 ```dotnetcli
 pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.2.0.tar.gz
 pkg load internal-fluid-flow
 ```
+
+## Citation of internal-fluid-flow
+
+You can cite all versions (both released and pre-released), by using
+[DOI 105281/zenodo.6960263](https://doi.org/10.5281/zenodo.6960263).
+
+This DOI represents all versions, and will always resolve to the latest one.
+
+For citation of the last released version of InternalFluidFlow, please check CITATION file at the [maintainer's repository](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
 
 ---
 
@@ -100,9 +109,9 @@ $$
 {1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt{f}}}}
 $$
 
-## The InternalFluidFlow Toolbox
+## The internal-fluid-flow Toolbox
 
-InternalFluidFlow provides the following functions:
+internal-fluid-flow provides the following functions:
 
 - Re2f
 - f2Re
