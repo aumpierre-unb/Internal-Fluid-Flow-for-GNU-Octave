@@ -1,32 +1,32 @@
-# internal-fluid-flow Toolbox for GNU-Octave
+# `internal-fluid-flow` Toolbox for GNU-Octave
 
 [![DOI](https://zenodo.org/badge/509427410.svg)](https://zenodo.org/badge/latestdoi/509427410)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave)
 
-## Install and Load internal-fluid-flow
+## Install and Load `internal-fluid-flow`
 
 ```dotnetcli
 pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.2.0.tar.gz
 pkg load internal-fluid-flow
 ```
 
-## Citation of internal-fluid-flow
+## Citation of `internal-fluid-flow`
 
 You can cite all versions (both released and pre-released), by using
 [DOI 105281/zenodo.6960263](https://doi.org/10.5281/zenodo.6960263).
 
 This DOI represents all versions, and will always resolve to the latest one.
 
-For citation of the last released version of InternalFluidFlow, please check CITATION file at the [maintainer's repository](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
+For citation of the last released version of `internal-fluid-flow`, please check CITATION file at the [maintainer's repository](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
 
 ---
 
-The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the InternalFluidFlow Toolbox for GNU Octave.
+The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the `internal-fluid-flow` Toolbox for GNU Octave.
 
 Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this package. Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow.
 
-This text is divided in two main sections: The Theory and The InternalFluidFlow Toolbox.
+This text is divided in two main sections: The Theory and The `internal-fluid-flow` Toolbox.
 
 ## The Theory
 
@@ -109,9 +109,9 @@ $$
 {1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt{f}}}}
 $$
 
-## The internal-fluid-flow Toolbox
+## The `internal-fluid-flow` Toolbox
 
-internal-fluid-flow provides the following functions:
+`internal-fluid-flow` provides the following functions:
 
 - Re2f
 - f2Re
