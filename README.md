@@ -1,4 +1,4 @@
-# Internal Fluid Flow Toolbox for GNU-Octave
+# InternalFluidFlow Toolbox for GNU-Octave
 
 [![DOI](https://zenodo.org/badge/509427410.svg)](https://zenodo.org/badge/latestdoi/509427410)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
@@ -13,11 +13,11 @@ pkg load internal-fluid-flow
 
 ---
 
-The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the Internal Fluid Flow Toolbox for GNU Octave.
+The following is a very short introduction to the steady internal flow of an incompressible and inviscid fluid and to the InternalFluidFlow Toolbox for GNU Octave.
 
 Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this package. Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow.
 
-This text is divided in two main sections: The Theory and The Internal Fluid Flow Toolbox.
+This text is divided in two main sections: The Theory and The InternalFluidFlow Toolbox.
 
 ## The Theory
 
@@ -100,9 +100,9 @@ $$
 {1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt{f}}}}
 $$
 
-## The Internal Fluid Flow Toolbox
+## The InternalFluidFlow Toolbox
 
-Internal Fluid Flow provides the following functions:
+InternalFluidFlow provides the following functions:
 
 - Re2f
 - f2Re
