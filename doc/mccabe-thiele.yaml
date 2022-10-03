@@ -1,0 +1,77 @@
+---
+layout: "package"
+permalink: "internal-fluid-flow/"
+description: >-
+  This package provides a set of functions
+  designed to solve problems of internal fluid flow.
+icon: "https://raw.githubusercontent.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/main/doc/icon.png"
+links:
+- icon: "far fa-copyright"
+  label: "GPL-3.0-or-later"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/COPYING"
+- icon: "fas fa-rss"
+  label: "news"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/NEWS"
+- icon: "fas fa-code-branch"
+  label: "repository"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/"
+- icon: "fas fa-book"
+  label: "package documentation"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/README.md"
+- icon: "fas fa-bug"
+  label: "report a problem"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/issues"
+maintainers:
+- name: "Alexandre Umpierre"
+  contact: "aumpierre@gmail.com"
+versions:
+- id: "0.2.0"
+  date: "2022-09-23"
+  sha256: "4c506c368b4486a70c605c2cd6904281243551b3526d4b33894e265ab92650b6"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.2.0.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
+- id: "0.1.2"
+  date: "2022-09-03"
+  sha256: "e18a13a53bdd49bad108128f030c47c964ae6ef4ec9d3a04b80c79798809ef7a"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.2.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
+- id: "0.1.1"
+  date: "2022-08-27"
+  sha256: "3746ec0465154d1a46009a0db1feb943f9d391d38dbbabd57a84b378def6f660"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.1.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
+- id: "0.1.0"
+  date: "2022-08-20"
+  sha256: "246a173d2c9d40a3dc0d5c3937c971f08f7d079eb7073f35fa2952dc53817be6"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.0.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
+- id: "0.0.3"
+  date: "2022-07-23"
+  sha256: "305aac7144a6ee45e016f4149d3dc2bf952b0f9e5538e1ab2aa0ae06e97abf9f"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.0.3.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
+- id: "0.0.2"
+  date: "2022-07-14"
+  sha256: "88282626e94e9858d5139210e74bdd0a39f1d81dca7bc0e2395801f44a2a2547"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.0.2.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
+- id: "0.0.1"
+  date: "2022-07-05"
+  sha256: "8308e300c17fb984ad9cda5705b7e8bfa6547285f61b484b5c6ba048abe9fc3e"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.0.1.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
+---
