@@ -2,8 +2,7 @@
 layout: "package"
 permalink: "internal-fluid-flow/"
 description: >-
-  This package provides a set of functions
-  designed to solve problems of internal fluid flow.
+  A toolbox for internal fluid flow characterization.
 icon: "https://raw.githubusercontent.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/main/doc/icon.png"
 links:
 - icon: "far fa-copyright"
@@ -25,6 +24,13 @@ maintainers:
 - name: "Alexandre Umpierre"
   contact: "aumpierre@gmail.com"
 versions:
+- id: "0.2.1"
+  date: "2022-10-04"
+  sha256: "xxxxxxxx"
+  url: "https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.2.1.tar.gz"
+  depends:
+  - "octave (>= 4.0.0)"
+  - "pkg"
 - id: "0.2.0"
   date: "2022-09-23"
   sha256: "4c506c368b4486a70c605c2cd6904281243551b3526d4b33894e265ab92650b6"
