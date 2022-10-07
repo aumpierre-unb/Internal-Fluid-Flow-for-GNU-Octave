@@ -114,13 +114,13 @@ $$
 
 `internal-fluid-flow` provides the following functions:
 
-- Re2f
-- f2Re
-- hDeps2fDRe
-- hveps2fDRe
-- hQeps2fDRe
-- hvthk2fDRe
-- hQthk2fDRe
+- `Re2f`
+- `f2Re`
+- `hDeps2fDRe`
+- `hveps2fDRe`
+- `hQeps2fDRe`
+- `hvthk2fDRe`
+- `hQthk2fDRe`
 
 ### `Re2f`
 
