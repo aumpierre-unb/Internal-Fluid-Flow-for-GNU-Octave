@@ -246,7 +246,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 
 **Examples:**
 
-Compute the Reynolds number Re and
+Compute the Reynolds number *Re* and
 the Darcy friction factor *f*, given
 the head loss *h* = 0.40 m,
 the pipe's hydraulic diameter *D* = 10 cm,
