@@ -23,7 +23,7 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #
     # hQthk2fRe computes
     #  the Reynolds number Re and
-    #  the Darcy friction factor f, given
+    #  the Darcy friction factor f given
     #  the head loss h,
     #  the volumetric flow Q,
     #  the pipe's length L,
@@ -45,20 +45,20 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #
     # Examples:
     # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f, given
+    # # the Darcy friction factor f given
     # # the head loss h = 0.40 m,
     # # the volumetric flow rate Q = 8.6 L/s,
     # # length L = 25 m and
     # # roughness thk = 0.27 mm,
     # # for water:
     # h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2; # inputs in cgs units
-    # [Re,f]=hQthk2fRe(h,Q,L,eps)
+    # [Re,f]=hQthk2fRe(h,Q,L,thk)
     # thk=eps*D # pipe's roughness in cm
     # D=rho/mu*Q/(%pi/4)/Re # pipe's hydraulic diameter in cm
     # v=Re*mu/rho/D # flow speed in cm/s
     #
     # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f, given
+    # # the Darcy friction factor f given
     # # the head loss h = 0.40 m,
     # # the volumetric flow rate Q = 8.6 L/s,
     # # length L = 25 m and
@@ -69,7 +69,7 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # [Re,f]=hQthk2fRe(h,Q,L,:,rho,mu)
     #
     # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f, given
+    # # the Darcy friction factor f given
     # # the head loss h = 0.40 m,
     # # the volumetric flow rate Q = 8.6 L/s,
     # # length L = 25 m and

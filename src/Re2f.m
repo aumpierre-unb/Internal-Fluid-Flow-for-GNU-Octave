@@ -22,7 +22,7 @@ function [f]=Re2f(Re,eps=0,fig=false)
     # [f]=Re2f(Re,[eps[,fig]])
     #
     # Re2f computes
-    #  the Darcy friction f factor, given
+    #  the Darcy friction f factor given
     #  the Reynolds number Re and
     #  the pipe's relative roughness eps.
     # By default, pipe is assumed to be smooth, eps = 0.

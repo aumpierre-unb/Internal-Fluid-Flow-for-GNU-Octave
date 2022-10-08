@@ -23,7 +23,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #
     # hvthk2fRe computes
     #  the Reynolds number Re and
-    #  the Darcy friction factor f, given
+    #  the Darcy friction factor f given
     #  the head loss h,
     #  the flow speed v,
     #  the pipe's length L,
@@ -45,7 +45,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #
     # Examples:
     # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f, given
+    # # the Darcy friction factor f given
     # # the head loss h = 0.40 m,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
@@ -58,7 +58,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s
     #
     # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f, given
+    # # the Darcy friction factor f given
     # # the head loss h = 0.40 m,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
@@ -69,7 +69,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # [Re,f]=hvthk2fRe(h,v,L,:,rho,mu)
     #
     # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f, given
+    # # the Darcy friction factor f given
     # # the head loss h = 0.40 m,
     # # the flow speed v = 1.1 m/s,
     # # length L = 25 m and
