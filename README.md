@@ -326,7 +326,7 @@ h=40;v=1.1e2;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
 [Re,f]=hveps2fRe(h,v,L,eps,rho,mu)
 ```
 
-Compute Re and f and plot a schematic Moody diagram:
+Compute *Re* and *f* and plot a schematic Moody diagram:
 
 ```dotnetcli
 [Re,f]=hveps2fRe(0.40,1.1,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
@@ -382,7 +382,7 @@ h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
 [Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu)
 ```
 
-Compute Re and f and plot a schematic Moody diagram:
+Compute *Re* and *f* and plot a schematic Moody diagram:
 
 ```dotnetcli
 [Re,f]=hQeps2fRe(0.40,8.6e-3,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
@@ -438,7 +438,7 @@ h=40;v=1.1e2;L=2.5e3;thk=2.7e-2;rho=0.989;mu=8.9e-3; # inputs in cgs units
 [Re,f]=hvthk2fRe(h,v,L,thk,rho,mu)
 ```
 
-Compute Re and f and plot a schematic Moody diagram:
+Compute *Re* and *f* and plot a schematic Moody diagram:
 
 ```dotnetcli
 [Re,f]=hvthk2fRe(0.40,1.1,25,2.7e-4,989,8.9e-4,9.81,true) # inputs in a consistent system of units
@@ -494,7 +494,7 @@ h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2;rho=0.989;mu=8.9e-3; # inputs in cgs units
 [Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu)
 ```
 
-Compute Re and f and plot a schematic Moody diagram:
+Compute *Re* and *f* and plot a schematic Moody diagram:
 
 ```dotnetcli
 [Re,f]=hQthk2fRe(0.40,8.6e-3,25,2.7e-4,989,8.9e-4,9.81,true) # inputs in a consistent system of units
