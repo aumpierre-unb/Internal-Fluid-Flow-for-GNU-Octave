@@ -193,7 +193,7 @@ of the solution.
 
 **Examples:**
 
-Compute the Reynolds number Re given
+Compute the Reynolds number *Re* given
 the Darcy friction factor *f* = 0.028 and
 the relative roughness $\varepsilon$ = 0.001.
 In this case, both laminar and turbulent
