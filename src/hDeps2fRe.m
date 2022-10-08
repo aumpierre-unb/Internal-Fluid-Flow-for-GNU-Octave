@@ -39,7 +39,7 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Please, notice that these default values are given
     #  in the cgs unit system and, if taken,
     #  all other inputs must as well be given in cgs units.
-    # If fig = true is given,a schematic Moody diagram
+    # If fig = true is given, a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
     #

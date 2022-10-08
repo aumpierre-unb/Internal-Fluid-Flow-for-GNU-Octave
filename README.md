@@ -230,6 +230,14 @@ $$
 
 Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively, however an analytic solution is possible in this case.
 
+By default, pipe is assumed to be smooth, $\varepsilon$ = 0.
+
+By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
+
+Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
+
+If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
+
 **Syntax:**
 
 ```dotnetcli
@@ -277,6 +285,14 @@ $$
 $$
 
 Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
+
+By default, pipe is assumed to be smooth, $\varepsilon$ = 0.
+
+By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
+
+Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
+
+If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
@@ -326,6 +342,14 @@ $$
 
 Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
 
+By default, pipe is assumed to be smooth, $\varepsilon$ = 0.
+
+By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
+
+Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
+
+If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
+
 **Syntax:**
 
 ```dotnetcli
@@ -374,6 +398,14 @@ $$
 
 Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
 
+By default, pipe is assumed to be smooth, *k* = 0.
+
+By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
+
+Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
+
+If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
+
 **Syntax:**
 
 ```dotnetcli
@@ -421,6 +453,14 @@ $$
 $$
 
 Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
+
+By default, pipe is assumed to be smooth, *k* = 0.
+
+By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
+
+Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
+
+If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Syntax:**
 

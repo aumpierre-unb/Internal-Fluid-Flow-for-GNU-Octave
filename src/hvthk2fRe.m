@@ -31,7 +31,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #  the fluid's density rho,
     #  the fluid's dynamic viscosity mu, and
     #  the gravitational accelaration g.
-    # By default, pipe is assumed to be smooth, eps = 0.
+    # By default, pipe is assumed to be smooth, thk = 0.
     # By default, the fluid is assumed to be water at 25 degC,
     #  rho = 0.997 kg/L and mu = 0.91 cP,
     #  and gravitational acceleration is assumed to be
@@ -39,7 +39,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Please, notice that these default values are given
     #  in the cgs unit system and, if taken,
     #  all other inputs must as well be given in cgs units.
-    # If fig = true is given,a schematic Moody diagram
+    # If fig = true is given, a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
     #
