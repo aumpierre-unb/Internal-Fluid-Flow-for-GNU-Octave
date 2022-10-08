@@ -247,7 +247,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Examples:**
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 the head loss *h* = 0.40 m,
 the pipe's hydraulic diameter *D* = 10 cm,
 length *L* = 25 m and
@@ -260,7 +260,7 @@ h=40;D=10;L=2.5e3;eps=2.7e-3; # inputs in cgs units
 ```
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 in addition
 the fluid's density $\rho$ = 0.989 kg/L and
 dynamic viscosity $\mu$ = 0.89 cP:
@@ -303,7 +303,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Examples:**
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 the head loss *h* = 0.40 m,
 the flow speed *v* = 1.1 m/s,
 the pipe's length *L* = 25 m and
@@ -316,7 +316,7 @@ h=40;v=1.1e2;L=2.5e3;eps=2.7e-3; # inputs in cgs units
 ```
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 in addition
 the fluid's density $\rho$ = 0.989 kg/L and
 dynamic viscosity $\mu$ = 0.89 cP:
@@ -359,7 +359,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Examples:**
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 the head loss *h* = 0.40 m,
 the volumetric flow rate *Q* = 8.6 L/s,
 the pipe's length *L* = 25 m and
@@ -372,7 +372,7 @@ h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3; # inputs in cgs units
 ```
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 in addition
 the fluid's density $\rho$ = 0.989 kg/L and
 dynamic viscosity $\mu$ = 0.89 cP:
@@ -415,7 +415,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Examples:**
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 the head loss *h* = 0.40 m,
 the flow speed *v* = 1.1 m/s,
 the pipe's length *L* = 25 m and
@@ -428,7 +428,7 @@ h=40;v=1.1e2;L=2.5e3;thk=2.7e-2; # inputs in cgs units
 ```
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 in addition
 the fluid's density $\rho$ = 0.989 kg/L and
 dynamic viscosity $\mu$ = 0.89 cP:
@@ -471,7 +471,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Examples:**
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 the head loss *h* = 0.40 m,
 the volumetric flow rate *Q* = 8.6 L/s,
 the pipe's length *L* = 25 m and
@@ -484,7 +484,7 @@ h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2; # inputs in cgs units
 ```
 
 Compute the Reynolds number *Re* and
-the Darcy friction factor *f*, given
+the Darcy friction factor *f* given
 in addition
 the fluid's density $\rho$ = 0.989 kg/L and
 dynamic viscosity $\mu$ = 0.89 cP:
