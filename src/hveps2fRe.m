@@ -53,8 +53,8 @@ function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # for water:
     # h=40;v=1.1e2;L=2.5e3;eps=2.7e-3; # inputs in cgs units
     # [Re,f]=hveps2fRe(h,v,L,eps)
-    # thk=eps*D # pipe's roughness in cm
     # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
+    # thk=eps*D # pipe's roughness in cm
     # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s.
     #
     # # Compute the Reynolds number Re and

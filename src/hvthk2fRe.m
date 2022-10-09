@@ -53,8 +53,8 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # for water:
     # h=40;v=1.1e2;L=2.5e3;eps=2.7e-2; # inputs in cgs units
     # [Re,f]=hvthk2fRe(h,v,L,eps)
-    # eps=thk/D # pipe's relative roughness
     # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
+    # eps=thk/D # pipe's relative roughness
     # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s
     #
     # # Compute the Reynolds number Re and
