@@ -53,7 +53,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # for water:
     # h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3; # inputs in cgs units
     # [Re,f]=hQeps2fRe(h,Q,L,eps)
-    # D=rho/mu*Q/(%pi/4)/Re # pipe's hydraulic diameter in c
+    # D=rho/mu*Q/(%pi/4)/Re # pipe's hydraulic diameter in cm
     # thk=eps*D # pipe's roughness in cm
     # v=Re*mu/rho/D # flow speed in cm/s
     #
