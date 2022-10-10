@@ -4,9 +4,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave)
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/D2fRe.svg "Example of graphical output, from hydraulic diameter and head loss to Re and f")
+![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/D2fRe.png "Example of graphical output, from hydraulic diameter and head loss to Re and f")
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/v2fRe.svg "Example of graphical output, from flow speed and head loss to Re and f")
+![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/v2fRe.png "Example of graphical output, from flow speed and head loss to Re and f")
 
 ## Installing and Loading `internal-fluid-flow`
 
