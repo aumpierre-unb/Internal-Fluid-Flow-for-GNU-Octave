@@ -1,12 +1,12 @@
 # Copyright (C) 2022 Alexandre Umpierre
 #
-# This file is part of Internal Fluid Flow Toolbox.
-# Internal Fluid Flow Toolbox is free software:
+# This file is part of internal-fluid-flow toolbox.
+# internal-fluid-flow toolbox is free software:
 # you can redistribute it and/or modify it under the terms
 # of the GNU General Public License (GPL) version 3
 # as published by the Free Software Foundation.
 #
-# Internal Fluid Flow Toolbox is distributed in the hope
+# internal-fluid-flow toolbox is distributed in the hope
 # that it will be useful, but WITHOUT ANY WARRANTY;
 # without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
