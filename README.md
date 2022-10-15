@@ -23,7 +23,8 @@ You can cite all versions (both released and pre-released), by using
 
 This DOI represents all versions, and will always resolve to the latest one.
 
-For citation of the last released version of `internal-fluid-flow`, please check CITATION file at the [maintainer's repository](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave).
+To cite the last released version, please check
+https://zenodo.org/account/settings/github/repository/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave.
 
 ---
 
