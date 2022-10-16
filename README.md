@@ -11,7 +11,7 @@
      height="100"
      alt="Example of graphical output, from hydraulic diameter and head loss to Re and f">
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/v2fRe.svg "Example of graphical output, from flow speed and head loss to Re and f")
+<!--![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/v2fRe.svg "Example of graphical output, from flow speed and head loss to Re and f")-->
 
 ## Installing and Loading `internal-fluid-flow`
 
