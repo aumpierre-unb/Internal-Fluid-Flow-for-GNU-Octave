@@ -4,16 +4,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave)
 
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/untitled.svg "svg")
-
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/untitled.pmg "png")
-
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/untitled.gif "gif")
-
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/untitled.ofig "ofig")
-
-![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/untitled.eps "eps")
-
 <!--
 ![Illustrative graphical output](https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/blob/main/pics/v2fRe.svg "Example of graphical output, from flow speed and head loss to Re and f")
 -->
