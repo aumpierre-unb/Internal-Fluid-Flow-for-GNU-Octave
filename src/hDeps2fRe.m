@@ -160,7 +160,7 @@ function turb(eps,t)
         w=log10(2e3)+(i-1)*(log10(1e8)-log10(2e3))/(N-1);
         Re=[Re;10^w];
         foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
-        f=[f;bissecao(foo,6e-4,1e-1,1e-4)];
+        f=[f;bissection(foo,6e-4,1e-1,1e-4)];
     end
     loglog(Re,f,t);
 end
@@ -173,7 +173,7 @@ function smooth(t)
         w=log10(2e3)+(i-1)*(log10(1e7)-log10(2e3))/(N-1);
         Re=[Re;10^w];
         foo=@(f) 1/sqrt(f)+2*log10(2.51/Re(end)/sqrt(f));
-        f=[f;bissecao(foo,6e-3,1e-1,1e-4)];
+        f=[f;bissection(foo,6e-3,1e-1,1e-4)];
     end
     loglog(Re,f,t);
 end
@@ -193,7 +193,7 @@ function rough(t)
     loglog(Re,f,t);
 end
 
-function x2=bissecao(f,x1,x2,tol)
+function x2=bissection(f,x1,x2,tol)
   while abs(f(x2))>tol
     x=(x1+x2)/2;
     if f(x)*f(x1)>0 x1=x;
