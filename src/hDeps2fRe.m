@@ -1,12 +1,12 @@
 # Copyright (C) 2022 Alexandre Umpierre
 #
-# This file is part of internal-fluid-flow toolbox.
-# internal-fluid-flow toolbox is free software:
+# This file is part of internal-fluid-flow toolbox for GNU Octave.
+# internal-fluid-flow toolbox for GNU Octave is free software:
 # you can redistribute it and/or modify it under the terms
 # of the GNU General Public License (GPL) version 3
 # as published by the Free Software Foundation.
 #
-# internal-fluid-flow toolbox is distributed in the hope
+# internal-fluid-flow toolbox for GNU Octave is distributed in the hope
 # that it will be useful, but WITHOUT ANY WARRANTY;
 # without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -42,6 +42,8 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # If fig = true is given, a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
+    # hDeps2fRe is a main function of
+    #  the internal-fluid-flow toolbox for GNU Octave.
     #
     # Examples:
     # # Compute the Reynolds number Re and

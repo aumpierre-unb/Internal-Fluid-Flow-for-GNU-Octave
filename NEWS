@@ -1,6 +1,11 @@
 TODO
 ====
 
+internal-fluid-flow 0.2.3-alpha (2022-10-24)
+======================================
+* Minor changes on documentation
+* Help comments included for internal functions
+
 internal-fluid-flow 0.2.2 (2022-10-21)
 ======================================
 * .m files eol CRLF to LF
