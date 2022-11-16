@@ -1,4 +1,4 @@
-# internal-fluid-flow is a package of functions to solve internal fluid flow problems.
+# internal-fluid-flow is toolbox for internal fluid flow for GNU Octave.
 toolbox >> Internal Fluid Flow
 Functions
  f2Re Re2f
