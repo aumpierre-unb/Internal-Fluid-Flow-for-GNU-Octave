@@ -9,9 +9,10 @@
 ## Installing and Loading `internal-fluid-flow`
 
 ```dotnetcli
-# use this call to install version 0.2.0, or modify the command line for match the version
-pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.2.0.tar.gz
+# use this call to install version 0.1.0, or modify the command line for match the version
+pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.1.0.tar.gz
 pkg load internal-fluid-flow
+pkg update internal-fluid-flow
 ```
 
 ## Citation of `internal-fluid-flow`
