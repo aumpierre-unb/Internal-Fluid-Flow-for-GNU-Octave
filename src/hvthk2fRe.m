@@ -148,7 +148,7 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
         axis([1e2 1e8 6e-3 1e-1]);
         xlabel('{\itRe} = {\it\rhouD} / {\it\mu}');
         ylabel('{\itf} = 2{\itghD}^3{\it\rho}^2 / {\it\mu}^2{\itL} \times {\itRe}');
-        set(gca,'fontsize',14);
+        set(gca,'fontsize',14,'box','on');
     end
 end
 
