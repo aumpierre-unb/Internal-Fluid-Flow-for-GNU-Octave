@@ -19,7 +19,7 @@
 
 function [f]=Re2f(Re,eps=0,fig=false)
     # Syntax:
-    # [f]=Re2f(Re,[eps[,fig]])
+    # [f]=Re2f(Re,[eps[,fig=false]])
     #
     # Re2f computes
     #  the Darcy friction f factor given

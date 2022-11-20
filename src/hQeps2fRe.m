@@ -19,7 +19,7 @@
 
 function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Syntax:
-    # [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho[,fig])
+    # [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho[,fig=false])
     #
     # hQeps2fRe computes
     #  the Reynolds number Re and

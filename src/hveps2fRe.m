@@ -19,7 +19,7 @@
 
 function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Syntax:
-    # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho[,fig])
+    # [Re,f]=hveps2fRe(h,v,L,eps,g,mu,rho[,fig=false])
     #
     # hveps2fRe computes
     #  the Reynolds number Re and

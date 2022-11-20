@@ -130,25 +130,19 @@ $$
 
 `Re2f` computes the Darcy friction factor *f* given the relative roughness $\varepsilon$ and the Reynolds number *Re*. If given *Re* < 2,500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
 
-By default, pipe is assumed to be smooth,
-relative roughness is $\varepsilon$ = 0.
-If $\varepsilon$ > 0.05, $\varepsilon$ is reset to $\varepsilon$ = 0.05.
+By default, pipe is assumed to be smooth, relative roughness is $\varepsilon$ = 0. If $\varepsilon$ > 0.05, $\varepsilon$ is reset to $\varepsilon$ = 0.05.
 
-If *fig* = *true* is given, a schematic Moody diagram
-is plotted as a graphical representation
-of the solution.
+If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
 ```dotnetcli
-[f]=Re2f(Re,[eps[,fig]])
+[f]=Re2f(Re,[eps[,fig=false]])
 ```
 
 **Examples:**
 
-Compute the Darcy friction factor *f* given
-the Reynolds number *Re* = 120,000 and
-the relative roughness $\varepsilon$ = 0.001:
+Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 and the relative roughness $\varepsilon$ = 0.001:
 
 ```dotnetcli
 Re=1.2e5;eps=1e-3;
@@ -161,11 +155,7 @@ Compute *f* and plot a schematic Moody diagram:
 f=Re2f(1.2e5,1e-3,true)
 ```
 
-Compute the Darcy friction factor *f* given
-the Reynolds number *Re* = 120,000
-for a smooth tube and plot
-a schematic Moody diagram
-with the solution:
+Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 for a smooth tube and plot a schematic Moody diagram with the solution:
 
 ```dotnetcli
 f=Re2f(1.2e5,:,true)
@@ -181,18 +171,14 @@ $$
 
 (which is Colebrook-White equation for for elevated *Re*) the turbulent solution is accepted. If both solutions are accepted, `f2Re` returns both answers. If neither laminar or turbulent solutions are accepted, `f2Re` returns an empty matrix.
 
-By default, pipe is assumed to be smooth,
-relative roughness is $\varepsilon$ = 0.
-If $\varepsilon$ > 0.05, $\varepsilon$ is reset to $\varepsilon$ = 0.05.
+By default, pipe is assumed to be smooth, relative roughness is $\varepsilon$ = 0. If $\varepsilon$ > 0.05, $\varepsilon$ is reset to $\varepsilon$ = 0.05.
 
-If *fig* = *true* is given, a schematic Moody diagram
-is plotted as a graphical representation
-of the solution.
+If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Syntax:**
 
 ```dotnetcli
-[Re]=f2Re(f,[eps[,fig]])
+[Re]=f2Re(f,[eps[,fig=false]])
 ```
 
 **Examples:**
@@ -245,7 +231,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Syntax:**
 
 ```dotnetcli
-[Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig]]]]])
+[Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig=false]]]]])
 ```
 
 **Examples:**
@@ -301,7 +287,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Syntax:**
 
 ```dotnetcli
-[Re,f]=hveps2fRe(h,v,L[,eps[,rho[,mu[,g[,fig]]]]])
+[Re,f]=hveps2fRe(h,v,L[,eps[,rho[,mu[,g[,fig=false]]]]])
 ```
 
 **Examples:**
@@ -357,7 +343,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Syntax:**
 
 ```dotnetcli
-[Re,f]=hQeps2fRe(h,Q,L[,eps[,rho[,mu[,g[,fig]]]]])
+[Re,f]=hQeps2fRe(h,Q,L[,eps[,rho[,mu[,g[,fig=false]]]]])
 ```
 
 **Examples:**
@@ -413,7 +399,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Syntax:**
 
 ```dotnetcli
-[Re,f]=hvthk2fRe(h,v,L[,thk[,rho[,mu[,g[,fig]]]]])
+[Re,f]=hvthk2fRe(h,v,L[,thk[,rho[,mu[,g[,fig=false]]]]])
 ```
 
 **Examples:**
@@ -469,7 +455,7 @@ If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical 
 **Syntax:**
 
 ```dotnetcli
-[Re,f]=hQthk2fRe(h,Q,L[,thk[,rho[,mu[,g[,fig]]]]])
+[Re,f]=hQthk2fRe(h,Q,L[,thk[,rho[,mu[,g[,fig=false]]]]])
 ```
 
 **Examples:**

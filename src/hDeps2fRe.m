@@ -19,7 +19,7 @@
 
 function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Syntax:
-    # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho[,fig])
+    # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho[,fig=false])
     #
     # hDeps2fRe computes
     #  the Reynolds number Re and
@@ -142,7 +142,6 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
         ylabel('{\itf} = 2{\itghD}^3{\it\rho}^2 / {\it\mu}^2{\itL} \times {\itRe}^{-2}');
         set(gca,'fontsize',14);
     end
-#    warning(warnstate);
 end
 
 function laminar(t)
