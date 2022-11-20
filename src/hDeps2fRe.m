@@ -161,7 +161,7 @@ function turb(eps,t)
         foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
         f=[f;bissection(foo,6e-4,1e-1,1e-4)];
     end
-    loglog(Re,f,t);
+    loglog(Re,f,t,'linewidth',1);
 end
 
 function smooth(t)
@@ -174,7 +174,7 @@ function smooth(t)
         foo=@(f) 1/sqrt(f)+2*log10(2.51/Re(end)/sqrt(f));
         f=[f;bissection(foo,6e-3,1e-1,1e-4)];
     end
-    loglog(Re,f,t);
+    loglog(Re,f,t,'linewidth',1);
 end
 
 function rough(t)
@@ -189,7 +189,7 @@ function rough(t)
         z=f2Re(f(end),eps(end));
         Re=[Re;z(end)];
     end
-    loglog(Re,f,t);
+    loglog(Re,f,t,'linewidth',1);
 end
 
 function x2=bissection(f,x1,x2,tol)
