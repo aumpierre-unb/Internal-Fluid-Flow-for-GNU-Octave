@@ -108,28 +108,28 @@ function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     end
     if fig
         figure;
-        if min(Re)<2.3e3 laminar('r');
-        else laminar('k');
+        if min(Re)<2.3e3 laminar('r',2);
+        else laminar('k',1);
         end
-        if max(Re)>2.3e3, hold on;turb(eps,'r');
-        else hold on;turb(eps,'k');
+        if max(Re)>2.3e3, hold on;turb(eps,'r',2);
+        else hold on;turb(eps,'k',1);
         end
-        if eps<1e-4, hold on;turb(1e-5,'k');
-        else hold on;turb(eps/3,'k');
+        if eps<1e-4, hold on;turb(1e-5,'k',1);
+        else hold on;turb(eps/3,'k',1);
         end
-        if eps<1e-4, hold on;turb(1e-4,'k');
-        else hold on;turb(eps/10,'k');
+        if eps<1e-4, hold on;turb(1e-4,'k',1);
+        else hold on;turb(eps/10,'k',1);
         end
-        if eps<1e-4, hold on;turb(1e-3,'k');
-        elseif eps*3>5e-2, hold on;turb(5e-2,'k');
-        else hold on;turb(eps*3,'k');
+        if eps<1e-4, hold on;turb(1e-3,'k',1);
+        elseif eps*3>5e-2, hold on;turb(5e-2,'k',1);
+        else hold on;turb(eps*3,'k',1);
         end
-        if eps<1e-4, hold on;turb(5e-3,'k');
-        elseif eps*10>5e-2, hold on;turb(eps/6,'k');
-        else hold on;turb(eps*10,'k');
+        if eps<1e-4, hold on;turb(5e-3,'k',1);
+        elseif eps*10>5e-2, hold on;turb(eps/6,'k',1);
+        else hold on;turb(eps*10,'k',1);
         end
-        hold on;rough('b');
-        if ~eps==0, hold on;smooth('b'); end
+        hold on;rough('b',1.5);
+        if ~eps==0, hold on;smooth('b',1.5); end
         hold on;loglog(Re,f,'dr');
         line('xdata',[6e-3/M 1e-1/M],...
              'ydata',[6e-3 1e-1],...
@@ -144,52 +144,52 @@ function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     end
 end
 
-function laminar(t)
+function laminar(t,w)
     line('xdata',[5e2 4e3],...
          'ydata',[64/5e2 64/4e3],...
-         'linewidth',1,...
+         'linewidth',w,...
          'color',t);
 end
 
-function turb(eps,t)
+function turb(eps,t,w)
     Re=[];
     f=[];
     N=51;
     for i=1:N
-        w=log10(2e3)+(i-1)*(log10(1e8)-log10(2e3))/(N-1);
-        Re=[Re;10^w];
+        u=log10(2e3)+(i-1)*(log10(1e8)-log10(2e3))/(N-1);
+        Re=[Re;10^u];
         foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
-        f=[f;bissection(foo,6e-3,1e-1,1e-4)];
+        f=[f;bissection(foo,6e-4,1e-1,1e-4)];
     end
-    loglog(Re,f,t);
+    loglog(Re,f,t,'linewidth',w);
 end
 
-function smooth(t)
+function smooth(t,w)
     Re=[];
     f=[];
     N=31;
     for i=1:N
-        w=log10(2e3)+(i-1)*(log10(1e7)-log10(2e3))/(N-1);
-        Re=[Re;10^w];
+        u=log10(2e3)+(i-1)*(log10(1e7)-log10(2e3))/(N-1);
+        Re=[Re;10^u];
         foo=@(f) 1/sqrt(f)+2*log10(2.51/Re(end)/sqrt(f));
         f=[f;bissection(foo,6e-3,1e-1,1e-4)];
     end
-    loglog(Re,f,t);
+    loglog(Re,f,t,'linewidth',w);
 end
 
-function rough(t)
+function rough(t,w)
     eps=[];
     f=[];
     Re=[];
     N=31;
     for i=1:N
-        w=log10(4e-5)+(i-1)*(log10(5e-2)-log10(4e-5))/(N-1);
-        eps=[eps;10^w];
+        u=log10(4e-5)+(i-1)*(log10(5e-2)-log10(4e-5))/(N-1);
+        eps=[eps;10^u];
         f=[f;1.01*(2*log10(3.7/eps(end)))^-2];
         z=f2Re(f(end),eps(end));
         Re=[Re;z(end)];
     end
-    loglog(Re,f,t);
+    loglog(Re,f,t,'linewidth',w);
 end
 
 function x2=bissection(f,x1,x2,tol)
