@@ -107,52 +107,88 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     end
     if fig
         figure;
-        if islam
-          laminar('r',2);
-          hold on;turb(eps,'k',1);
+        if eps<1e-4
+            hold on;turb(1e-5,'k',1);
+            feps=(-2*log10(1e-5/3.7))^-2;
+            text(2e7,feps*1.07,num2str(1e-5,4),'color','k','fontsize',11);
         else
-          laminar('k',1);
-          hold on;turb(eps,'r',2);
+            hold on;turb(eps/3,'k',1);
+            feps=(-2*log10(eps/3/3.7))^-2;
+            text(2e7,feps*1.07,num2str(eps/3,4),'color','k','fontsize',11);
         end
-        if eps<1e-4, hold on;turb(1e-5,'k',1);
-        else hold on;turb(eps/3,'k',1);
+        if eps<1e-4
+            hold on;turb(1e-4,'k',1);
+            feps=(-2*log10(1e-4/3.7))^-2;
+            text(2e7,feps*1.07,num2str(1e-4,4),'color','k','fontsize',11);
+        else
+            hold on;turb(eps/10,'k',1);
+            feps=(-2*log10(eps/10/3.7))^-2;
+            text(2e7,feps*1.07,num2str(eps/10,4),'color','k','fontsize',11);
         end
-        if eps<1e-4, hold on;turb(1e-4,'k',1);
-        else hold on;turb(eps/10,'k',1);
+        if eps<1e-4
+            hold on;turb(1e-3,'k',1);
+            feps=(-2*log10(1e-3/3.7))^-2;
+            text(2e7,feps*1.07,num2str(1e-3,4),'color','k','fontsize',11);
+        elseif eps*3>5e-2
+            hold on;turb(5e-2,'k',1);
+            feps=(-2*log10(5e-2/3.7))^-2;
+            text(2e7,feps*1.07,num2str(5e-2,4),'color','k','fontsize',11);
+        else
+            hold on;turb(eps*3,'k',1);
+            feps=(-2*log10(eps*3/3.7))^-2;
+            text(2e7,feps*1.07,num2str(eps*3,4),'color','k','fontsize',11);
         end
-        if eps<1e-4, hold on;turb(1e-3,'k',1);
-        elseif eps*3>5e-2, hold on;turb(5e-2,'k',1);
-        else hold on;turb(eps*3,'k',1);
+        if eps<1e-4
+            hold on;turb(5e-3,'k',1);
+            feps=(-2*log10(5e-3/3.7))^-2;
+            text(2e7,feps*1.07,num2str(5e-3,4),'color','k','fontsize',11);
+        elseif eps*10>5e-2
+            hold on;turb(eps/1.5,'k',1);
+            feps=(-2*log10(eps/1.5/3.7))^-2;
+            text(2e7,feps*1.07,num2str(eps/1.5,4),'color','k','fontsize',11);
+        else
+            hold on;turb(eps*10,'k',1);
+            feps=(-2*log10(eps*10/3.7))^-2;
+            text(2e7,feps*1.07,num2str(eps*10,4),'color','k','fontsize',11);
         end
-        if eps<1e-4, hold on;turb(5e-3,'k',1);
-        elseif eps*10>5e-2, hold on;turb(eps/6,'k',1);
-        else hold on;turb(eps*10,'k',1);
+        hold on;rough('-.b',1.5);
+        if ~eps==0
+            hold on;smooth('-.b',1.5);
         end
-        hold on;rough('b',1.5);
-        if ~eps==0, hold on;smooth('b',1.5); end
+        if islam
+            laminar('r',2);
+            hold on;turb(eps,'k',1);
+            feps=(-2*log10(eps/3.7))^-2;
+            text(2e7,feps*1.07,num2str(eps,4),'color','k','fontsize',11);
+        else
+            laminar('k',1);
+            hold on;turb(eps,'r',2);
+            feps=(-2*log10(eps/3.7))^-2;
+            text(2e7,feps*1.07,num2str(eps,4),'color','r','fontsize',11);
+        end
         hold on;loglog(Re,f,'or','markersize',8,'markerfacecolor','r');
         line('xdata',[(K/6e-3)^(1/2) (K/1e-1)^(1/2)],...
-             'ydata',[6e-3 1e-1],...
-             'linewidth',1.5,...
-             'linestyle','--',...
-             'color','r');
+        'ydata',[6e-3 1e-1],...
+        'linewidth',1.5,...
+        'linestyle','--',...
+        'color','r');
         grid on;
         axis([1e2 1e8 6e-3 1e-1]);
         xlabel('{\itRe} = {\it\rhouD} / {\it\mu}');
         ylabel('{\itf} = 2{\itghD}^3{\it\rho}^2 / {\it\mu}^2{\itL} \times {\itRe}^{-2}');
         set(gca,...
-           'fontsize',14,...
-           'box','on',...
-           'ytick',[6e-3,8e-3,1e-2,2e-2,4e-2,6e-2,8e-2,1e-1],...
-           'xtick',[1e2,1e3,1e4,1e5,1e6,1e7,1e8]);
+        'fontsize',14,...
+        'box','on',...
+        'ytick',[6e-3,8e-3,1e-2,2e-2,4e-2,6e-2,8e-2,1e-1],...
+        'xtick',[1e2,1e3,1e4,1e5,1e6,1e7,1e8]);
     end
 end
 
 function laminar(t,w)
     line('xdata',[5e2 4e3],...
-         'ydata',[64/5e2 64/4e3],...
-         'linewidth',w,...
-         'color',t);
+    'ydata',[64/5e2 64/4e3],...
+    'linewidth',w,...
+    'color',t);
 end
 
 function turb(eps,t,w)
@@ -197,11 +233,11 @@ function rough(t,w)
 end
 
 function x2=bissection(f,x1,x2,tol)
-  while abs(f(x2))>tol
-    x=(x1+x2)/2;
-    if f(x)*f(x1)>0 x1=x;
-    else x2=x;
+    while abs(f(x2))>tol
+        x=(x1+x2)/2;
+        if f(x)*f(x1)>0 x1=x;
+        else x2=x;
+        end
     end
-  end
 end
 
