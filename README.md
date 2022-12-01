@@ -111,7 +111,7 @@ $$
 For turbulent flow, *Re* > 2,500 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
 
 $$
-{1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon} + {2.51 \over {Re \sqrt{f}}}}
+{1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7} + {2.51 \over {Re \sqrt{f}}}}
 $$
 
 ## The `internal-fluid-flow` Toolbox
