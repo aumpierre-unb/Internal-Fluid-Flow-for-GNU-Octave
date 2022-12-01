@@ -59,66 +59,72 @@ function [f]=Re2f(Re,eps=0,fig=false)
     end
     if fig
         figure;
+        hold on;
         if eps<1e-4
-            hold on;turb(1e-5,'k',1);
+            turb(1e-5,'k',1);
             feps=(-2*log10(1e-5/3.7))^-2;
             text(2e7,feps*1.07,num2str(1e-5,4),'color','k','fontsize',11);
         else
-            hold on;turb(eps/3,'k',1);
+            turb(eps/3,'k',1);
             feps=(-2*log10(eps/3/3.7))^-2;
             text(2e7,feps*1.07,num2str(eps/3,4),'color','k','fontsize',11);
         end
         if eps<1e-4
-            hold on;turb(1e-4,'k',1);
+            turb(1e-4,'k',1);
             feps=(-2*log10(1e-4/3.7))^-2;
             text(2e7,feps*1.07,num2str(1e-4,4),'color','k','fontsize',11);
         else
-            hold on;turb(eps/10,'k',1);
+            turb(eps/10,'k',1);
             feps=(-2*log10(eps/10/3.7))^-2;
             text(2e7,feps*1.07,num2str(eps/10,4),'color','k','fontsize',11);
         end
         if eps<1e-4
-            hold on;turb(1e-3,'k',1);
+            turb(1e-3,'k',1);
             feps=(-2*log10(1e-3/3.7))^-2;
             text(2e7,feps*1.07,num2str(1e-3,4),'color','k','fontsize',11);
         elseif eps*3>5e-2
-            hold on;turb(5e-2,'k',1);
+            turb(5e-2,'k',1);
             feps=(-2*log10(5e-2/3.7))^-2;
             text(2e7,feps*1.07,num2str(5e-2,4),'color','k','fontsize',11);
         else
-            hold on;turb(eps*3,'k',1);
+            turb(eps*3,'k',1);
             feps=(-2*log10(eps*3/3.7))^-2;
             text(2e7,feps*1.07,num2str(eps*3,4),'color','k','fontsize',11);
         end
         if eps<1e-4
-            hold on;turb(5e-3,'k',1);
+            turb(5e-3,'k',1);
             feps=(-2*log10(5e-3/3.7))^-2;
             text(2e7,feps*1.07,num2str(5e-3,4),'color','k','fontsize',11);
         elseif eps*10>5e-2
-            hold on;turb(eps/1.5,'k',1);
+            turb(eps/1.5,'k',1);
             feps=(-2*log10(eps/1.5/3.7))^-2;
             text(2e7,feps*1.07,num2str(eps/1.5,4),'color','k','fontsize',11);
         else
-            hold on;turb(eps*10,'k',1);
+            turb(eps*10,'k',1);
             feps=(-2*log10(eps*10/3.7))^-2;
             text(2e7,feps*1.07,num2str(eps*10,4),'color','k','fontsize',11);
         end
         hold on;rough('-.b',1.5);
         if ~eps==0
-            hold on;smooth('-.b',1.5);
+            smooth('-.b',1.5);
+            text(7e6,8e-3,'Smooth pipe','color','b','fontsize',11,'horizontalalignment','right');
+            text(4e4,7.5e-2,'Fully rough flow','color','b','fontsize',11);
+        else
+            text(7e6,8e-3,'Smooth pipe','color','r','fontsize',11,'horizontalalignment','right');
+            text(4e4,7.5e-2,'Fully rough flow','color','b','fontsize',11);
         end
         if Re<2.3e3
             laminar('r',2);
-            hold on;turb(eps,'k',1);
+            turb(eps,'k',1);
             feps=(-2*log10(eps/3.7))^-2;
             text(2e7,feps*1.07,num2str(eps,4),'color','k','fontsize',11);
         else
             laminar('k',1);
-            hold on;turb(eps,'r',2);
+            turb(eps,'r',2);
             feps=(-2*log10(eps/3.7))^-2;
             text(2e7,feps*1.07,num2str(eps,4),'color','r','fontsize',11);
         end
-        hold on;loglog(Re,f,'or','markersize',8,'markerfacecolor','r');
+        loglog(Re,f,'or','markersize',8,'markerfacecolor','r');
         line('xdata',[Re Re],...
              'ydata',[6e-3 1e-1],...
              'linewidth',1,...
@@ -128,12 +134,12 @@ function [f]=Re2f(Re,eps=0,fig=false)
         axis([1e2 1e8 6e-3 1e-1]);
         xlabel('{\itRe}');
         ylabel('{\itf}');
-        set(gca,'fontsize',14,'box','on');
         set(gca,...
            'fontsize',14,...
            'box','on',...
            'ytick',[6e-3,8e-3,1e-2,2e-2,4e-2,6e-2,8e-2,1e-1],...
            'xtick',[1e2,1e3,1e4,1e5,1e6,1e7,1e8]);
+        hold off;
     end
 end
 
