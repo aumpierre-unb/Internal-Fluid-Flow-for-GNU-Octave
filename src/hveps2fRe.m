@@ -137,8 +137,8 @@ function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
              'color','r');
         grid on;
         axis([1e2 1e8 6e-3 1e-1]);
-        xlabel('{\itRe} = {(4/\it\pi)} \times {\it\rhoQ} / {\it\muD}');
-        ylabel('{\itf} = ({4}/{\it\pi})^3 \times 2{\itghQ}^3{\it\rho}^5 / {\it\mu}^5{\itL} \times {\itRe}^{-5}');
+        xlabel('Reynolds number \itRe');
+        ylabel('Darcy friction factor \itf');
         set(gca,...
            'fontsize',14,...
            'box','on',...
