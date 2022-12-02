@@ -83,168 +83,58 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #
     # See also: Re2f, f2Re, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
     K=2*g*h*rho^2*D^3/mu^2/L;
-    islam=true;
-    Re=K/64;
-    f=64/Re;
+    foo=@(f) (1/f^(1/2)+2*log10(eps/3.7+2.51/(K/f)^(1/2)/f^(1/2)));
+    f=newtonraphson(foo,1e-2,1e-4);
+    Re=(K/f)^(1/2);
     if Re>2.3e3
         islam=false;
-        Re=1e4;
-        f=Re2f(Re,eps);
-        while abs(f-K/Re^2)/f>5e-3
-            if f-K/Re^2<0 Re=Re*1.02;
-            else
-                Re=Re*0.98;
-                if Re<2.3e3
-                    islam=true;
-                    Re=K/64;
-                    f=64/Re;
-                    printf("Solution found in extended laminar range.\n");
-                    break
-                end
-            end
-            f=Re2f(Re,eps);
-        end
+    else
+        Re=K/64;
+        f=64/Re;
+        islam=true;
     end
     if fig
         figure;
         hold on;
-        if eps<1e-4
-            turb(1e-5,'k',1);
-            feps=(-2*log10(1e-5/3.7))^-2;
-            text(2e7,feps*1.07,num2str(1e-5,4),'color','k','fontsize',11);
-        else
-            turb(eps/3,'k',1);
-            feps=(-2*log10(eps/3/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps/3,4),'color','k','fontsize',11);
-        end
-        if eps<1e-4
-            turb(1e-4,'k',1);
-            feps=(-2*log10(1e-4/3.7))^-2;
-            text(2e7,feps*1.07,num2str(1e-4,4),'color','k','fontsize',11);
-        else
-            turb(eps/10,'k',1);
-            feps=(-2*log10(eps/10/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps/10,4),'color','k','fontsize',11);
-        end
-        if eps<1e-4
-            turb(1e-3,'k',1);
-            feps=(-2*log10(1e-3/3.7))^-2;
-            text(2e7,feps*1.07,num2str(1e-3,4),'color','k','fontsize',11);
-        elseif eps*3>5e-2
-            turb(5e-2,'k',1);
-            feps=(-2*log10(5e-2/3.7))^-2;
-            text(2e7,feps*1.07,num2str(5e-2,4),'color','k','fontsize',11);
-        else
-            turb(eps*3,'k',1);
-            feps=(-2*log10(eps*3/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps*3,4),'color','k','fontsize',11);
-        end
-        if eps<1e-4
-            turb(5e-3,'k',1);
-            feps=(-2*log10(5e-3/3.7))^-2;
-            text(2e7,feps*1.07,num2str(5e-3,4),'color','k','fontsize',11);
-        elseif eps*10>5e-2
-            turb(eps/1.5,'k',1);
-            feps=(-2*log10(eps/1.5/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps/1.5,4),'color','k','fontsize',11);
-        else
-            turb(eps*10,'k',1);
-            feps=(-2*log10(eps*10/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps*10,4),'color','k','fontsize',11);
+        x=[5e-2 2.5e-2 1e-2 3e-3 1e-3 3e-4 1e-4];
+        for i=1:length(x)
+            turbulent(x(i),'k',1);
+            feps=(-2*log10(x(i)/3.7))^-2;
+            text(8e7,feps*1.07,num2str(x(i),4),'color','k','fontsize',11,'horizontalalignment','right');
         end
         rough('-.b',1.5);
         if ~eps==0
             smooth('-.b',1.5);
             text(7e6,8e-3,'Smooth pipe','color','b','fontsize',11,'horizontalalignment','right');
-            text(4e4,7.5e-2,'Fully rough flow','color','b','fontsize',11);
+            text(4e4,7.6e-2,'Fully rough flow','color','b','fontsize',11);
         else
             text(7e6,8e-3,'Smooth pipe','color','r','fontsize',11,'horizontalalignment','right');
             text(4e4,7.5e-2,'Fully rough flow','color','b','fontsize',11);
         end
         if islam
             laminar('r',2);
-            turb(eps,'k',1);
-            feps=(-2*log10(eps/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps,4),'color','k','fontsize',11);
         else
             laminar('k',1);
-            turb(eps,'r',2);
+            turbulent(eps,'r',2);
             feps=(-2*log10(eps/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps,4),'color','r','fontsize',11);
+            text(8e6,feps*1.07,num2str(eps,4),'color','r','fontsize',11,'horizontalalignment','right');
         end
         loglog(Re,f,'or','markersize',8,'markerfacecolor','r');
         line('xdata',[(K/6e-3)^(1/2) (K/1e-1)^(1/2)],...
-        'ydata',[6e-3 1e-1],...
-        'linewidth',1.5,...
-        'linestyle','--',...
-        'color','r');
+             'ydata',[6e-3 1e-1],...
+             'linewidth',1,...
+             'linestyle','--',...
+             'color','r');
         grid on;
         axis([1e2 1e8 6e-3 1e-1]);
-        xlabel('{\itRe} = {\it\rhouD} / {\it\mu}');
-        ylabel('{\itf} = 2{\itghD}^3{\it\rho}^2 / {\it\mu}^2{\itL} \times {\itRe}^{-2}');
+        xlabel('{\itRe} = {(4/\it\pi)} \times {\it\rhoQ} / {\it\muD}');
+        ylabel('{\itf} = ({4}/{\it\pi})^3 \times 2{\itghQ}^3{\it\rho}^5 / {\it\mu}^5{\itL} \times {\itRe}^{-5}');
         set(gca,...
-            'fontsize',14,...
-            'box','on',...
-            'ytick',[6e-3,8e-3,1e-2,2e-2,4e-2,6e-2,8e-2,1e-1],...
-            'xtick',[1e2,1e3,1e4,1e5,1e6,1e7,1e8]);
+           'fontsize',14,...
+           'box','on',...
+           'ytick',[6e-3,8e-3,1e-2,2e-2,4e-2,6e-2,8e-2,1e-1],...
+           'xtick',[1e2,1e3,1e4,1e5,1e6,1e7,1e8]);
         hold off;
-    end
-end
-
-function laminar(t,w)
-    line('xdata',[5e2 4e3],...
-    'ydata',[64/5e2 64/4e3],...
-    'linewidth',w,...
-    'color',t);
-end
-
-function turb(eps,t,w)
-    Re=[];
-    f=[];
-    N=51;
-    for i=1:N
-        u=log10(2e3)+(i-1)*(log10(1e8)-log10(2e3))/(N-1);
-        Re=[Re;10^u];
-        foo=@(f) 1/sqrt(f)+2*log10(eps/3.7+2.51/Re(end)/sqrt(f));
-        f=[f;bissection(foo,6e-4,1e-1,1e-4)];
-    end
-    loglog(Re,f,t,'linewidth',w);
-end
-
-function smooth(t,w)
-    Re=[];
-    f=[];
-    N=31;
-    for i=1:N
-        u=log10(2e3)+(i-1)*(log10(1e7)-log10(2e3))/(N-1);
-        Re=[Re;10^u];
-        foo=@(f) 1/sqrt(f)+2*log10(2.51/Re(end)/sqrt(f));
-        f=[f;bissection(foo,6e-3,1e-1,1e-4)];
-    end
-    loglog(Re,f,t,'linewidth',w);
-end
-
-function rough(t,w)
-    eps=[];
-    f=[];
-    Re=[];
-    N=31;
-    for i=1:N
-        u=log10(4e-5)+(i-1)*(log10(5e-2)-log10(4e-5))/(N-1);
-        eps=[eps;10^u];
-        f=[f;1.01*(2*log10(3.7/eps(end)))^-2];
-        z=f2Re(f(end),eps(end));
-        Re=[Re;z(end)];
-    end
-    loglog(Re,f,t,'linewidth',w);
-end
-
-function x2=bissection(f,x1,x2,tol)
-    while abs(f(x2))>tol
-        x=(x1+x2)/2;
-        if f(x)*f(x1)>0 x1=x;
-        else x2=x;
-        end
     end
 end
 
