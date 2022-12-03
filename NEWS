@@ -1,7 +1,7 @@
 TODO
 ====
 
-internal-fluid-flow 0.3.0-alpha (2022-10-24)
+internal-fluid-flow 0.3.0 (2022-12-03)
 ======================================
 * Minor changes on documentation
 * Help comments included for internal functions
