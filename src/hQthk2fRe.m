@@ -55,9 +55,6 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # for water:
     # h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2; # inputs in cgs units
     # [Re,f]=hQthk2fRe(h,Q,L,thk)
-    # D=rho/mu*Q/(%pi/4)/Re # pipe's hydraulic diameter in cm
-    # thk=eps*D # pipe's roughness in cm
-    # v=Re*mu/rho/D # flow speed in cm/s
     #
     # # Compute the Reynolds number Re and
     # # the Darcy friction factor f given
@@ -69,6 +66,9 @@ function [Re,f]=hQthk2fRe(h,Q,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # in a smooth pipe:
     # h=40;Q=8.6e3;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=hQthk2fRe(h,Q,L,:,rho,mu)
+    # D=rho/mu*Q/(pi/4)/Re # pipe's hydraulic diameter in cm
+    # thk=eps*D # pipe's roughness in cm
+    # v=Re*mu/rho/D # flow speed in cm/s
     #
     # # Compute the Reynolds number Re and
     # # the Darcy friction factor f given
