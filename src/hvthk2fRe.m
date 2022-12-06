@@ -66,9 +66,6 @@ function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # in a smooth pipe:
     # h=40;v=1.1e2;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=hvthk2fRe(h,v,L,:,rho,mu)
-    # D=Re*mu/rho/v # pipe's hydraulic diameter in cm
-    # eps=thk/D # pipe's relative roughness
-    # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s
     #
     # # Compute the Reynolds number Re and
     # # the Darcy friction factor f given

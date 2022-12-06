@@ -66,9 +66,6 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # # in a smooth pipe:
     # h=40;D=10;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=hDeps2fRe(h,D,L,:,rho,mu)
-    # thk=eps*D # pipe's roughness in cm
-    # v=Re*mu/rho/D # flow speed in cm/s
-    # Q=v*(pi/4*D^2) # volumetric flow rate in cc/s
     #
     # # Compute the Reynolds number Re and
     # # the Darcy friction factor f given
