@@ -24,7 +24,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # f2Re computes
     #  the Reynolds number Re given
     #  the Darcy friction factor f and
-    #  the pipe's relative roughness eps for
+    #  the pipe"s relative roughness eps for
     #  for laminar regime and,
     #  when possible, also
     #  for turbulent regime.
@@ -74,50 +74,49 @@ function [Re]=f2Re(f,eps=0,fig=false)
     if ~isempty(fD) && fig
         figure;
         hold on;
-        x=[5e-2 2.5e-2 1e-2 3e-3 1e-3 3e-4 1e-4];
         for i=1:length(x)
-            turbulent(x(i),'k',1);
-            feps=(-2*log10(x(i)/3.7))^-2;
-            text(8e7,feps*1.07,num2str(x(i),4),'color','k','fontsize',11,'horizontalalignment','right');
+            if abs(x(i)-eps)>eps/10
+                turbulent(x(i),"k",1);
+                feps=(-2*log10(x(i)/3.7))^-2;
+                text(8e7,feps*1.07,num2str(x(i),4),"color","k","fontsize",11,"horizontalalignment","right");
+            end
         end
-        rough('-.b',1.5);
-        if ~eps==0
-            smooth('-.b',1.5);
-            text(7e6,8e-3,'Smooth pipe','color','b','fontsize',11,'horizontalalignment','right');
-            text(4e4,7.6e-2,'Fully rough flow','color','b','fontsize',11);
+        rough("-.b",1.5);
+        if eps~=0
+            smooth("-.b",1.5);
+            text(7e6,8e-3,"Smooth pipe","color","b","fontsize",11,"horizontalalignment","right");
+            text(4e4,7.6e-2,"Fully rough flow","color","b","fontsize",11);
         else
-            text(7e6,8e-3,'Smooth pipe','color','r','fontsize',11,'horizontalalignment','right');
-            text(4e4,7.5e-2,'Fully rough flow','color','b','fontsize',11);
+            text(7e6,8e-3,"Smooth pipe","color","r","fontsize",11,"horizontalalignment","right");
+            text(4e4,7.5e-2,"Fully rough flow","color","b","fontsize",11);
         end
         if min(Re)<2.3e3
-            laminar('r',2);
+            laminar("r",2);
         else
-            laminar('k',1);
+            laminar("k",1);
         end
         if max(Re)>2.3e3
-            turbulent(eps,'r',2);
+            turbulent(eps,"r",2);
             feps=(-2*log10(eps/3.7))^-2;
-            text(2e7,feps*1.07,num2str(eps,4),'color','r','fontsize',11),'horizontalalignment','right';
+            text(2e7,feps*1.07,num2str(eps,4),"color","r","fontsize",11),"horizontalalignment","right";
         else
-            turbulent(eps,'k',1);
-            feps=(-2*log10(eps/3.7))^-2;
-            text(9e6,feps*1.07,num2str(eps,4),'color','k','fontsize',11,'horizontalalignment','right');
+            turbulent(eps,"k",1);
         end
-        loglog(Re,f,'or','markersize',8,'markerfacecolor','r');
-        line('xdata',[1e2 1e8],...
-             'ydata',[f f],...
-             'linewidth',1,...
-             'linestyle','--',...
-             'color','r');
+        loglog(Re,f,"or","markersize",8,"markerfacecolor","r");
+        line("xdata",[1e2 1e8],...
+             "ydata",[f f],...
+             "linewidth",1,...
+             "linestyle","--",...
+             "color","r");
         grid on;
         axis([1e2 1e8 6e-3 1e-1]);
-        xlabel('Reynolds number \itRe');
-        ylabel('Darcy friction factor \itf');
+        xlabel("Reynolds number \itRe");
+        ylabel("Darcy friction factor \itf");
         set(gca,...
-           'fontsize',14,...
-           'box','on',...
-           'ytick',[6e-3,8e-3,1e-2,2e-2,4e-2,6e-2,8e-2,1e-1],...
-           'xtick',[1e2,1e3,1e4,1e5,1e6,1e7,1e8]);
+           "fontsize",14,...
+           "box","on",...
+           "ytick",[6e-3,8e-3,1e-2,2e-2,4e-2,6e-2,8e-2,1e-1],...
+           "xtick",[1e2,1e3,1e4,1e5,1e6,1e7,1e8]);
         hold off;
     end
 end
