@@ -39,5 +39,5 @@ function rough(t,w)
         z=f2Re(f(end),eps(end));
         Re=[Re;z(end)];
     end
-    loglog(Re,f,t,"linewidth",w);
+    loglog(Re,f,t,'linewidth',w);
 end
