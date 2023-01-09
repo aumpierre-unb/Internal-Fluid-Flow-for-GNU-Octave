@@ -86,13 +86,13 @@ function [Re,f]=hveps2fRe(h,v,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     f_=newtonraphson(foo,1e-2,1e-4);
     Re_=f_/M;
     if Re_>2.3e3
-        Re=[Re;Re_];
-        f=[f;f_];
+        Re=[Re_;Re];
+        f=[f_;f];
     end
     Re_=(64/M)^(1/2);
     if Re_<2.3e3
-        Re=[Re;Re_];
-        f=[f;64/Re_];
+        Re=[Re_;Re];
+        f=[64/Re_;f];
     end
     if fig
         figure;
