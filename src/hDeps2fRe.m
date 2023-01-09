@@ -126,7 +126,7 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
              'color','r');
         grid on;
         axis([1e2 1e8 6e-3 1e-1]);
-        xlabel('Reynolds number \itRe');
+        xlabel('{Reynolds Number \itRe}');
         ylabel('Darcy friction factor \itf');
         set(gca,...
            'fontsize',14,...
