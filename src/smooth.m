@@ -36,5 +36,6 @@ function smooth(t,w)
         Re=[Re;10^u];
         f=[f;Re2f(Re(end),eps)];
     end
-    loglog(Re,f,t,'linewidth',w);
+    loglog(Re,f,t,...
+           'linewidth',w);
 end
