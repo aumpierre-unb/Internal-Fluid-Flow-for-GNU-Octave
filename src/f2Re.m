@@ -111,7 +111,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
              'color','r');
         grid on;
         axis([1e2 1e8 6e-3 1e-1]);
-        xlabel('Reynolds Number {\itRe}');
+        xlabel('Reynolds Number \itRe');
         ylabel('Darcy friction factor \itf');
         set(gca,...
            'fontsize',14,...
