@@ -1,4 +1,4 @@
-#  Copyright (C) 2022 2023 Alexandre Umpierre
+# Copyright (C) 2022 2023 Alexandre Umpierre
 #
 # This file is part of internal-fluid-flow toolbox for GNU Octave.
 # internal-fluid-flow toolbox for GNU Octave is free software:
