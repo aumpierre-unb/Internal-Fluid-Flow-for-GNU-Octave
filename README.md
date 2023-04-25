@@ -199,7 +199,7 @@ Re=f2Re(2.8e-2)
 **Syntax:**
 
 ```dotnetcli
-[Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig=false]]]]])
+[Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
 ```
 
 By default, pipe is assumed to be 1 m long, *L* = 100 (in cm).
