@@ -128,35 +128,29 @@ $$
 
 `Re2f` computes the Darcy friction factor *f* given the relative roughness $\varepsilon$ and the Reynolds number *Re*. If given *Re* < 2,500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
 
-By default, pipe is assumed to be smooth, relative roughness is $\varepsilon$ = 0. If $\varepsilon$ > 0.05, $\varepsilon$ is reset to $\varepsilon$ = 0.05.
-
-If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
-
 **Syntax:**
 
 ```dotnetcli
-[f]=Re2f(Re,[eps[,fig=false]])
+f=Re2f(Re,eps=0,fig=false)
 ```
+
+By default, pipe is assumed to be smooth, eps = 0. If eps > 5e-2, eps is reset to eps = 5e-2.
+
+If fig = true is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Examples:**
 
 Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 and the relative roughness $\varepsilon$ = 0.001:
 
 ```dotnetcli
-Re=1.2e5;eps=1e-3;
+Re=120e3;eps=1e-3;
 f=Re2f(Re,eps)
-```
-
-Compute *f* and plot a schematic Moody diagram:
-
-```dotnetcli
-f=Re2f(1.2e5,1e-3,true)
 ```
 
 Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 for a smooth tube and plot a schematic Moody diagram with the solution:
 
 ```dotnetcli
-f=Re2f(1.2e5,:,true)
+f=Re2f(120e3,:,true)
 ```
 
 ### `f2Re`
@@ -169,15 +163,15 @@ $$
 
 (which is Colebrook-White equation for for elevated *Re*) the turbulent solution is accepted. If both solutions are accepted, `f2Re` returns both answers. If neither laminar or turbulent solutions are accepted, `f2Re` returns an empty matrix.
 
-By default, pipe is assumed to be smooth, relative roughness is $\varepsilon$ = 0. If $\varepsilon$ > 0.05, $\varepsilon$ is reset to $\varepsilon$ = 0.05.
-
-If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
-
 **Syntax:**
 
 ```dotnetcli
-[Re]=f2Re(f,[eps[,fig=false]])
+Re=f2Re(f,eps=0,fig=false)
 ```
+
+By default, pipe is assumed to be smooth, eps = 0. If eps > 5e-2, eps is reset to eps = 5e-2.
+
+If fig = true is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Examples:**
 
@@ -192,45 +186,33 @@ f=2.8e-2;eps=1e-3;
 Re=f2Re(f,eps)
 ```
 
-Compute *Re* and plot a schematic Moody diagram:
-
-```dotnetcli
-Re=f2Re(2.8e-2,1e-3,true)
-```
-
 Compute the Reynolds number *Re* given
 the Darcy friction factor *f* = 0.028
-for a smooth tube and plot
-a schematic Moody diagram
+for a smooth tube and
+plot a schematic Moody diagram
 with the solution:
 
 ```dotnetcli
 Re=f2Re(2.8e-2)
 ```
 
-### `hDeps2fDRe`
+### `h2fDRe`
 
-`hDeps2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L*, relative roughness $\varepsilon$ and hydraulic diameter *D*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing speed flow *v* in the Darcy-Weisbach equation by the Reynolds number *Re*,
-
-$$
-Re^2 f={2gh\rho^2D^3 \over {\mu^2 L}}
-$$
-
-Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively, however an analytic solution is possible in this case.
-
-By default, pipe is assumed to be smooth, $\varepsilon$ = 0.
-
-By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
-
-Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
-
-If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
+`h2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's hydraulic diameter *D* or the flow speed *v* or the volumetric flow rate *Q*, the pipe's length *L* (default *L* = 100), the pipe's roughness *k* (default *k* = 0) or the pipe's relative roughness $\varepsilon$ (default $\varepsilon$ = 0), the fluid's density $\rho$ (default $\rho$ = 0.997), the fluid's dynamic viscosity $\mu$ (default $\mu$ = 0.0091), and the gravitational accelaration *g* (default *g* = 981).
 
 **Syntax:**
 
 ```dotnetcli
 [Re,f]=hDeps2fRe(h,D,L[,eps[,rho[,mu[,g[,fig=false]]]]])
 ```
+
+By default, pipe is assumed to be 1 m long, *L* = 100 (in cm).
+
+By default, pipe is assumed to be smooth, eps = 0. Relative roughness eps is reset to eps = 0.05, if eps > 0.05.
+
+Notice that default values are given in the cgs unit system and, if taken, all other parameters must as well be given in cgs units.
+
+If parameter fig = true is given a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Examples:**
 
@@ -243,249 +225,19 @@ relative roughness $\varepsilon$ = 0.0027,
 for water flow:
 
 ```dotnetcli
-h=40;D=10;L=2.5e3;eps=2.7e-3; # inputs in cgs units
-[Re,f]=hDeps2fRe(h,D,L,eps)
+[Re,f]=h2fRe(40,D=10,L=2.5e3,eps=2.7e-3)
 ```
 
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-in addition
-the fluid's density $\rho$ = 0.989 kg/L and
-dynamic viscosity $\mu$ = 0.89 cP:
+Compute the Reynolds number *Re* and the Darcy friction factor *f* given the head loss per meter *h*/*L* = 1.6 cm/m, the volumetric flow rate *Q* = 8.6 L/s, the fluid's density $\rho$ = 0.989 g/cc and dynamic viscosity $\mu$ = 0.89 cP for a smooth pipe and show results on a schematic Moody diagram:
 
 ```dotnetcli
-h=40;D=10;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
-[Re,f]=hDeps2fRe(h,D,L,eps,rho,mu)
+[Re,f]=h2fRe(1.6,Q=8.6e3,eps=0,rho=0.989,mu=8.9e-3,fig=true)
 ```
 
-Compute *Re* and *f* and plot a schematic Moody diagram:
+Compute the Reynolds number *Re* and the Darcy friction factor *f*, given the head loss *h* = 0.40 m, the flow speed *v* = 1.1 m/s, the pipe's length *L* = 25 m for water flow for a smooth pipe:
 
 ```dotnetcli
-[Re,f]=hDeps2fRe(0.40,0.10,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
-```
-
-### `hveps2fDRe`
-
-`hveps2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness $\varepsilon$, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
-
-$$
-{f \over Re}={2gh\mu \over {v^3\rho L}}
-$$
-
-Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
-
-By default, pipe is assumed to be smooth, $\varepsilon$ = 0.
-
-By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
-
-Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
-
-If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
-
-**Syntax:**
-
-```dotnetcli
-[Re,f]=hveps2fRe(h,v,L[,eps[,rho[,mu[,g[,fig=false]]]]])
-```
-
-**Examples:**
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-the head loss *h* = 0.40 m,
-the flow speed *v* = 1.1 m/s,
-the pipe's length *L* = 25 m and
-relative roughness $\varepsilon$ = 0.0027,
-for water flow:
-
-```dotnetcli
-h=40;v=1.1e2;L=2.5e3;eps=2.7e-3; # inputs in cgs units
-[Re,f]=hveps2fRe(h,v,L,eps)
-```
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-in addition
-the fluid's density $\rho$ = 0.989 kg/L and
-dynamic viscosity $\mu$ = 0.89 cP:
-
-```dotnetcli
-h=40;v=1.1e2;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
-[Re,f]=hveps2fRe(h,v,L,eps,rho,mu)
-```
-
-Compute *Re* and *f* and plot a schematic Moody diagram:
-
-```dotnetcli
-[Re,f]=hveps2fRe(0.40,1.1,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
-```
-
-### `hQeps2fDRe`
-
-`hQeps2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and relative roughness $\varepsilon$, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
-
-$$
-{Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
-$$
-
-Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
-
-By default, pipe is assumed to be smooth, $\varepsilon$ = 0.
-
-By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
-
-Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
-
-If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
-
-**Syntax:**
-
-```dotnetcli
-[Re,f]=hQeps2fRe(h,Q,L[,eps[,rho[,mu[,g[,fig=false]]]]])
-```
-
-**Examples:**
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-the head loss *h* = 0.40 m,
-the volumetric flow rate *Q* = 8.6 L/s,
-the pipe's length *L* = 25 m and
-relative roughness $\varepsilon$ = 0.0027,
-for water flow:
-
-```dotnetcli
-h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3; # inputs in cgs units
-[Re,f]=hQeps2fRe(h,Q,L,eps)
-```
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-in addition
-the fluid's density $\rho$ = 0.989 kg/L and
-dynamic viscosity $\mu$ = 0.89 cP:
-
-```dotnetcli
-h=40;Q=8.6e3;L=2.5e3;eps=2.7e-3;rho=0.989;mu=8.9e-3; # inputs in cgs units
-[Re,f]=hQeps2fRe(h,Q,L,eps,rho,mu)
-```
-
-Compute *Re* and *f* and plot a schematic Moody diagram:
-
-```dotnetcli
-[Re,f]=hQeps2fRe(0.40,8.6e-3,25,2.7e-3,989,8.9e-4,9.81,true) # inputs in a consistent system of units
-```
-
-### `hvthk2fDRe`
-
-`hvthk2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the speed flow *v*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
-
-$$
-{f \over Re}={2gh\mu \over {v^3\rho L}}
-$$
-
-Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
-
-By default, pipe is assumed to be smooth, *k* = 0.
-
-By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
-
-Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
-
-If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
-
-**Syntax:**
-
-```dotnetcli
-[Re,f]=hvthk2fRe(h,v,L[,thk[,rho[,mu[,g[,fig=false]]]]])
-```
-
-**Examples:**
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-the head loss *h* = 0.40 m,
-the flow speed *v* = 1.1 m/s,
-the pipe's length *L* = 25 m and
-roughness *k* = 0.27 mm,
-for water flow:
-
-```dotnetcli
-h=40;v=1.1e2;L=2.5e3;thk=2.7e-2; # inputs in cgs units
-[Re,f]=hvthk2fRe(h,v,L,thk)
-```
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-in addition
-the fluid's density $\rho$ = 0.989 kg/L and
-dynamic viscosity $\mu$ = 0.89 cP:
-
-```dotnetcli
-h=40;v=1.1e2;L=2.5e3;thk=2.7e-2;rho=0.989;mu=8.9e-3; # inputs in cgs units
-[Re,f]=hvthk2fRe(h,v,L,thk,rho,mu)
-```
-
-Compute *Re* and *f* and plot a schematic Moody diagram:
-
-```dotnetcli
-[Re,f]=hvthk2fRe(0.40,1.1,25,2.7e-4,989,8.9e-4,9.81,true) # inputs in a consistent system of units
-```
-
-### `hQthk2fDRe`
-
-`hQthk2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's length *L* and roughness *k*, the volumetric flow rate *Q*, the gravitational acceleration *g*, and the fluid's density $\rho$ and dynamic viscosity $\mu$. Replacing hydraulic diameter *D* in the Darcy-Weisbach equation by the Reynolds number *Re*,
-
-$$
-{Re^5 f}={2ghQ^3 \over\displaystyle {{\left[ {\pi \over 4} \right]}^3 {\left[ {\mu \over \rho} \right]}^5 L}}
-$$
-
-Along with the Colebrook-White equation, this version of the Darcy-Weisbach equation produces a system of two equations with two variables. Solution is computed iteratively.
-
-By default, pipe is assumed to be smooth, *k* = 0.
-
-By default, the fluid is assumed to be water at 25 °C, $\rho$ = 0.997 kg/L and $\mu$ = 0.91 cP, and gravitational acceleration is assumed to be *g* = 9.81 m/s/s.
-
-Please, notice that these default values are given in the cgs unit system and, if taken, all other inputs must as well be given in cgs units.
-
-If *fig* = *true* is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
-
-**Syntax:**
-
-```dotnetcli
-[Re,f]=hQthk2fRe(h,Q,L[,thk[,rho[,mu[,g[,fig=false]]]]])
-```
-
-**Examples:**
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-the head loss *h* = 0.40 m,
-the volumetric flow rate *Q* = 8.6 L/s,
-the pipe's length *L* = 25 m and
-roughness *k* = 0.27 mm
-for water flow:
-
-```dotnetcli
-h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2; # inputs in cgs units
-[Re,f]=hQthk2fRe(h,Q,L,thk)
-```
-
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-in addition
-the fluid's density $\rho$ = 0.989 kg/L and
-dynamic viscosity $\mu$ = 0.89 cP:
-
-```dotnetcli
-h=40;Q=8.6e3;L=2.5e3;thk=2.7e-2;rho=0.989;mu=8.9e-3; # inputs in cgs units
-[Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu)
-```
-
-Compute *Re* and *f* and plot a schematic Moody diagram:
-
-```dotnetcli
-[Re,f]=hQthk2fRe(0.40,8.6e-3,25,2.7e-4,989,8.9e-4,9.81,true) # inputs in a consistent system of units
+[Re,f]=h2fRe(40,v=1.1e2,L=2.5e3,k=0)
 ```
 
 ### See Also

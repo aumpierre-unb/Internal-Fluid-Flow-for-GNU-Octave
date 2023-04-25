@@ -17,9 +17,9 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [Re]=f2Re(f,eps=0,fig=false)
+function Re=f2Re(f,eps=0,fig=false)
     # Syntax:
-    # [Re]=f2Re(f,[eps[,fig=false]])
+    # Re=f2Re(f,eps=0,fig=false)
     #
     # f2Re computes
     #  the Reynolds number Re given
@@ -47,8 +47,9 @@ function [Re]=f2Re(f,eps=0,fig=false)
     #
     # # Compute the Reynolds number Re given
     # # the Darcy friction factor f = 0.028
-    # # in a smooth pipe and
-    # # displays a schematic Moody Diagram.
+    # # for a smooth pipe and
+    # # plot a schematic Moody diagram
+    # # with the solution.
     # # In this case, both turbulent and laminar
     # # solutions are possible:
     # Re=f2Re(2.8e-2,:,true)

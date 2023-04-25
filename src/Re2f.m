@@ -17,9 +17,9 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [f]=Re2f(Re,eps=0,fig=false)
+function f=Re2f(Re,eps=0,fig=false)
     # Syntax:
-    # [f]=Re2f(Re,[eps[,fig=false]])
+    # f=Re2f(Re,eps=0,fig=false)
     #
     # Re2f computes
     #  the Darcy friction f factor given
@@ -37,14 +37,14 @@ function [f]=Re2f(Re,eps=0,fig=false)
     # # Compute the Darcy friction factor f given
     # # the Reynolds number Re = 120,000 and
     # # the relative roughness eps = 0.001:
-    # Re=1.2e5;eps=0.001;
+    # Re=120e3;eps=0.001;
     # f=Re2f(Re,eps)
     #
     # # Compute the Darcy friction factor f given
     # # the Reynolds number Re = 120,000
-    # # in a smooth pipe and
+    # # for a smooth pipe and
     # # displays a schematic Moody Diagram:
-    # f=Re2f(1.2e5,:,true)
+    # f=Re2f(120e3,:,true)
     #
     # See also: f2Re, h2fRe.
     if eps>5e-2

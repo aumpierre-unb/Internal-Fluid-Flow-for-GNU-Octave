@@ -19,12 +19,7 @@
 
 function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Syntax:
-    # [Re,f]=hDeps2fRe(h,D,eps,L,mu,rho,g[,fig])
-    # [Re,f]=hDeps2fRe(h,D,k,L,mu,rho,g[,fig])
-    # [Re,f]=hDeps2fRe(h,v,eps,L,mu,rho,g[,fig])
-    # [Re,f]=hDeps2fRe(h,v,k,L,mu,rho,g[,fig])
-    # [Re,f]=hDeps2fRe(h,Q,eps,L,mu,rho,g[,fig])
-    # [Re,f]=hDeps2fRe(h,Q,k,L,mu,rho,g[,fig])
+    # [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
     #
     # h2fRe computes the Reynolds number Re and
     #  the Darcy friction factor f given
@@ -37,7 +32,7 @@ function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-
     #  the pipe's relative roughness eps (default eps = 0),
     #  the fluid's density rho (default rho = 0.997),
     #  the fluid's dynamic viscosity mu (default mu = 0.0091), and
-    #  the gravitational accelaration g (default g = 981)..
+    #  the gravitational accelaration g (default g = 981).
     # By default, pipe is assumed to be 1 m long,
     #  L = 100 (in cm).
     # By default, pipe is assumed to be smooth,
@@ -71,7 +66,6 @@ function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-
     # # dynamic viscosity mu = 0.89 cP
     # # for a smooth pipe and
     # # show results on a schematic Moody diagram:
-    # h=40;D=10;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
     # [Re,f]=h2fRe(1.6,Q=8.6e3,eps=0,rho=0.989,mu=8.9e-3,fig=true)
     #
     # # Compute the Reynolds number Re and
@@ -79,7 +73,7 @@ function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-
     # # the head loss h = 0.40 m,
     # # the flow speed v = 1.1 m/s,
     # # the pipe's length L = 25 m
-    # # for water flow in a smooth pipe:
+    # # for water flow for a smooth pipe:
     # [Re,f]=h2fRe(40,v=1.1e2,L=2.5e3,k=0)
     #
     # See also: Re2f, f2Re.
