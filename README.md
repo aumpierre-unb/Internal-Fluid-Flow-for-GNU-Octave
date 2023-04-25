@@ -194,7 +194,7 @@ Re=f2Re(2.8e-2)
 
 ### `h2fDRe`
 
-`h2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's hydraulic diameter *D* or the flow speed *v* or the volumetric flow rate *Q*, the pipe's length *L* (default *L* = 100 cm), the pipe's roughness *k* (default *k* = 0 cm) or the pipe's relative roughness $\varepsilon$ (default $\varepsilon$ = 0), the fluid's density $\rho$ (default $\rho$ = 0.997 g/cc), the fluid's dynamic viscosity $\mu$ (default $\mu$ = 0.0091 g/cm/s), and the gravitational accelaration *g* (default *g* = 981 cm/s/s).
+`h2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's hydraulic diameter *D* or the flow speed *v* or the volumetric flow rate *Q*, the pipe's length *L*, the pipe's roughness *k* or the pipe's relative roughness $\varepsilon$, the fluid's density $\rho$, the fluid's dynamic viscosity $\mu$, and the gravitational accelaration *g*.
 
 **Syntax:**
 
@@ -205,6 +205,12 @@ Re=f2Re(2.8e-2)
 By default, pipe is assumed to be 1 m long, L = 100 (in cm).
 
 By default, pipe is assumed to be smooth. Relative roughness is reset to eps = 0.05, if eps > 0.05.
+
+By default, fluid is assumed to be water at 25 °C, and
+rho = 0.997 (in g/cc) and mu = 0.0091 (in g/cm/s).
+
+By default, gravitational acceleration is that of Earth,
+g = 981 (in cm/s/s).
 
 Notice that default values are given in the cgs unit system and, if taken, all other parameters must as well be given in cgs units.
 
