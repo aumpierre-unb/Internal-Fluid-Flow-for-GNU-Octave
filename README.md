@@ -118,11 +118,7 @@ $$
 
 - `Re2f`
 - `f2Re`
-- `hDeps2fDRe`
-- `hveps2fDRe`
-- `hQeps2fDRe`
-- `hvthk2fDRe`
-- `hQthk2fDRe`
+- `h2fDRe`
 
 ### `Re2f`
 
