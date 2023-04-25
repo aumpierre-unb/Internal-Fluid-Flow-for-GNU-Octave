@@ -11,6 +11,7 @@
 ```dotnetcli
 # e.g. this call installs version 0.3.2
 pkg install https://github.com/aumpierre-unb/Internal-Fluid-Flow-for-GNU-Octave/archive/refs/tags/v0.3.2.tar.gz
+pkg load internal-fluid-flow
 ```
 
 ## Citation of `internal-fluid-flow`
