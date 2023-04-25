@@ -53,7 +53,7 @@ function [Re]=f2Re(f,eps=0,fig=false)
     # # solutions are possible:
     # Re=f2Re(2.8e-2,:,true)
     #
-    # See also: Re2f, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
+    # See also: Re2f, h2fRe.
     if eps>5e-2
         eps=5e-2;
     end

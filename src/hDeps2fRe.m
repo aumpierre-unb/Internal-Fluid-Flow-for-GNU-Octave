@@ -42,43 +42,8 @@ function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # If fig = true is given, a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
-    # hDeps2fRe is a main function of
+    # hDeps2fRe is an internal function of
     #  the internal-fluid-flow toolbox for GNU Octave.
-    #
-    # Examples:
-    # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f given
-    # # the head loss h = 0.40 m,
-    # # the pipe's hydraulic diameter D = 10 cm,
-    # # length L = 25 m and
-    # # relative roughness eps = 0.0027,
-    # # for water:
-    # h=40;D=10;L=2.5e3;eps=2.7e-3; # inputs in cgs units
-    # [Re,f]=hDeps2fRe(h,D,L,eps)
-    #
-    # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f given
-    # # the head loss h = 0.40 m,
-    # # the pipe's hydraulic diameter D = 10 cm,
-    # # length L = 25 m and
-    # # the fluid's density rho = 0.989 kg/L and
-    # # dynamic viscosity mu = 0.89 cP,
-    # # in a smooth pipe:
-    # h=40;D=10;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
-    # [Re,f]=hDeps2fRe(h,D,L,:,rho,mu)
-    #
-    # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f given
-    # # the head loss h = 0.40 m,
-    # # the pipe's hydraulic diameter D = 10 cm,
-    # # length L = 25 m and
-    # # relative roughness eps = 0.0027,
-    # # the fluid's density rho = 0.989 kg/L and
-    # # dynamic viscosity mu = 0.89 cP, and
-    # # display a schematic Moody Diagram:
-    # [Re,f]=hDeps2fRe(0.40,0.10,25,2.7e-3,989,8.9e-4,9.81,true)
-    #
-    # See also: Re2f, f2Re, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
     K=2*g*h*rho^2*D^3/mu^2/L;
     foo=@(f) (1/f^(1/2)+2*log10(eps/3.7+2.51/(K/f)^(1/2)/f^(1/2)));
     f=newtonraphson(foo,1e-2,1e-4);

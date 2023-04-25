@@ -17,41 +17,80 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
+function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Syntax:
-    # [Re,f]=hQeps2fRe(h,Q,L,eps,g,mu,rho[,fig=false])
+    # [Re,f]=hDeps2fRe(h,D,eps,L,mu,rho,g[,fig])
+    # [Re,f]=hDeps2fRe(h,D,k,L,mu,rho,g[,fig])
+    # [Re,f]=hDeps2fRe(h,v,eps,L,mu,rho,g[,fig])
+    # [Re,f]=hDeps2fRe(h,v,k,L,mu,rho,g[,fig])
+    # [Re,f]=hDeps2fRe(h,Q,eps,L,mu,rho,g[,fig])
+    # [Re,f]=hDeps2fRe(h,Q,k,L,mu,rho,g[,fig])
     #
-    # hQeps2fRe computes
-    #  the Reynolds number Re and
+    # h2fRe computes the Reynolds number Re and
     #  the Darcy friction factor f given
     #  the head loss h,
-    #  the volumetric flow Q,
-    #  the pipe's length L,
-    #  the pipe's relative roughness eps,
-    #  the fluid's density rho,
-    #  the fluid's dynamic viscosity mu, and
-    #  the gravitational accelaration g.
-    # By default, pipe is assumed to be smooth, eps = 0.
-    # By default, the fluid is assumed to be water at 25 degC,
-    #  rho = 0.997 kg/L and mu = 0.91 cP,
-    #  and gravitational acceleration is assumed to be
-    #  g = 9.81 m/s/s.
-    # Please, notice that these default values are given
-    #  in the cgs unit system and, if taken,
-    #  all other inputs must as well be given in cgs units.
-    # If fig = true is given, a schematic Moody diagram
+    #  the pipe's hydraulic diameter D or
+    #  the flow speed v or
+    #  the volumetric flow rate Q,
+    #  the pipe's length L (default L = 100),
+    #  the pipe's roughness k (default k = 0) or
+    #  the pipe's relative roughness eps (default eps = 0),
+    #  the fluid's density rho (default rho = 0.997),
+    #  the fluid's dynamic viscosity mu (default mu = 0.0091), and
+    #  the gravitational accelaration g (default g = 981)..
+    # By default, pipe is assumed to be 1 m long,
+    #  L = 100 (in cm).
+    # By default, pipe is assumed to be smooth,
+    #  eps = 0. Relative roughness eps is reset to eps = 0.05,
+    #  if eps > 0.05.
+    # Notice that default values are given in the cgs unit system and,
+    #  if taken, all other parameters must as well
+    #  be given in cgs units.
+    # If parameter fig = true is given
+    #  a schematic Moody diagram
     #  is plotted as a graphical representation
     #  of the solution.
-    # hQeps2fRe is an internal function of
+    # h2fRe is a main function of
     #  the internal-fluid-flow toolbox for GNU Octave.
-    P=2*g*h*Q^3/(pi/4)^3/(mu/rho)^5/L;
-    foo=@(f) (1/f^(1/2)+2*log10(eps/3.7+2.51/(P/f)^(1/5)/f^(1/2)));
+    #
+    # Examples:
+    # # Compute the Reynolds number Re and
+    # # the Darcy friction factor f given
+    # # the head loss h = 40 cm,
+    # # the pipe's hydraulic diameter D = 10 cm,
+    # # length L = 25 m and
+    # # relative roughness eps = 0.0027
+    # # for water flow:
+    # [Re,f]=h2fRe(40,D=10,L=2.5e3,eps=2.7e-3)
+    #
+    # # Compute the Reynolds number Re and
+    # # the Darcy friction factor f given
+    # # the head loss per meter h/L = 1.6 cm/m,
+    # # the volumetric flow rate Q = 8.6 L/s,
+    # # the fluid's density rho = 0.989 g/cc and
+    # # dynamic viscosity mu = 0.89 cP
+    # # for a smooth pipe and
+    # # show results on a schematic Moody diagram:
+    # h=40;D=10;L=2.5e3;rho=0.989;mu=8.9e-3; # inputs in cgs units
+    # [Re,f]=h2fRe(1.6,Q=8.6e3,eps=0,rho=0.989,mu=8.9e-3,fig=true)
+    #
+    # # Compute the Reynolds number Re and
+    # # the Darcy friction factor f, given
+    # # the head loss h = 0.40 m,
+    # # the flow speed v = 1.1 m/s,
+    # # the pipe's length L = 25 m
+    # # for water flow in a smooth pipe:
+    # [Re,f]=h2fRe(40,v=1.1e2,L=2.5e3,k=0)
+    #
+    # See also: Re2f, f2Re.
+    K=2*g*h*rho^2*D^3/mu^2/L;
+    foo=@(f) (1/f^(1/2)+2*log10(eps/3.7+2.51/(K/f)^(1/2)/f^(1/2)));
     f=newtonraphson(foo,1e-2,1e-4);
-    Re=(P/f)^(1/5);
+    Re=(K/f)^(1/2);
     if Re>2.3e3
         islam=false;
     else
-        Re=(P/64)^(1/4);
+        Re=K/64;
         f=64/Re;
         islam=true;
     end
@@ -102,7 +141,7 @@ function [Re,f]=hQeps2fRe(h,Q,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
         loglog(Re,f,'or',...
                'markersize',8,...
                'markerfacecolor','r');
-        line('xdata',[(P/6e-3)^(1/5) (P/1e-1)^(1/5)],...
+        line('xdata',[(K/6e-3)^(1/2) (K/1e-1)^(1/2)],...
              'ydata',[6e-3 1e-1],...
              'linewidth',1,...
              'linestyle','--',...

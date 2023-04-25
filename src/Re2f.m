@@ -46,7 +46,7 @@ function [f]=Re2f(Re,eps=0,fig=false)
     # # displays a schematic Moody Diagram:
     # f=Re2f(1.2e5,:,true)
     #
-    # See also: f2Re, hDeps2fRe, hveps2fRe, hvthk2fRe, hQeps2fRe, hQthk2fRe.
+    # See also: f2Re, h2fRe.
     if eps>5e-2
         eps=5e-2;
     end
