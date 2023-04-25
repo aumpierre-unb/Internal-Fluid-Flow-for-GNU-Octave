@@ -202,9 +202,9 @@ Re=f2Re(2.8e-2)
 [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
 ```
 
-By default, pipe is assumed to be 1 m long, *L* = 100 (in cm).
+By default, pipe is assumed to be 1 m long, L = 100 (in cm).
 
-By default, pipe is assumed to be smooth, eps = 0. Relative roughness eps is reset to eps = 0.05, if eps > 0.05.
+By default, pipe is assumed to be smooth. Relative roughness is reset to eps = 0.05, if eps > 0.05.
 
 Notice that default values are given in the cgs unit system and, if taken, all other parameters must as well be given in cgs units.
 
