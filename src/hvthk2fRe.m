@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [Re,f]=hvthk2fRe(h,v,L,thk=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
+function [Re,f]=hvthk2fRe(h,v,L,thk,rho,mu,g,fig)
     # Syntax:
     # [Re,f]=hvthk2fRe(h,v,L,thk,g,mu,rho[,fig=false])
     #

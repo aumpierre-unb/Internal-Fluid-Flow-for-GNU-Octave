@@ -83,6 +83,14 @@ function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-
     # [Re,f]=h2fRe(40,v=1.1e2,L=2.5e3,k=0)
     #
     # See also: Re2f, f2Re.
+    a = isnan([D, v, Q]) != 1
+    if sum(a) != 1
+        error("h2fRe requires that either\nthe hydraulic diameter,\nthe flow speed or\nthe flow rate\nbe given alone.")
+    end
+    b = isnan([eps, k]) != 1
+    if sum(b) != 1
+        error("h2fRe requires that either\nthe pipe's roughness or\nthe pipe's relative roughness\nbe given alone.")
+    end
     K=2*g*h*rho^2*D^3/mu^2/L;
     foo=@(f) (1/f^(1/2)+2*log10(eps/3.7+2.51/(K/f)^(1/2)/f^(1/2)));
     f=newtonraphson(foo,1e-2,1e-4);

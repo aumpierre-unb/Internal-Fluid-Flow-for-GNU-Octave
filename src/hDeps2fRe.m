@@ -17,7 +17,7 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [Re,f]=hDeps2fRe(h,D,L,eps=0,rho=0.997,mu=9.1e-3,g=981,fig=false)
+function [Re,f]=hDeps2fRe(h,D,L,eps,rho,mu,g,fig)
     # Syntax:
     # [Re,f]=hDeps2fRe(h,D,L,eps,g,mu,rho[,fig=false])
     #
