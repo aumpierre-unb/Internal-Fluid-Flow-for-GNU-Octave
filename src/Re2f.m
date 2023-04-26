@@ -19,7 +19,7 @@
 
 function f=Re2f(Re,eps=0,fig=false)
     # Syntax:
-    # -- f=Re2f(Re[,eps=double][,fig=logical])
+    # -- f=Re2f(Re[,eps][,fig])
     #
     # Re2f computes
     #  the Darcy friction f factor given
@@ -37,13 +37,12 @@ function f=Re2f(Re,eps=0,fig=false)
     # # Compute the Darcy friction factor f given
     # # the Reynolds number Re = 120,000 and
     # # the relative roughness eps = 0.001:
-    # Re=120e3;eps=0.001;
-    # f=Re2f(Re,eps)
+    # f=Re2f(120e3,1e-3)
     #
     # # Compute the Darcy friction factor f given
     # # the Reynolds number Re = 120,000
     # # for a smooth pipe and
-    # # displays a schematic Moody Diagram:
+    # # displays a schematic Moody diagram:
     # f=Re2f(120e3,:,true)
     #
     # See also: f2Re, h2fRe.

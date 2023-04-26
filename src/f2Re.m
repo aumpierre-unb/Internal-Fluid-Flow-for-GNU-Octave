@@ -19,7 +19,7 @@
 
 function Re=f2Re(f,eps=0,fig=false)
     # Syntax:
-    # -- Re=f2Re(f[,eps=double][,fig=logical])
+    # -- Re=f2Re(f[,eps][,fig])
     #
     # f2Re computes
     #  the Reynolds number Re given
@@ -42,14 +42,12 @@ function Re=f2Re(f,eps=0,fig=false)
     # # the relative roughness eps = 0.001.
     # # In this case, both laminar and turbulent
     # # solutions are possible:
-    # f=2.8e-2;eps=1e-3;
-    # Re=f2Re(f,eps)
+    # Re=f2Re(2.8e-2,1e-3)
     #
     # # Compute the Reynolds number Re given
     # # the Darcy friction factor f = 0.028
     # # for a smooth pipe and
-    # # plot a schematic Moody diagram
-    # # with the solution.
+    # # displays a schematic Moody diagram.
     # # In this case, both turbulent and laminar
     # # solutions are possible:
     # Re=f2Re(2.8e-2,:,true)

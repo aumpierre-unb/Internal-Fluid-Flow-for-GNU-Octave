@@ -127,10 +127,10 @@ $$
 **Syntax:**
 
 ```dotnetcli
- -- f=Re2f(Re[,eps=double][,fig=logical])
+ -- f=Re2f(Re[,eps][,fig])
 ```
 
-By default, pipe is assumed to be smooth, eps = 0. If eps > 5e-2, eps is reset to eps = 5e-2.
+By default, pipe is assumed to be smooth, eps = 0. If eps > 0.05, eps is reset to eps = 0.05.
 
 If fig = true is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
@@ -139,11 +139,10 @@ If fig = true is given, a schematic Moody diagram is plotted as a graphical repr
 Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 and the relative roughness $\varepsilon$ = 0.001:
 
 ```dotnetcli
-Re=120e3;eps=1e-3;
-f=Re2f(Re,eps)
+f=Re2f(120e3,1e-3)
 ```
 
-Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 for a smooth tube and plot a schematic Moody diagram with the solution:
+Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 for a smooth tube and displays a schematic Moody diagram:
 
 ```dotnetcli
 f=Re2f(120e3,:,true)
@@ -162,34 +161,25 @@ $$
 **Syntax:**
 
 ```dotnetcli
- -- Re=f2Re(f[,eps=double][,fig=logical])
+ -- Re=f2Re(f[,eps][,fig])
 ```
 
-By default, pipe is assumed to be smooth, eps = 0. If eps > 5e-2, eps is reset to eps = 5e-2.
+By default, pipe is assumed to be smooth, eps = 0. If eps > 0.05, eps is reset to eps = 0.05.
 
 If fig = true is given, a schematic Moody diagram is plotted as a graphical representation of the solution.
 
 **Examples:**
 
-Compute the Reynolds number *Re* given
-the Darcy friction factor *f* = 0.028 and
-the relative roughness $\varepsilon$ = 0.001.
-In this case, both laminar and turbulent
-solutions are possible:
+Compute the Reynolds number *Re* given the Darcy friction factor *f* = 0.028 and the relative roughness $\varepsilon$ = 0.001. In this case, both laminar and turbulent solutions are possible:
 
 ```dotnetcli
-f=2.8e-2;eps=1e-3;
-Re=f2Re(f,eps)
+Re=f2Re(2.8e-2,1e-3)
 ```
 
-Compute the Reynolds number *Re* given
-the Darcy friction factor *f* = 0.028
-for a smooth tube and
-plot a schematic Moody diagram
-with the solution:
+Compute the Reynolds number Re given the Darcy friction factor f = 0.028 for a smooth pipe and displays a schematic Moody diagram. In this case, both turbulent and laminar solutions are possible:
 
 ```dotnetcli
-Re=f2Re(2.8e-2)
+Re=f2Re(2.8e-2,:,true)
 ```
 
 ### `h2fDRe`
@@ -199,12 +189,12 @@ Re=f2Re(2.8e-2)
 **Syntax:**
 
 ```dotnetcli
- -- [Re,f]=h2fRe(h,D=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
- -- [Re,f]=h2fRe(h,D=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
- -- [Re,f]=h2fRe(h,v=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
- -- [Re,f]=h2fRe(h,v=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
- -- [Re,f]=h2fRe(h,Q=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
- -- [Re,f]=h2fRe(h,Q=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+ -- [Re,f]=h2fRe(h,D,:,:,eps,:[,L][,rho][,mu][,g][,fig])
+ -- [Re,f]=h2fRe(h,:,v,:,eps,:[,L][,rho][,mu][,g][,fig])
+ -- [Re,f]=h2fRe(h,:,:,Q,eps,:[,L][,rho][,mu][,g][,fig])
+ -- [Re,f]=h2fRe(h,D,:,:,:,k[,L][,rho][,mu][,g][,fig])
+ -- [Re,f]=h2fRe(h,:,v,:,:,k[,L][,rho][,mu][,g][,fig])
+ -- [Re,f]=h2fRe(h,:,:,Q,:,k[,L][,rho][,mu][,g][,fig])
 ```
 
 By default, pipe is assumed to be 1 m long, L = 100 (in cm).
@@ -232,19 +222,19 @@ relative roughness $\varepsilon$ = 0.0027,
 for water flow:
 
 ```dotnetcli
-[Re,f]=h2fRe(40,D=10,L=2.5e3,eps=2.7e-3)
+[Re,f]=h2fRe(40,10,:,:,2.7e-3,:,2.5e3)
 ```
 
 Compute the Reynolds number *Re* and the Darcy friction factor *f* given the head loss per meter *h*/*L* = 1.6 cm/m, the volumetric flow rate *Q* = 8.6 L/s, the fluid's density $\rho$ = 0.989 g/cc and dynamic viscosity $\mu$ = 0.89 cP for a smooth pipe and show results on a schematic Moody diagram:
 
 ```dotnetcli
-[Re,f]=h2fRe(1.6,Q=8.6e3,eps=0,rho=0.989,mu=8.9e-3,fig=true)
+[Re,f]=h2fRe(1.6,:,:,8.6e3,0,:,1,0.989,8.9e-3,:,true)
 ```
 
 Compute the Reynolds number *Re* and the Darcy friction factor *f*, given the head loss *h* = 0.40 m, the flow speed *v* = 1.1 m/s, the pipe's length *L* = 25 m for water flow for a smooth pipe:
 
 ```dotnetcli
-[Re,f]=h2fRe(40,v=1.1e2,L=2.5e3,k=0)
+[Re,f]=h2fRe(40,:,1.1e2,:,:,0,2.5e3)
 ```
 
 ### See Also
