@@ -19,7 +19,12 @@
 
 function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
     # Syntax:
-    # [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
+    # -- [Re,f]=h2fRe(h,D=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+    # -- [Re,f]=h2fRe(h,D=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+    # -- [Re,f]=h2fRe(h,v=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+    # -- [Re,f]=h2fRe(h,v=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+    # -- [Re,f]=h2fRe(h,Q=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+    # -- [Re,f]=h2fRe(h,Q=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
     #
     # h2fRe computes the Reynolds number Re and
     #  the Darcy friction factor f given
