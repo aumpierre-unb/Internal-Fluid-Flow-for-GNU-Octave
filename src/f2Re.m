@@ -19,7 +19,7 @@
 
 function Re=f2Re(f,eps=0,fig=false)
     # Syntax:
-    # Re=f2Re(f,eps=0,fig=false)
+    # -- Re=f2Re(f[,eps=double][,fig=logical])
     #
     # f2Re computes
     #  the Reynolds number Re given

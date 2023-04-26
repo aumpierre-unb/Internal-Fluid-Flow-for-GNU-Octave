@@ -19,7 +19,7 @@
 
 function rough(t,w)
     # Syntax:
-    # rough(t,w)
+    # -- rough(t,w)
     #
     # rough produces a line
     #  of color t and width w

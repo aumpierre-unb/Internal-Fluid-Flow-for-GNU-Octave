@@ -19,7 +19,7 @@
 
 function laminar(t,w)
     # Syntax:
-    # laminar(t,w)
+    # -- laminar(t,w)
     #
     # laminar produces a line
     #  of color t and width w

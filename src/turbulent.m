@@ -19,7 +19,7 @@
 
 function turbulent(eps,t,w)
     # Syntax:
-    # turbulent(eps,t,w)
+    # -- turbulent(eps,t,w)
     #
     # turbulent produces a line
     #  of color t and width w

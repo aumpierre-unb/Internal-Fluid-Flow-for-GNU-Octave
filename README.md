@@ -127,7 +127,7 @@ $$
 **Syntax:**
 
 ```dotnetcli
-f=Re2f(Re,eps=0,fig=false)
+ -- f=Re2f(Re[,eps=double][,fig=logical])
 ```
 
 By default, pipe is assumed to be smooth, eps = 0. If eps > 5e-2, eps is reset to eps = 5e-2.
@@ -162,7 +162,7 @@ $$
 **Syntax:**
 
 ```dotnetcli
-Re=f2Re(f,eps=0,fig=false)
+ -- Re=f2Re(f[,eps=double][,fig=logical])
 ```
 
 By default, pipe is assumed to be smooth, eps = 0. If eps > 5e-2, eps is reset to eps = 5e-2.
@@ -199,7 +199,12 @@ Re=f2Re(2.8e-2)
 **Syntax:**
 
 ```dotnetcli
-[Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-3,g=981,fig=false)
+ -- [Re,f]=h2fRe(h,D=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+ -- [Re,f]=h2fRe(h,D=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+ -- [Re,f]=h2fRe(h,v=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+ -- [Re,f]=h2fRe(h,v=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+ -- [Re,f]=h2fRe(h,Q=double,eps=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
+ -- [Re,f]=h2fRe(h,Q=double,k=double[,L=double][,rho=double][,mu=double][,g=double][,fig=logical])
 ```
 
 By default, pipe is assumed to be 1 m long, L = 100 (in cm).

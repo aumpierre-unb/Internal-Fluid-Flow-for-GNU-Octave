@@ -19,7 +19,7 @@
 
 function smooth(t,w)
     # Syntax:
-    # smooth(t,w)
+    # -- smooth(t,w)
     #
     # smooth produces a line
     #  of color t and width w

@@ -17,10 +17,9 @@
 # (license GNU GPLv3.txt).
 # It is also available at https://www.gnu.org/licenses/.
 
-function [x]=newtonraphson(f,x,tol)
+function x=newtonraphson(f,x,tol)
     # Syntax:
-    #
-    # [x]=newtonraphson(f,x,tol)
+    # -- x=newtonraphson(f,x,tol)
     #
     # newtonraphson computes the root of
     #  a function f from a guess value

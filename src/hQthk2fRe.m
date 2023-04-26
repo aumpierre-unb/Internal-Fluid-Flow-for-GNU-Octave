@@ -19,7 +19,7 @@
 
 function [Re,f]=hQthk2fRe(h,Q,L,thk,rho,mu,g,fig)
     # Syntax:
-    # [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho[,fig=false])
+    # -- [Re,f]=hQthk2fRe(h,Q,L,thk,g,mu,rho[,fig=logical])
     #
     # hQthk2fRe computes
     #  the Reynolds number Re and
