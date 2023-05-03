@@ -1,7 +1,4 @@
 # internal-fluid-flow is toolbox for internal fluid flow for GNU Octave.
 toolbox >> Internal Fluid Flow
 Functions
- f2Re Re2f
- hDesp2fRe
- hvesp2fRe hQesp2fRe
- hvthk2fRe hQthk2fRe
+ f2Re Re2f h2fRe
