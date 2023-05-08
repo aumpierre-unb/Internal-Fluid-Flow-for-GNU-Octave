@@ -51,32 +51,32 @@ function [Re,f]=h2fRe(h,D=NaN,v=NaN,Q=NaN,eps=NaN,k=NaN,L=100,rho=0.997,mu=9.1e-
     #  the internal-fluid-flow toolbox for GNU Octave.
     #
     # Examples:
-    # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f given
-    # # the head loss h = 40 cm,
-    # # the pipe's hydraulic diameter D = 10 cm,
-    # # length L = 25 m and
-    # # relative roughness eps = 0.0027
+    # # Compute the Reynolds number and
+    # # the Darcy friction factor given
+    # # the head loss is 40 cm,
+    # # the pipe's hydraulic diameter is 10 cm,
+    # # the pipe's length is 25 m and
+    # # the pipe's relative roughness is 0.0027
     # # for water flow:
-    # [Re,f]=h2fRe(40,10,:,:,2.7e-3,:,2.5e3)
+    # [Re,f]=h2fRe(h=40,D=10,:,:,eps=2.7e-3,:,L=2.5e3)
     #
-    # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f given
-    # # the head loss per meter h/L = 1.6 cm/m,
-    # # the volumetric flow rate Q = 8.6 L/s,
-    # # the fluid's density rho = 0.989 g/cc and
-    # # dynamic viscosity mu = 0.89 cP
+    # # Compute the Reynolds number and
+    # # the Darcy friction factor given
+    # # the head loss per meter is 1.6 cm/m,
+    # # the volumetric flow rate is 8.6 L/s,
+    # # the fluid's density is 0.989 g/cc and
+    # # the fluid's dynamic viscosity is 0.89 cP
     # # for a smooth pipe and
     # # show results on a schematic Moody diagram:
-    # [Re,f]=h2fRe(1.6,:,:,8.6e3,0,:,1,0.989,8.9e-3,:,true)
+    # [Re,f]=h2fRe(h=1.6,:,:,Q=8.6e3,eps=0,:,L=1,rho=0.989,mu=8.9e-3,:,true)
     #
-    # # Compute the Reynolds number Re and
-    # # the Darcy friction factor f,given
-    # # the head loss h = 0.40 m,
-    # # the flow speed v = 1.1 m/s,
-    # # the pipe's length L = 25 m
+    # # Compute the Reynolds number and
+    # # the Darcy friction factor given
+    # # the head loss is 0.40 m,
+    # # the flow speed is 1.1 m/s,
+    # # the pipe's length is 25 m
     # # for water flow for a smooth pipe:
-    # [Re,f]=h2fRe(40,:,1.1e2,:,:,0,2.5e3)
+    # [Re,f]=h2fRe(h=40,:,v=1.1e2,:,:,k=0,L=2.5e3)
     #
     # See also: Re2f,f2Re.
     a=isnan([D,v,Q])!=1;

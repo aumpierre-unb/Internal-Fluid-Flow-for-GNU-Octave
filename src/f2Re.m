@@ -37,20 +37,20 @@ function Re=f2Re(f,eps=0,fig=false)
     #  the internal-fluid-flow toolbox for GNU Octave.
     #
     # Examples:
-    # # Compute Reynolds number Re given
-    # # the Darcy friction factor f = 0.028 and
-    # # the relative roughness eps = 0.001.
+    # # Compute Reynolds number given
+    # # the Darcy friction factor is 0.028 and
+    # # the relative roughness is 0.001.
     # # In this case, both laminar and turbulent
     # # solutions are possible:
-    # Re=f2Re(2.8e-2,1e-3)
+    # Re=f2Re(f=2.8e-2,eps=1e-3)
     #
-    # # Compute the Reynolds number Re given
-    # # the Darcy friction factor f = 0.028
+    # # Compute the Reynolds number given
+    # # the Darcy friction factor is 0.028
     # # for a smooth pipe and
     # # displays a schematic Moody diagram.
     # # In this case, both turbulent and laminar
     # # solutions are possible:
-    # Re=f2Re(2.8e-2,:,true)
+    # Re=f2Re(f=2.8e-2,:,true)
     #
     # See also: Re2f, h2fRe.
     if eps>5e-2

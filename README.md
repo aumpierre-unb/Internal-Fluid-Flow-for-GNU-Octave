@@ -122,7 +122,7 @@ $$
 
 ### `Re2f`
 
-`Re2f` computes the Darcy friction factor *f* given the relative roughness $\varepsilon$ and the Reynolds number *Re*. If given *Re* < 2,500, then flow is assumed to be laminar and *f* is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and *f* is computed using the Colebrook-White equation.
+`Re2f` computes the Darcy friction factor f given the relative roughness eps and the Reynolds number Re. If given Re < 2,500, then flow is assumed to be laminar and f is computed using of the Poiseuille condition. Otherwise, flow is assumed to be turbulent and f is computed using the Colebrook-White equation.
 
 **Syntax:**
 
@@ -136,21 +136,21 @@ If fig = true is given, a schematic Moody diagram is plotted as a graphical repr
 
 **Examples:**
 
-Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 and the relative roughness $\varepsilon$ = 0.001:
+Compute the Darcy friction factor given the Reynolds number is 120,000 and the relative roughness is 0.001:
 
 ```dotnetcli
-f=Re2f(120e3,1e-3)
+f=Re2f(Re=120e3,eps=1e-3)
 ```
 
-Compute the Darcy friction factor *f* given the Reynolds number *Re* = 120,000 for a smooth tube and displays a schematic Moody diagram:
+Compute the Darcy friction factor given the Reynolds number is 120,000 for a smooth tube and displays a schematic Moody diagram:
 
 ```dotnetcli
-f=Re2f(120e3,:,true)
+f=Re2f(Re=120e3,:,true)
 ```
 
 ### `f2Re`
 
-`f2Re` computes the Reynolds number *Re* given the relative roughness $\varepsilon$ and the Darcy friction factor *f*. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces *Re* < 2,500, laminar solution is accepted. If given *f* is possible for turbulent flow,
+`f2Re` computes the Reynolds number Re given the relative roughness eps and the Darcy friction factor f. Depending on the inputs, solution may be laminar or turbulent flow, or either for smooth pipes with higher friction, or none for lower friction and rough pipes. If the Poiseuille condition produces Re < 2,500, laminar solution is accepted. If given f is possible for turbulent flow,
 
 $$
 {1 \over \sqrt f} < 2 \mathrm{log} {1 \over\displaystyle {3.7 \over \varepsilon}}
@@ -170,21 +170,21 @@ If fig = true is given, a schematic Moody diagram is plotted as a graphical repr
 
 **Examples:**
 
-Compute the Reynolds number *Re* given the Darcy friction factor *f* = 0.028 and the relative roughness $\varepsilon$ = 0.001. In this case, both laminar and turbulent solutions are possible:
+Compute the Reynolds number given the Darcy friction factor is 0.028 and the relative roughness is 0.001. In this case, both laminar and turbulent solutions are possible:
 
 ```dotnetcli
-Re=f2Re(2.8e-2,1e-3)
+Re=f2Re(f=2.8e-2,eps=1e-3)
 ```
 
-Compute the Reynolds number Re given the Darcy friction factor f = 0.028 for a smooth pipe and displays a schematic Moody diagram. In this case, both turbulent and laminar solutions are possible:
+Compute the Reynolds number Re given the Darcy friction factor is 0.028 for a smooth pipe and displays a schematic Moody diagram. In this case, both turbulent and laminar solutions are possible:
 
 ```dotnetcli
-Re=f2Re(2.8e-2,:,true)
+Re=f2Re(f=2.8e-2,:,true)
 ```
 
 ### `h2fDRe`
 
-`h2fDRe` computes both the Darcy friction factor *f* and the Reynolds number *Re* given the head loss *h*, the pipe's hydraulic diameter *D* or the flow speed *v* or the volumetric flow rate *Q*, the pipe's length *L*, the pipe's roughness *k* or the pipe's relative roughness $\varepsilon$, the fluid's density $\rho$, the fluid's dynamic viscosity $\mu$, and the gravitational accelaration *g*.
+`h2fDRe` computes both the Darcy friction factor f and the Reynolds number Re given the head loss h, the pipe's hydraulic diameter D or the flow speed v or the volumetric flow rate Q, the pipe's length L, the pipe's roughness k or the pipe's relative roughness eps, the fluid's density rho, the fluid's dynamic viscosity mu, and the gravitational accelaration g.
 
 **Syntax:**
 
@@ -213,28 +213,22 @@ If parameter fig = true is given a schematic Moody diagram is plotted as a graph
 
 **Examples:**
 
-Compute the Reynolds number *Re* and
-the Darcy friction factor *f* given
-the head loss *h* = 0.40 m,
-the pipe's hydraulic diameter *D* = 10 cm,
-length *L* = 25 m and
-relative roughness $\varepsilon$ = 0.0027,
-for water flow:
+Compute the Reynolds number and the Darcy friction factor given the head loss is 0.40 m, the pipe's hydraulic diameter is 10 cm, the pipe's length is 25 m and the pipe's relative roughness is 0.0027, for water flow:
 
 ```dotnetcli
-[Re,f]=h2fRe(40,10,:,:,2.7e-3,:,2.5e3)
+[Re,f]=h2fRe(h=40,D=10,:,:,eps=2.7e-3,:,L=2.5e3)
 ```
 
-Compute the Reynolds number *Re* and the Darcy friction factor *f* given the head loss per meter *h*/*L* = 1.6 cm/m, the volumetric flow rate *Q* = 8.6 L/s, the fluid's density $\rho$ = 0.989 g/cc and dynamic viscosity $\mu$ = 0.89 cP for a smooth pipe and show results on a schematic Moody diagram:
+Compute the Reynolds number and the Darcy friction factor given the head loss per meter is 1.6 cm/m, the volumetric flow rate is 8.6 L/s, the fluid's density is 0.989 g/cc and the fluid's dynamic viscosity is 0.89 cP for a smooth pipe and show results on a schematic Moody diagram:
 
 ```dotnetcli
-[Re,f]=h2fRe(1.6,:,:,8.6e3,0,:,1,0.989,8.9e-3,:,true)
+[Re,f]=h2fRe(h=1.6,:,:,Q=8.6e3,eps=0,:,L=1,rho=0.989,mu=8.9e-3,:,true)
 ```
 
-Compute the Reynolds number *Re* and the Darcy friction factor *f*, given the head loss *h* = 0.40 m, the flow speed *v* = 1.1 m/s, the pipe's length *L* = 25 m for water flow for a smooth pipe:
+Compute the Reynolds number and the Darcy friction factor given the head loss is 0.40 m, the flow speed is 1.1 m/s, the pipe's length is 25 m for water flow for a smooth pipe:
 
 ```dotnetcli
-[Re,f]=h2fRe(40,:,1.1e2,:,:,0,2.5e3)
+[Re,f]=h2fRe(h=40,:,v=1.1e2,:,:,k=0,L=2.5e3)
 ```
 
 ### See Also
