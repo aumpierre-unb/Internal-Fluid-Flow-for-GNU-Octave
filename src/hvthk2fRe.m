@@ -77,9 +77,9 @@ function [Re,f]=hvthk2fRe(h,v,L,thk,rho,mu,g,fig)
                      'horizontalalignment','right');
             end
         end
-        rough('.-b',1.5);
+        rough('-.b',1.5);
         if thk~=0
-            smooth('.-b',1.5);
+            smooth('-.b',1.5);
             text(7e6,8e-3,'Smooth pipe',...
                  'color','b',...
                  'fontsize',11,...
