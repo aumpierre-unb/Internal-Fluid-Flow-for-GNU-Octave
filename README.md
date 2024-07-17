@@ -29,6 +29,89 @@ The following is a very short introduction to the steady internal flow of an inc
 
 Internal flow is a pretty extensive topic in fluid mechanics and there are a lot of important and interesting observations related to it that are not taken into account in this text, because they have no direct impact the computation performed by the functions in this package. Our focus here is a small set of equations that described the phenomenon and are required to solve problems on internal fluid flow.
 
+This text is divided in two main sections: The Theory and The `internal-fluid-flow` Toolbox.
+
+## The Theory
+
+### The Bernoulli Equation
+
+The Bernoulli equation is an expression of the mechanical energy balance for a very particular situation:
+
+- internal steady flow of an
+- incompressible inviscid fluid, where
+- friction effects and tube fittings can be neglected.
+
+For such a case, the mechanical energy is conserved, and for any two points 1 and 2 we have
+
+$$
+{\rho v_2^2 \over 2} + \rho g z_2 + p_2 =
+{\rho v_1^2 \over 2} + \rho g z_1 + p_1
+$$
+
+or
+
+$$
+{v_2^2 \over 2g}+z_2+{p_2 \over \rho g}=
+{v_1^2 \over 2g}+z_1+{p_1 \over \rho g}
+$$
+
+where
+
+- $\rho$ is the fluid's density,
+- *v* is the speed flow,
+- *g* is the gravitational acceleration,
+- *z* is the elevation, and
+- *p* is the static pressure.
+
+### Head Loss
+
+The flow of viscous fluids is accompanied of energy dispersion, which can be measured as pressure drop or, equivalently, as head loss *h*, by the Darcy-Weisbach equation,
+
+$$
+h=f{v^2 \over 2g} {L \over D}
+$$
+
+where *f* is the Darcy friction factor, *L* is the pipe's length and *D* is the pipe's hydraulic diameter,
+
+$$
+D={4A \over P}
+$$
+
+where *A* is the cross-sectional area of the flow and *P* is the wet perimeter of the cross-section. *f* is described as a function of the Reynolds number,
+
+$$
+Re={\rho vg \over \mu}
+$$
+
+and the pipe's relative roughness,
+
+$$
+\varepsilon={k \over D}
+$$
+
+where
+
+- $\mu$ is the fluid's dynamic viscosity and
+- *k* is the pipe's[ internal surface] roughness.
+
+The Reynolds number *Re*, the Darcy friction factor *f*, and the relative roughness $\varepsilon$ completely describe the internal flow of incompressible viscous fluids, for both laminar and turbulent regimes. Usually, *f* is given as a function of *Re* and $\varepsilon$.
+
+The simplest problems on internal fluid flow consist on computing one of them given the two other. More complex situations arise when only one or none of those variables is known. Instead, dimensional variables involved are given. However not always, in most cases iterative computation is required.
+
+### Laminar Flow and Turbulent Flow
+
+For laminar flow, *Re* < 2,500 (typically), the Darcy friction factor is given by the Poiseuille condition,
+
+$$
+f={64 \over Re}
+$$
+
+For turbulent flow, *Re* > 2,500 (typically), the Darcy friction factor is given implicitly by the Colebrook-White equation,
+
+$$
+{1 \over \sqrt{f}}=2 \mathrm{log} {1 \over\displaystyle {\varepsilon \over 3.7} + {2.51 \over {Re \sqrt{f}}}}
+$$
+
 ## The `internal-fluid-flow` Toolbox
 
 `internal-fluid-flow` provides the following functions:
