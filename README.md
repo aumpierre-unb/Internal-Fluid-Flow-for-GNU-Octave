@@ -237,6 +237,6 @@ Compute the Reynolds number and the Darcy friction factor given the head loss is
 [McCabe-Thiele-for-GNU-Octave](https://github.com/aumpierre-unb/McCabe-Thiele-for-GNU-Octave),
 [Ponchon-Savarit-for-GNU-Octave](https://github.com/aumpierre-unb/Ponchon-Savarit-for-GNU-Octave).
 
-Copyright &copy; 2022 2023 Alexandre Umpierre
+Copyright &copy; 2022 2023 2024 Alexandre Umpierre
 
 email: aumpierre@gmail.com
